@@ -13,21 +13,22 @@ In the database, I provide a list of commonly used computational medicine and bi
 # Terminology Content
 ## SAM (file format)
 ![image](https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/a4ddccceb15fd1d1ee05ae6bb0183febb48feae4/imgs/1.png)
+
 The SAM is divided into two parts, the header section and the alignment section.
 
 The comment information is not the focus of the SAM file, but is a record of the process of generating and processing the SAM file, and is specified to start with @, with different tags to indicate different information, mainly include:
 
-@HD, a description of the standard-compliant version, the order in which the sequences are compared.
-@SQ, description of the reference sequence.
-@RG, description of the sequence (read) on which the comparison was made.
-@PG, description of the program used.
-@CO, arbitrary description information.
+@HD, a description of the standard-compliant version, the order in which the sequences are compared.  
+@SQ, description of the reference sequence.  
+@RG, description of the sequence (read) on which the comparison was made.  
+@PG, description of the program used.  
+@CO, arbitrary description information.  
 
 Use command: samtools view -H <.bam> to see the header
 
-In the comparison section we focus on the first 11 columns
+In the comparison section we focus on the first 11 columns  
 
-*The first column: QNAME - Query template NAME is very straightforward, it is the name number of the fragment of the query, which corresponds to the name of the reads in the sequencing fastq data. For example, the above HWI-.... .2168
+<b>The first column</b>: QNAME - Query template NAME is very straightforward, it is the name number of the fragment of the query, which corresponds to the name of the reads in the sequencing fastq data. For example, the above HWI-.... .2168
 
 *The second column: FLAG - bitwise FLAG tag that characterizes the result of the comparison in binary terms. If one or more of the following occur simultaneously, then the sum of the numbers in the corresponding first column is the number you see in the second column of the sam file. For example, if 83=64+16+2+1, it means that the reads are matched to the reference genome, both sequences are matched at the double end, and the current fragment is reversed to the reference genome.
 
@@ -48,6 +49,7 @@ For example, if 99, 99=1+2+32+64, which means this sequence is R1 end sequence, 
 The third column: RNAME-- Reference sequence NAME of the reference genome corresponding to the name of the chromosome or contig, scaffold. If *, it means there is no result on the comparison.
 
 Fourth column: POS-- 1-based leftmost mapping POSition fragment leftmost mapping to the reference genome, counting from 1. If it is 0, it means there is no match.
+
 Fifth column: MAPQ-- MAPping Quality mapping score, -10 log10 Pr{mapping position is wrong}- logarithmic transformation of the probability that the mapping position is wrong with a base of ten. According to this formula, we can also know that the larger the value, the lower the probability that the pairing is wrong.
 
 Translated with www.DeepL.com/Translator (free version)
