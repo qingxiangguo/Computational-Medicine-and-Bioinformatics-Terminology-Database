@@ -13,7 +13,7 @@ In the database, I provide a list of commonly used computational medicine and bi
 # Terminology Content
 ## SAM (file format)
 <div align=center>
-![image](https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/a4ddccceb15fd1d1ee05ae6bb0183febb48feae4/imgs/1.png)
+<img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/a4ddccceb15fd1d1ee05ae6bb0183febb48feae4/imgs/1.png">
 </div>
   
 The SAM is divided into two parts, the header section and the alignment section.
