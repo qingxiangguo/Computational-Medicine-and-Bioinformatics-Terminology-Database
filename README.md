@@ -12,8 +12,10 @@ In the database, I provide a list of commonly used computational medicine and bi
 
 # Terminology Content
 ## SAM (file format)
+<div align=center>
 ![image](https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/a4ddccceb15fd1d1ee05ae6bb0183febb48feae4/imgs/1.png)
-
+</div>
+  
 The SAM is divided into two parts, the header section and the alignment section.
 
 The comment information is not the focus of the SAM file, but is a record of the process of generating and processing the SAM file, and is specified to start with @, with different tags to indicate different information, mainly include:
@@ -76,6 +78,18 @@ If there is a sequence that comes from a mature mRNA, if this sequence skips exa
 <b>The ninth column</b>:: TLEN: length of inserted fragment  
 
 TLEN - observed Template LENgth If all read segments are mapped to the corresponding reference sequence, the absolute value of TLEN is equal to the distance (end-start+1) between the mapped end of the template sequence and the mapped start of the template sequence (including both ends). It should be noted that the bases on the comparison do not include sof-clipped bases. If the read segment is compared to the start of the leftmost segment of the template, the TLEN field is positive, and if the comparison is to the start of the rightmost segment, it is actually an antisense strand and the TLEN field is negative. If the starting position of the comparison is the same at both ends, then any positive or negative number is assigned. If there is only a single chain, the value is 0. And the positive and negative numbers of any intermediate segments are undefined.
+
+![image](https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/c44f8e5480793e2a8932699303f4eb57640f47ca/imgs/4.png)
+
+Note that the length of the inserted fragment, is the entire length below, not between R1 and R2.
+
+![image](https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/c44f8e5480793e2a8932699303f4eb57640f47ca/imgs/5.png)  
+
+Because the values given by sam are all at the 5 end, which is not the same as the actual in vivo DNA. So you need to add the later value, add the length of the sequence, and then subtract the starting value of the previous sequence.
+
+<b>The 10th column</b>: SEQ: 
+
+<b>The 11th column</b>: QUAL: 
 
 
 
