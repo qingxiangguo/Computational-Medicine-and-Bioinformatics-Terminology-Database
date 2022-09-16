@@ -179,6 +179,7 @@ Sometimes it is hard to distinguish splicing and deletion, for a true deletion t
 <img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/bc9f0ec4b7ee9ac2b0b419c2d1204f596aec288a/imgs/transindel_Algorithm.png">
 </div
 
+
 ## Slippage during polymerase chain reaction amplification
 Slippage during PCR, also known as replication slippage, is a form of mutation that causes trinucleotide or dinucleotide amplification and sometimes even contraction during DNA replication, resulting in tandem repeat sequences.
 
