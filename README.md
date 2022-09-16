@@ -181,6 +181,7 @@ Sometimes it is hard to distinguish splicing and deletion, for a true deletion t
 
 
 ## Slippage during polymerase chain reaction amplification  
+## Slippage during polymerase chain reaction amplification  
 Slippage during PCR, also known as replication slippage, is a form of mutation that causes trinucleotide or dinucleotide amplification and sometimes even contraction during DNA replication, resulting in tandem repeat sequences.
 
 ## SNV (Single nucleotide variant)
