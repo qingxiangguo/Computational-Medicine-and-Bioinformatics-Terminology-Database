@@ -34,6 +34,41 @@ Transcripts with exitrons in their sequences can be distinguished from those wit
 ## F1-score
 The F1-score combines the precision and recall of a classifier into a single metric by taking their harmonic mean. It is primarily used to compare the performance of two classifiers. Suppose that classifier A has a higher recall, and classifier B has higher precision. In this case, the F1-scores for both the classifiers can be used to determine which one produces better results.
 
+## Gene fusions
+A fusion gene is a hybrid gene formed from two previously independent genes. It can occur as a result of translocation, interstitial deletion, or chromosomal inversion. Fusion genes have been found to be prevalent in all main types of human neoplasia. The identification of these fusion genes play a prominent role in being a diagnostic and prognostic marker.
+
+<div align=center>
+<img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/e770f449513ba588b77ff7ed02f0cff742b64fcd/imgs/Gene_Fusion_Types.png">
+</div>
+
+<div align=center>
+<img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/f419b91f0972151a4b70fdea8155eae54ab06905/imgs/Figures-to-explain-terminology-A-Intact-exon-IE-type-and-broken-exon-BE-type.png">
+</div>
+
+## Gene fusion - Intact exon (IE) type fusion  
+The original exon is retained intact after the fusion, and the original exon structure is not affected. For example, in the above figure A, Exon2 of Gene A and Exon1 of Gene B are fused and the sequences of the two exons are retained intact.
+
+## Gene fusion - Broken exon (BE) type fusion  
+Which refers to the fusion without retaining the original intact exon sequence. For example, in the above figure A, part of the sequence of Exon3 of Gene A is fused with Exon2 of Gene B. In the new gene after fusion, part of the sequence of Exon3 from Gene A is lost.
+
+## Gene fusion - Breakpoint  
+The location on the genome where the fusion of two fused genes occurs, such as the site where Gene A (blue) and Gene B (green) are fused in Figure B above.
+
+## Gene fusion - Spanning read
+a paired-end read that matches across the fusion site to two fusion genes, respectively, such as the pair of reads matching to Gene A (blue) and Gene B (green) in Figure B above.
+
+## Gene fusion - Split read
+A read that matches exactly to the fusion site, as shown in the right panel in Figure B above.
+
+## Gene fusion - Anchor length
+The length of the left and right ends of the read spanning the fusion site, as shown in the right panel in Figure B above.
+
+## Short insert size
+The shorter distance between two reads in double-end sequencing paired-end sequencing, generally a few hundred bp.
+
+## Long insert size
+The longer distance between two reads in double-end sequencing mate-pair sequencing, generally several kilobases or even longer.
+
 ## Germline INDEL
 INDEL that is identified in germline (i.e., blood‐extracted) DNA samples. For germline indels from healthy genomes, they are mainly genetic variants with the type and position of the indels presumably conserved in sub-populations or super populations. In other words, they are less random compared with somatic variants and usually do not lead to diseases.
 
