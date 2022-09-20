@@ -60,10 +60,10 @@ A read that matches exactly to the fusion site, as shown in the right panel in F
 ## Gene fusion - Anchor length
 The length of the left and right ends of the read spanning the fusion site, as shown in the right panel in Figure B above.
 
-## Short insert size
+## Gene fusion - Short insert size
 The shorter distance between two reads in double-end sequencing paired-end sequencing, generally a few hundred bp.
 
-## Long insert size
+## Gene fusion - Long insert size
 The longer distance between two reads in double-end sequencing mate-pair sequencing, generally several kilobases or even longer.
 
 ## Germline INDEL
@@ -74,6 +74,24 @@ A genetic change in a germ cell (egg or sperm) that becomes the DNA of each cell
 
 ## Homopolymer
 Homopolymer, e.g. A-A-A-A-A-A-A-A-A-A-A, simple repetition
+
+## Human genome assembly - b37
+The Broad Institute created a human genome reference file based on GRCh37. When people at The Broad Institute's Genomics Platform refer to the hg19 reference, they are actually referring to b37.
+
+## Human genome assembly - GRCh37
+GRCh37 is the Genome Reference Consortium Human genome build 37. As of May 7, 2014 it has been replaced with GRCh38 as the standard reference assembly sequence used by NCBI. Unlike other sequences, GRCh37 is not from one individual's genome sequence, but is built from reference sequences of different individuals. In essence: GRCh37 is identical to hg19 on the main contigs (chr1-24), but differ on chrM.
+
+## Human genome assembly - GRCh38
+GRCh38 is an improved representation of the human genome compared to GRCh37, where many gaps were closed, sequencing errors corrected and centromere sequences modelled. For the state-of-the-art of the human genome and its annotation, go to GRCh38.
+
+## Human genome assembly - hg19
+There are a few minor differences between GRCh37 and hg19. The contig sequences are the same but the names are different, i.e. "1" may need to be converted to "chr1". In addition UCSC hg19 is currenly using the old mitochondrial sequence but NCBI and Ensembl have transitioned to NC_012920.
+
+## Human genome assembly - hg38
+The same with GRCh38.
+
+## Human genome assembly - hs37d5
+hs37d5 (known also as b37 + decoy) was released by The 1000 Genomes Project (Phase II), which introduced additional sequence (BAC/fosmid clones, HuRef contigs, Epstein-Barr Virus genome) to the b37 reference to help reduce false positives for mapping. Note that this one uses the primary assembly of GRCh37.
 
 ## Intergenic region
 An intergenic region is a stretch of DNA sequences located between genes. Intergenic regions may contain functional elements and junk DNA. Intergenic regions should not be confused with intragenic regions (or introns), which are short, non-coding regions that are found within genes, especially within the genes of eukaryotic organisms.Intergenic regions contain a number of functional DNA sequences such as promoters and regulatory elements, enhancers, spacers, and (in eukaryotes) centromeres. They may also contain origins of replication, scaffold attachment regions, and transposons and viruses.[2] Non-functional DNA elements such as pseudogenes and repetitive DNA, both of which are types of junk DNA, can also be found in intergenic regions—although they may also be located within genes in introns.
