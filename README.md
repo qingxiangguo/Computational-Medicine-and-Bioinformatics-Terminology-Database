@@ -26,6 +26,19 @@ Chimeric reads occur when one sequencing read aligns to two distinct portions of
 ## CRAM (file format)
 Compressed Reference-oriented Alignment Map (CRAM) is a compressed columnar file format for storing biological sequences aligned to a reference sequence. CRAM was designed to be an efficient reference-based alternative to the Sequence Alignment Map (SAM) and Binary Alignment Map (BAM) file formats.
 
+## Enhancer
+An enhancer is a short (50–1500 bp) region of DNA that can be bound by proteins (activators) to increase the likelihood that transcription of a particular gene will occur. They can be located up to 1 Mbp (1,000,000 bp) away from the gene, upstream or downstream from the start site. Enhancers are found mostly in the intergenic and intronic regions, while a few enhancers have been found within exons.
+
+<div align=center>
+<img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/a73102a47ec95cf8ca7fbb3f7e938ee279da01dc/imgs/enhancer.png">
+</div>
+
+<div align=center>
+<img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/a73102a47ec95cf8ca7fbb3f7e938ee279da01dc/imgs/enhancer2.png">
+</div>
+
+Here is an enhancer diagram. Within this DNA sequence, protein(s) known as transcription factor(s) bind to the enhancer and increases the activity of the promoter. 1. DNA 2. Enhancer 3. Promoter 4. Gene 5. Transcription Activator Protein 6. Mediator Protein 7. RNA Polymerase
+
 ## Exitron
 Exitrons are exon-like introns located within protein-coding exons. Removal or retention of exitrons through alternative splicing increases proteome complexity and thus adds to phenotypic diversity.Exitrons are defined as introns within protein-coding exons that, when retained, maintain the protein-coding potential of the transcript. Marquez and colleagues argue that four features distinguish exitrons from other introns: high GC content, absence of stop codons, overrepresentation of a size corresponding to multiples of three nucleotides, and prevalence of synonymous substitutions (as usually observed for exonic sequences).
 
@@ -121,6 +134,13 @@ MHC class I molecules are expressed in all nucleated cells and also in platelets
 
 ## Precision and Recall
 Precision is calculated by dividing the true positives by anything that was predicted as a positive. Recall (or True Positive Rate) is calculated by dividing the true positives by anything that should have been predicted as positive.
+
+## Promoter
+A promoter, as related to genomics, is a region of DNA upstream of a gene where relevant proteins (such as RNA polymerase and transcription factors) bind to initiate transcription of that gene. The resulting transcription produces an RNA molecule (such as mRNA).
+
+<div align=center>
+<img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/119dccf8f9f3b544668ba5945fb3206ac92180a5/imgs/promoter2.png">
+</div>
 
 ## SAM (file format)
 <div align=center>
