@@ -330,6 +330,133 @@ Normal stop codons and the 3' UTR are usually located in the last exon of the se
 The fraction of genome copies in the (tumor or control) sample affected by the variant, is either 0.0, 0.5, or 1.0 for germline variants, reflecting absence, heterozygosity, or homozygosity, respectively. In contrast, allele frequencies of somatic variants vary across the whole range from 0.0 to 1.0, depending on the clonal structure of the tumor sample and its impurity (the ratio of healthy genome copies in the tumor sample).
   
 The variant allele frequency (VAF; also known as variant allele fraction) is used to infer whether a variant comes from somatic cells or inherited from parents when a matched normal sample is not provided. A variant is potentially a germline mutation if the VAF is approximately 50% or 100%.
+  
+## VCF (file format)
+VCF is a text file format (most likely stored in a compressed manner). It contains meta-information lines, a header line, and then data lines each containing information about a position in the genome.
+
+```
+##fileformat=VCFv4.0
+##fileDate=20090805
+##source=myImputationProgramV3.1
+##reference=1000GenomesPilot-NCBI36
+##phasing=partial
+##INFO=<ID=NS,Number=1,Type=Integer,Description="Number of Samples With Data">
+##INFO=<ID=DP,Number=1,Type=Integer,Description="Total Depth">
+##INFO=<ID=AF,Number=.,Type=Float,Description="Allele Frequency">
+##INFO=<ID=AA,Number=1,Type=String,Description="Ancestral Allele">
+##INFO=<ID=DB,Number=0,Type=Flag,Description="dbSNP membership, build 129">
+##INFO=<ID=H2,Number=0,Type=Flag,Description="HapMap2 membership">
+##FILTER=<ID=q10,Description="Quality below 10">
+##FILTER=<ID=s50,Description="Less than 50% of samples have data">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FORMAT=<ID=GQ,Number=1,Type=Integer,Description="Genotype Quality">
+##FORMAT=<ID=DP,Number=1,Type=Integer,Description="Read Depth">
+##FORMAT=<ID=HQ,Number=2,Type=Integer,Description="Haplotype Quality">
+#CHROM POS     ID        REF ALT    QUAL FILTER INFO                              FORMAT      NA00001        NA00002        NA00003
+20     14370   rs6054257 G      A       29   PASS   NS=3;DP=14;AF=0.5;DB;H2           GT:GQ:DP:HQ 0|0:48:1:51,51 1|0:48:8:51,51 1/1:43:5:.,.
+20     17330   .         T      A       3    q10    NS=3;DP=11;AF=0.017               GT:GQ:DP:HQ 0|0:49:3:58,50 0|1:3:5:65,3   0/0:41:3
+20     1110696 rs6040355 A      G,T     67   PASS   NS=2;DP=10;AF=0.333,0.667;AA=T;DB GT:GQ:DP:HQ 1|2:21:6:23,27 2|1:2:0:18,2   2/2:35:4
+20     1230237 .         T      .       47   PASS   NS=3;DP=13;AA=T                   GT:GQ:DP:HQ 0|0:54:7:56,60 0|0:48:4:51,51 0/0:61:2
+20     1234567 microsat1 GTCT   G,GTACT 50   PASS   NS=3;DP=9;AA=G                    GT:GQ:DP    0/1:35:4       0/2:17:2       1/1:40:3  
+```
+
+This example shows in order (1) a good simple SNP, (2) a possible SNP that has been filtered out because its quality is below 10, (3) a site at which two alternate alleles are called, with one of them (T) being ancestral (possibly a reference sequencing error), (4) a site that is called monomorphic reference (i.e. with no alternate alleles), and (5) a microsatellite with two alternative alleles, one a deletion of 3 bases (TCT), and the other an insertion of one base (A). Genotype data are given for three samples, two of which are phased and the third unphased, with per sample genotype quality, depth and haplotype qualities (the latter only for the phased samples) given as well as the genotypes. The microsatellite calls are unphased.
+
+### 1. Meta-information lines
+File meta-information is included after the ## string, often as key=value pairs.
+
+The ‘fileformat’ field is always required and should detail the VCF format version number. For example, for VCF version 4.0, this line should read:
+
+##fileformat=VCFv4.0
+
+It is strongly encouraged that information lines describing the INFO, FILTER and FORMAT entries used in the body of the VCF file be included in the meta-information section. Although they are optional, if these lines are present then they must be completely well-formed.
+
+INFO fields should be described as follows (all keys are required):
+
+##INFO=<ID=ID,Number=number,Type=type,Description=”description”>
+
+Possible Types for INFO fields are: Integer, Float, Flag, Character, and String.
+
+The Number entry is an Integer that describes the number of values that can be included with the INFO field. For example, if the INFO field contains a single number, then this value should be 1. However, if the INFO field describes a pair of numbers, then this value should be 2 and so on. If the number of possible values varies, is unknown, or is unbounded, then this value should be ‘.’. Possible Types are: Integer, Float, Character, String and Flag. The ‘Flag’ type indicates that the INFO field does not contain a Value entry, and hence the Number should be 0 in this case. The Description value must be surrounded by double-quotes.
+
+FILTERs that have been applied to the data should be described as follows:
+
+##FILTER=<ID=ID,Description=”description”>
+
+Likewise, Genotype fields specified in the FORMAT field should be described as follows:
+
+##FORMAT=<ID=ID,Number=number,Type=type,Description=”description”>
+
+Possible Types for FORMAT fields are: Integer, Float, Character, and String.
+
+### 2. The header line syntax
+The header line names the 8 fixed, mandatory columns. These columns are as follows:
+
+#CHROM
+POS
+ID
+REF
+ALT
+QUAL
+FILTER
+INFO
+  
+If genotype data is present in the file, these are followed by a FORMAT column header, then an arbitrary number of sample IDs. The header line is tab-delimited.
+
+### 3. Data lines
+Fixed fields
+There are 8 fixed fields per record. All data lines are tab-delimited. In all cases, missing values are specified with a dot (“.”). Fixed fields are:
+
+CHROM chromosome: an identifier from the reference genome. All entries for a specific CHROM should form a contiguous block within the VCF file.(Alphanumeric String, Required)
+POS position: The reference position, with the 1st base having position 1. Positions are sorted numerically, in increasing order, within each reference sequence CHROM. (Integer, Required)
+ID semi-colon separated list of unique identifiers where available. If this is a dbSNP variant it is encouraged to use the rs number(s). No identifier should be present in more than one data record. If there is no identifier available, then the missing value should be used. (Alphanumeric String)
+REF reference base(s): Each base must be one of A,C,G,T,N. Bases should be in uppercase. Multiple bases are permitted. The value in the POS field refers to the position of the first base in the String. For InDels, the reference String must include the base before the event (which must be reflected in the POS field). (String, Required).
+ALT comma separated list of alternate non-reference alleles called on at least one of the samples. Options are base Strings made up of the bases A,C,G,T,N, or an angle-bracketed ID String (”<ID>“). If there are no alternative alleles, then the missing value should be used. Bases should be in uppercase. (Alphanumeric String; no whitespace, commas, or angle-brackets are permitted in the ID String itself)
+QUAL phred-scaled quality score for the assertion made in ALT. i.e. give -10log_10 prob(call in ALT is wrong). If ALT is ”.” (no variant) then this is -10log_10 p(variant), and if ALT is not ”.” this is -10log_10 p(no variant). High QUAL scores indicate high confidence calls. Although traditionally people use integer phred scores, this field is permitted to be a floating point to enable higher resolution for low confidence calls if desired. (Numeric)
+FILTER filter: PASS if this position has passed all filters, i.e. a call is made at this position. Otherwise, if the site has not passed all filters, a semicolon-separated list of codes for filters that fail. e.g. “q10;s50” might indicate that at this site the quality is below 10 and the number of samples with data is below 50% of the total number of samples. “0” is reserved and should not be used as a filter String. If filters have not been applied, then this field should be set to the missing value. (Alphanumeric String)
+INFO additional information: (Alphanumeric String) INFO fields are encoded as a semicolon-separated series of short keys with optional values in the format: <key>=<data>[,data]. Arbitrary keys are permitted, although the following sub-fields are reserved (albeit optional):
+AA ancestral allele
+AC allele count in genotypes, for each ALT allele, in the same order as listed
+AF allele frequency for each ALT allele in the same order as listed: use this when estimated from primary data, not called genotypes
+AN total number of alleles in called genotypes
+BQ RMS base quality at this position
+CIGAR cigar string describing how to align an alternate allele to the reference allele
+DB dbSNP membership
+DP combined depth across samples, e.g. DP=154
+END end position of the variant described in this record (esp. for CNVs)
+H2 membership in hapmap2
+MQ RMS mapping quality, e.g. MQ=52
+MQ0 Number of MAPQ == 0 reads covering this record
+NS Number of samples with data
+SB strand bias at this position
+SOMATIC indicates that the record is a somatic mutation, for cancer genomics
+VALIDATED validated by follow-up experiment
+etc. The exact format of each INFO sub-field should be specified in the meta-information (as described above).
+
+Example for an INFO field: DP=154;MQ=52;H2. Keys without corresponding values are allowed in order to indicate group membership (e.g. H2 indicates the SNP is found in HapMap 2). It is not necessary to list all the properties that a site does NOT have, by e.g. H2=0.
+
+Genotype fields
+If genotype information is present, then the same types of data must be present for all samples. First a FORMAT field is given specifying the data types and order. This is followed by one field per sample, with the colon-separated data in this field corresponding to the types specified in the format. The first sub-field must always be the genotype (GT).
+
+As with the INFO field, there are several common, reserved keywords that are standards across the community:
+
+GT genotype, encoded as alleles values separated by either of ”/” or “|”, e.g. The allele values are 0 for the reference allele (what is in the reference sequence), 1 for the first allele listed in ALT, 2 for the second allele list in ALT and so on. For diploid calls examples could be 0/1 or 1|0 etc. For haploid calls, e.g. on Y, male X, mitochondrion, only one allele value should be given. All samples must have GT call information; if a call cannot be made for a sample at a given locus, ”.” must be specified for each missing allele in the GT field (for example ./. for a diploid). The meanings of the separators are:
+/ : genotype unphased
+| : genotype phased
+
+DP read depth at this position for this sample (Integer)
+
+FT sample genotype filter indicating if this genotype was “called” (similar in concept to the FILTER field). Again, use PASS to indicate that all filters have been passed, a semi-colon separated list of codes for filters that fail, or ”.” to indicate that filters have not been applied. These values should be described in the meta-information in the same way as FILTERs (Alphanumeric String)
+
+GL : three floating point log10-scaled likelihoods for AA,AB,BB genotypes where A=ref and B=alt; not applicable if site is not biallelic. For example: GT:GL 0/1:-323.03,-99.29,-802.53 (Numeric)
+
+GQ genotype quality, encoded as a phred quality -10log_10p(genotype call is wrong) (Numeric)
+ 
+HQ haplotype qualities, two phred qualities comma separated (Numeric)
+  
+If any of the fields is missing, it is replaced with the missing value. For example if the format is GT:GQ:DP:HQ then A|A:.:23:23,34 indicates that GQ is missing. Trailing fields can be dropped (with the exception of the GT field, which should always be present).
+
+Additional Genotype fields can be defined in the meta-information. However, software support for such fields is not guaranteed.
 
 ## XS tag in SAM file (only for Tophat and HISAT, not BWA-MEM, BWA-MEM also has the XS tag, but with other meaning)
 Where your sequencing is unstranded, mappers can still add a strand to a read if it crosses a splice site, and that splice site has a canonical splice site sequence - it can use this sequence to work out which way the RNA is going. Mappers such as TopHat (which cufflinks was originally designed to work with) only accepted splice sites with one of the canonical splice sites (i'm guessing), thus all spliced reads would contain the XS tag. This is definately true for HiSat.
