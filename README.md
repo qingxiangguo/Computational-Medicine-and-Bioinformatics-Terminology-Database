@@ -313,7 +313,7 @@ Normal stop codons and the 3' UTR are usually located in the last exon of the se
 <div align=center>
 <img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/b572cb0bb2f36e30c3b64cae1fb1b19fecc10a3e/imgs/UTR2.png">
 </div
-  
+.
 ## Variant allele frequency (VAF)
 The fraction of genome copies in the (tumor or control) sample affected by the variant, is either 0.0, 0.5, or 1.0 for germline variants, reflecting absence, heterozygosity, or homozygosity, respectively. In contrast, allele frequencies of somatic variants vary across the whole range from 0.0 to 1.0, depending on the clonal structure of the tumor sample and its impurity (the ratio of healthy genome copies in the tumor sample).
   
