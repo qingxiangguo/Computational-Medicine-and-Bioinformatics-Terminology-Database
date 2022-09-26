@@ -404,38 +404,62 @@ INFO
 If genotype data is present in the file, these are followed by a FORMAT column header, then an arbitrary number of sample IDs. The header line is tab-delimited.
 
 ### 3. Data lines
-Fixed fields
+### Fixed fields
 There are 8 fixed fields per record. All data lines are tab-delimited. In all cases, missing values are specified with a dot (“.”). Fixed fields are:
 
 CHROM chromosome: an identifier from the reference genome. All entries for a specific CHROM should form a contiguous block within the VCF file.(Alphanumeric String, Required)
+  
 POS position: The reference position, with the 1st base having position 1. Positions are sorted numerically, in increasing order, within each reference sequence CHROM. (Integer, Required)
+  
 ID semi-colon separated list of unique identifiers where available. If this is a dbSNP variant it is encouraged to use the rs number(s). No identifier should be present in more than one data record. If there is no identifier available, then the missing value should be used. (Alphanumeric String)
+  
 REF reference base(s): Each base must be one of A,C,G,T,N. Bases should be in uppercase. Multiple bases are permitted. The value in the POS field refers to the position of the first base in the String. For InDels, the reference String must include the base before the event (which must be reflected in the POS field). (String, Required).
+  
 ALT comma separated list of alternate non-reference alleles called on at least one of the samples. Options are base Strings made up of the bases A,C,G,T,N, or an angle-bracketed ID String (”<ID>“). If there are no alternative alleles, then the missing value should be used. Bases should be in uppercase. (Alphanumeric String; no whitespace, commas, or angle-brackets are permitted in the ID String itself)
+  
 QUAL phred-scaled quality score for the assertion made in ALT. i.e. give -10log_10 prob(call in ALT is wrong). If ALT is ”.” (no variant) then this is -10log_10 p(variant), and if ALT is not ”.” this is -10log_10 p(no variant). High QUAL scores indicate high confidence calls. Although traditionally people use integer phred scores, this field is permitted to be a floating point to enable higher resolution for low confidence calls if desired. (Numeric)
+  
 FILTER filter: PASS if this position has passed all filters, i.e. a call is made at this position. Otherwise, if the site has not passed all filters, a semicolon-separated list of codes for filters that fail. e.g. “q10;s50” might indicate that at this site the quality is below 10 and the number of samples with data is below 50% of the total number of samples. “0” is reserved and should not be used as a filter String. If filters have not been applied, then this field should be set to the missing value. (Alphanumeric String)
+  
 INFO additional information: (Alphanumeric String) INFO fields are encoded as a semicolon-separated series of short keys with optional values in the format: <key>=<data>[,data]. Arbitrary keys are permitted, although the following sub-fields are reserved (albeit optional):
+  
 AA ancestral allele
+  
 AC allele count in genotypes, for each ALT allele, in the same order as listed
+  
 AF allele frequency for each ALT allele in the same order as listed: use this when estimated from primary data, not called genotypes
+  
 AN total number of alleles in called genotypes
+  
 BQ RMS base quality at this position
+  
 CIGAR cigar string describing how to align an alternate allele to the reference allele
+  
 DB dbSNP membership
+  
 DP combined depth across samples, e.g. DP=154
+  
 END end position of the variant described in this record (esp. for CNVs)
+  
 H2 membership in hapmap2
+  
 MQ RMS mapping quality, e.g. MQ=52
+  
 MQ0 Number of MAPQ == 0 reads covering this record
+  
 NS Number of samples with data
+  
 SB strand bias at this position
+  
 SOMATIC indicates that the record is a somatic mutation, for cancer genomics
+  
 VALIDATED validated by follow-up experiment
+  
 etc. The exact format of each INFO sub-field should be specified in the meta-information (as described above).
 
 Example for an INFO field: DP=154;MQ=52;H2. Keys without corresponding values are allowed in order to indicate group membership (e.g. H2 indicates the SNP is found in HapMap 2). It is not necessary to list all the properties that a site does NOT have, by e.g. H2=0.
 
-Genotype fields
+### Genotype fields
 If genotype information is present, then the same types of data must be present for all samples. First a FORMAT field is given specifying the data types and order. This is followed by one field per sample, with the colon-separated data in this field corresponding to the types specified in the format. The first sub-field must always be the genotype (GT).
 
 As with the INFO field, there are several common, reserved keywords that are standards across the community:
