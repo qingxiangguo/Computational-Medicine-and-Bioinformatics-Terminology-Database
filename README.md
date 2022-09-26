@@ -96,6 +96,17 @@ a paired-end read that matches across the fusion site to two fusion genes, respe
 ## Gene fusion - Split read
 A read that matches exactly to the fusion site, as shown in the right panel in Figure B above.
 
+## Genotype phasing
+Phasing is the process of inferring haplotypes from genotype data. This information is often important for understanding gene expression patterns for genetic disease research. The popular NGS sequencing technology is to mix the sequences together, and after sequencing, we cannot directly distinguish which of these sequences is the parental source and which is the maternal source. We usually only detect which variants are present in the genome and the base composition of these variants (pure and heterozygous), which is usually referred to as genotype. This distinction can only be achieved with Phasing.
+
+<div align=center>
+<img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/c15ad61ef3b8af4302985375a7cdec3f7fccdeaa/imgs/old_hap_lecture.jpg">
+</div>
+
+<div align=center>
+<img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/c15ad61ef3b8af4302985375a7cdec3f7fccdeaa/imgs/phase.png">
+</div>
+
 ## Germline INDEL
 INDEL that is identified in germline (i.e., blood‐extracted) DNA samples. For germline indels from healthy genomes, they are mainly genetic variants with the type and position of the indels presumably conserved in sub-populations or super populations. In other words, they are less random compared with somatic variants and usually do not lead to diseases.
 
