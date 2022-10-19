@@ -370,11 +370,10 @@ By combining the P5 and P7 end partial junction sequences (Adapter 1/2) with tra
   
 The final structure:
 
-  <div align=center>
+<div align=center>
 <img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/26d617ea1dda100a7ef4c3726faba077d01a7317/imgs/library-3.png">
-</div
-.
-  
+</div  
+
 
 ## Tn5 transposase (Tnp) for PacBio sequencing library construction 
 
