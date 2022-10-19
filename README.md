@@ -174,6 +174,37 @@ An overview of the intron retention (IR) mechanism: different isoforms can be pr
 <img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/89c8759153191b960c4f4c064d2967a6965c0a87/imgs/fgene-11-00586-g001.jpg">
 </div>
 
+## Linear Amplification via Transposon Insertion (LIANTI)  
+A linear whole genome amplification (WGA) method.LIANTI achieved linear amplification of the whole genome for the first time, enabling more uniform and accurate amplification.  
+
+Genomic DNA is randomly fragmented and tagged by Tn5 transposon insertion containing T7 promoter sequence, and the resulting DNA fragments are linearly amplified into RNAs by T7 in vitro transcription. Following reverse transcription and second strand synthesis, double-stranded DNA amplicons are formed representing the linear amplification product of the original genomic DNA, which is suitable for DNA library preparation and sequencing.
+
+<div align=center>
+<img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/c73f61d8e0f1b6c68806bbba654f36e89de055bf/imgs/v2-8a02a512df398452595024dfbfc7d1a7_r.jpg">
+</div>
+
+<b>Experimental workflow</b>  
+
+1. Cell lysis. Single cells are placed into PCR tubes containing lysis buffer by mouth pipetting, flow sorting, micromanipulator, laser dissection or microfluidic devices. Cells are subsequently lysed by Qiagen protease digestion. If the starting material is small amount of genomic DNA instead of single cells, cell lysis step can be skipped.
+
+2. LIANTI transposome. LIANTI transposome is made by mixing equal molar of Tn5 transposase and LIANTI transposon DNA. The sequence of LIANTI transposon DNA is: 5'/Phos/CTGTCTCTTATACACATCTGAACAGAATTTAATACGACTCACTATAGGGAGATGTGTATAAGAGACAG-3' After self annealing, the LIANTI transposon DNA consists of a 19-bp double-stranded region for Tn5 transposase binding and dimerization, and a 30-nt single-stranded loop containing T7 promoter sequence.
+
+3. Tn5 transposition. Genomic DNA from a single cell is randomly fragmented and tagged by LIANTI transposome insertion during transposition reaction.
+
+4. Gap filling. After Tn5 transposition, both ends of each DNA fragment are gap filled and extended by DNA polymerase extension, converting single-stranded loops into double-stranded T7 promoters on both ends of each fragment. The residue Tn5 transposase and DNA polymerase are subsequently removed by protease digestion, followed by heat inactivation of the protease.
+
+5. In vitro transcription (IVT) linear amplification. Still within the same PCR tube, overnight IVT reaction is assembled, including standard IVT buffer, NTPs, T7 RNA polymerase, RNase inhibitor, DMSO, etc.
+
+6. Reverse transcription (RT). After overnight IVT, RNAs representing the linearly amplified products of the original genomic DNA are column purified, self primed on the 3′ end, and reverse transcribed. RNase digestion is carried out to convert the double-stranded DNA-RNA hybrids into single-stranded DNA.
+
+7. Second strand synthesis (SSS). Taking advantage of the 19-bp specific sequence on the 3' end of each single-stranded DNA, SSS step is performed by specific priming and DNA polymerase extension. The resulting double-stranded DNA fragments are LIANTI amplicons linearly amplified from the original single-cell genomic DNA, with unique molecular barcodes attached on each amplicon.
+
+8. Library prep and sequencing. Depending on transposome insertion density and specific applications, LIANTI amplicons can be subject to optional sonication, before proceeding to standard library prep pipelines (i.e. NEBNext Ultra II DNA Library Prep Kit for Illumina).
+
+<b>Adavantages</b>  
+1. Accurate detection of single-cell copy-number variations (CNVs) with kilobase resolution  
+2. Accurate detection of single-cell single-nucleotide variations (SNVs)  
+
 ## LNCaP cells
 LNCaP cells are a cell line of human cells commonly used in the field of oncology. LNCaP cells are androgen-sensitive human prostate adenocarcinoma cells derived from the left supraclavicular lymph node metastasis from a 50-year-old caucasian male in 1977. They are adherent epithelial cells growing in aggregates and as single cells.
 
