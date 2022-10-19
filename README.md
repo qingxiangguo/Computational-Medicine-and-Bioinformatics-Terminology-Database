@@ -354,8 +354,8 @@ Outside end（OE）sequences composed of 19 bases that are recognized by Tnp and
 <div align=center>
 <img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/34cc72ed144af5775b596e14bd517c3ab844a8b7/imgs/tn52.png">
 </div
-.
 
+.
 ## Tn5 transposase (Tnp)
 Linear Amplification via Transposon Insertion (LIANTI) uses Tn5 transposase for linear amplification, haploid typing, and structural variation detection. The “cut and paste” function of Tn5 is widely used in genomics research. Subsequently, studies have shown that only OE sequences and Tn5 transposases are required for transposition in vitro. Tn5 transposases can randomly insert adaptors/barcodes into DNA, and the resulting DNA molecules are ready for PCR amplification and sequencing.
 
@@ -373,7 +373,7 @@ The final structure:
   <div align=center>
 <img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/26d617ea1dda100a7ef4c3726faba077d01a7317/imgs/library-3.png">
 </div
-
+.
 ## Tn5 transposase (Tnp) for PacBio sequencing library construction 
 
 
