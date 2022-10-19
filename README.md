@@ -201,7 +201,11 @@ Genomic DNA is randomly fragmented and tagged by Tn5 transposon insertion contai
 
 8. Library prep and sequencing. Depending on transposome insertion density and specific applications, LIANTI amplicons can be subject to optional sonication, before proceeding to standard library prep pipelines (i.e. NEBNext Ultra II DNA Library Prep Kit for Illumina).
 
-<b>Very important: sometimes it is hard to understand this process, just remeber two tips: (1) a Tn5 transposase will always recognize and combine the Tn5 transposon end sequence; (2) when a Tn5 transposase dimers (two Tnp together) each contains a sequence (whether it is adaptor P5, P7 or it is T7 protor), the Tn5 transposase will insert two sequences at the 5 end and 3 end of the target DNA respectively.  </b>
+<b>Very important: sometimes it is hard to understand this process, just remeber two tips: (1) a Tn5 transposase will always recognize and combine the Tn5 transposon end sequence; (2) when a Tn5 transposase dimers (two Tnp together) each contains a sequence (whether it is adaptor P5, P7 or it is T7 protor), it looks like that the Tn5 transposase will insert two sequences at the 5 end and 3 end of the target DNA respectively. Infact that is not the truth. One Tnp will only insert the seq it carries into the DNA, this is because three kinds of sequences will be produced during the process </b>
+
+<div align=center>
+<img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/f77e783a52b182b3ed6fcf7e414a7d740c1aa204/imgs/lianti_2.png">
+</div>
 
 <b>Adavantages</b>  
 1. Accurate detection of single-cell copy-number variations (CNVs) with kilobase resolution  
