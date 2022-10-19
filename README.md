@@ -166,6 +166,9 @@ Melanoma, the most serious type of skin cancer, develops in the cells (melanocyt
 ## MHC class I
 MHC class I molecules are expressed in all nucleated cells and also in platelets—in essence all cells but red blood cells. It presents epitopes to killer T cells, also called cytotoxic T lymphocytes (CTLs). A CTL expresses CD8 receptors, in addition to T-cell receptors (TCR)s. When a CTL's CD8 receptor docks to a MHC class I molecule, if the CTL's TCR fits the epitope within the MHC class I molecule, the CTL triggers the cell to undergo programmed cell death by apoptosis. Thus, MHC class I helps mediate cellular immunity, a primary means to address intracellular pathogens, such as viruses and some bacteria, including bacterial L forms, bacterial genus Mycoplasma, and bacterial genus Rickettsia. In humans, MHC class I comprises HLA-A, HLA-B, and HLA-C molecules.
 
+## P5 and P7 adaptors
+Regardless of the library construction method, submitted libraries will consist of a sequence of interest flanked on either side by adapter constructs. On each end, these adapter constructs have flow cell binding sites, P5 and P7, which allow the library fragment to attach to the flow cell surface. 
+
 ## Precision and Recall
 Precision is calculated by dividing the true positives by anything that was predicted as a positive. Recall (or True Positive Rate) is calculated by dividing the true positives by anything that should have been predicted as positive.
 
@@ -329,11 +332,21 @@ Genomic structural variation is the variation in structure of an organisms chrom
 ## Tn5 transposon  
 Tn5 transposons were discovered in <i>Escherichia coli</i> and consist of a core sequence encoding three antibiotics (neomycin, bleomycin, and streptomycin) and two inverted IS50 sequences, IS50L and IS50R, which encode a Tn5 transposase (Tnp). IS50 has two pairs of 19-bp inverted ends that are outside ends (OEs) and inside ends (IEs). These inverted OEs are target sites of Tn5 transposase. When transposition occurs, transposases bind to the OEs of the Tn5 transposon, forming Tnp-OE complexes and then the two complexes join together. The C-terminus of Tnp interacts and dimerizes to form a synaptic complex that has the ability to cleave DNA. Tnps that bind to the right and left ends are responsible for catalyzing the hydrolysis of the phosphodiester bond at the left and right ends, respectively. Tnp activates water molecules that hydrolyze the DNA strand and forms a 3′-OH nucleophilic group at the 5′ ends of transposons, which in turn attacks the complementary strand to form a hairpin structure. Finally, the synaptic complex captures target DNA and finishes the strand transfer by nucleophilic attack on both strands of the target DNA with 3’ OH groups of the Tn5 transposon.
 
+Outside end（OE）sequences composed of 19 bases that are recognized by Tnp and involved in the transposition of the entire Tn5.
+
 <div align=center>
 <img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/34cc72ed144af5775b596e14bd517c3ab844a8b7/imgs/tn52.png">
 </div
+.
 
 ## Tn5 transposase (Tnp)
+Linear Amplification via Transposon Insertion (LIANTI) uses Tn5 transposase for linear amplification, haploid typing, and structural variation detection. The “cut and paste” function of Tn5 is widely used in genomics research. Subsequently, studies have shown that only OE sequences and Tn5 transposases are required for transposition in vitro. Tn5 transposases can randomly insert adaptors/barcodes into DNA, and the resulting DNA molecules are ready for PCR amplification and sequencing.
+
+## Tn5 transposase (Tnp) for NGS sequencing library construction  
+The key of transposase method library building technology is Tn5 transposon, a bacterial transposon, which is essentially a DNA fragment containing several resistance genes and edited transposase genes. The traditional library construction method requires DNA fragmentation, end repair, splice ligation, library amplification, and multi-step purification, etc. When Tn5 is used for library construction, the multi-step reactions of DNA fragmentation, end repair, and splice ligation can be transformed into a one-step reaction, shortening the library construction time.
+
+## Tn5 transposase (Tnp) for PacBio sequencing library construction 
+
 
 ## Transporter associated with antigen processing (TAP)
 Transporter associated with antigen processing (TAP) protein complex belongs to the ATP-binding-cassette transporter family. It delivers cytosolic peptides into the endoplasmic reticulum (ER), where they bind to nascent MHC class I molecules.
