@@ -143,6 +143,23 @@ The same with GRCh38.
 ## Human genome assembly - hs37d5
 hs37d5 (known also as b37 + decoy) was released by The 1000 Genomes Project (Phase II), which introduced additional sequence (BAC/fosmid clones, HuRef contigs, Epstein-Barr Virus genome) to the b37 reference to help reduce false positives for mapping. Note that this one uses the primary assembly of GRCh37.
 
+## Illumina adapter portfolio
+The first step of sequencing is to construct a library from DNA or RNA. A library contains DNA inserts flanked on each side by an adapter, as shown below:
+
+<div align=center>
+<img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/34a9917508fc32c6c1e889f9ad86d50d50fa1e3e/imgs/Illumina%20adapter%20portfolio_1.png">
+</div>
+
+Schematic representation of a dual-indexed library fragment
+
+Adapters contain:
+
+Sequences that allow the library to bind and generate clusters on the flow cell (p5 and p7 sequences)  
+
+Sequencing primer binding sites to initiate sequencing (Rd1 SP and Rd2 SP)  
+
+Index sequences (Index 1 and, where applicable, Index 2), which are sample identifiers that allow multiplexing/pooling of multiple samples in a single sequencing run or flow cell lane.  
+
 ## Intergenic region
 An intergenic region is a stretch of DNA sequences located between genes. Intergenic regions may contain functional elements and junk DNA. Intergenic regions should not be confused with intragenic regions (or introns), which are short, non-coding regions that are found within genes, especially within the genes of eukaryotic organisms.Intergenic regions contain a number of functional DNA sequences such as promoters and regulatory elements, enhancers, spacers, and (in eukaryotes) centromeres. They may also contain origins of replication, scaffold attachment regions, and transposons and viruses.[2] Non-functional DNA elements such as pseudogenes and repetitive DNA, both of which are types of junk DNA, can also be found in intergenic regions—although they may also be located within genes in introns.
 
@@ -167,7 +184,7 @@ Melanoma, the most serious type of skin cancer, develops in the cells (melanocyt
 MHC class I molecules are expressed in all nucleated cells and also in platelets—in essence all cells but red blood cells. It presents epitopes to killer T cells, also called cytotoxic T lymphocytes (CTLs). A CTL expresses CD8 receptors, in addition to T-cell receptors (TCR)s. When a CTL's CD8 receptor docks to a MHC class I molecule, if the CTL's TCR fits the epitope within the MHC class I molecule, the CTL triggers the cell to undergo programmed cell death by apoptosis. Thus, MHC class I helps mediate cellular immunity, a primary means to address intracellular pathogens, such as viruses and some bacteria, including bacterial L forms, bacterial genus Mycoplasma, and bacterial genus Rickettsia. In humans, MHC class I comprises HLA-A, HLA-B, and HLA-C molecules.
 
 ## P5 and P7 adaptors
-Regardless of the library construction method, submitted libraries will consist of a sequence of interest flanked on either side by adapter constructs. On each end, these adapter constructs have flow cell binding sites, P5 and P7, which allow the library fragment to attach to the flow cell surface. 
+Regardless of the library construction method, submitted libraries will consist of a sequence of interest flanked on either side by adapter constructs. On each end, these adapter constructs have flow cell binding sites, P5 and P7, which allow the library fragment to attach to the flow cell surface. All Paired-End Format sequencing on the HiSeq and All sequencing of any type on the MiSeq MUST HAVE FULL-LENGTH P5 and P7 sequences . (some of the small RNA libraries and alternative genomic library constructions use a partial P7, this is not supported by the HiSeq PE and MiSeq.)
 
 ## Precision and Recall
 Precision is calculated by dividing the true positives by anything that was predicted as a positive. Recall (or True Positive Rate) is calculated by dividing the true positives by anything that should have been predicted as positive.
@@ -344,6 +361,18 @@ Linear Amplification via Transposon Insertion (LIANTI) uses Tn5 transposase for 
 
 ## Tn5 transposase (Tnp) for NGS sequencing library construction  
 The key of transposase method library building technology is Tn5 transposon, a bacterial transposon, which is essentially a DNA fragment containing several resistance genes and edited transposase genes. The traditional library construction method requires DNA fragmentation, end repair, splice ligation, library amplification, and multi-step purification, etc. When Tn5 is used for library construction, the multi-step reactions of DNA fragmentation, end repair, and splice ligation can be transformed into a one-step reaction, shortening the library construction time.
+  
+By combining the P5 and P7 end partial junction sequences (Adapter 1/2) with transposon end sequences (OE), Tnp recognizes transposon ends to form a Tn5 transposon complex with P5 and P7 end partial junctions (containing two dimer-forming Tnp and two partial P5, P7 sequences). The complex recognizes the target sequence of the acceptor DNA, cuts the acceptor DNA (namely ,the DNA you want to sequence), and inserts the carried donor DNA to form DNA with a P5 part adapter Adapter 1 at one end and a P7 part adapter Adapter 2 at the other end, which is then added by PCR barcoding, and the rest of the linker form a DNA library with complete linkers at the P5 and P7 ends. The cut formed by the transposition is then patched using DNA polymerase. This product is amplified by two primer pairs, N5 (N5XX) and N7 (N7XX), and P5 and P7 (PCR Primer Mix), and the product is sorted and purified to form a sequencer-ready library, with N5 (N5XX) and N7 (N7XX) responsible for adding the barcode, and P5 and P7 (PCR Primer Mix) responsible for recovering the full-length sequences of P5 and P7.
+
+<div align=center>
+<img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/26d617ea1dda100a7ef4c3726faba077d01a7317/imgs/1656323644241570.png">
+</div
+  
+The final structure:
+
+  <div align=center>
+<img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/26d617ea1dda100a7ef4c3726faba077d01a7317/imgs/library-3.png">
+</div
 
 ## Tn5 transposase (Tnp) for PacBio sequencing library construction 
 
