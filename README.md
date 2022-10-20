@@ -422,11 +422,14 @@ The final structure:
 
 ## Tn5 transposase (Tnp) for PacBio sequencing library construction (PCR-free)
 A schematic overview of the SMRT-Tag approach. Hairpin adaptor-loaded triple mutant Tn5 transposase is loaded and used to fragment DNA into 2 – 10 kilobase (kb) fragments. After removing Tn5 transposase, an optimized gap repair is used to fill the resulting 9 bp gaps on either side of the molecule, and an exonuclease treatment is used to purify repaired covalently closed templates, which are sequenced on the PacBio Sequel II instrument. 
+  
+Crucially, combining tagmentation with optimized gap repair allowed the streamlined creation of PacBio libraries from 80 – 100 ng DNA (a minimum of 15,000 human cell equivalents) compared to current protocols that require > 0.5 – 5 μg DNA (a minimum of ∼200,000 human cell equivalents). 
 
 <div align=center>
 <img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/3cc296e4e1b223f9e3d836fbd5f6fb0b54ca2c3e/imgs/pc.jpg">
 </div
 
+ .
 ## Transporter associated with antigen processing (TAP)
 Transporter associated with antigen processing (TAP) protein complex belongs to the ATP-binding-cassette transporter family. It delivers cytosolic peptides into the endoplasmic reticulum (ER), where they bind to nascent MHC class I molecules.
 
