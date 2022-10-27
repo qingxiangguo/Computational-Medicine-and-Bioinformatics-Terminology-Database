@@ -440,6 +440,14 @@ T7 RNA polymerase is highly promoter specific and only transcribes DNA or DNA co
 
 In vitro transcription using T7 bacteriophage polymerase is widely used in molecular biology. T7 RNA polymerase is very selective and efficient, resulting both in a high frequency of transcription initiation and effective elongation. These features result in an RNA elongation that is approximately five-fold faster than for E. coli RNA polymerase. 
 
+## Targeted sequencing with nanopore technology - enrichment strategy - amplicon
+
+## Targeted sequencing with nanopore technology - enrichment strategy - hybrid-capture
+
+## Targeted sequencing with nanopore technology - enrichment strategy - CRISPR/Cas9
+
+## Targeted sequencing with nanopore technology - enrichment strategy - adaptive sampling
+
 ## Tn5 transposon  
 Tn5 transposons were discovered in <i>Escherichia coli</i> and consist of a core sequence encoding three antibiotics (neomycin, bleomycin, and streptomycin) and two inverted IS50 sequences, IS50L and IS50R, which encode a Tn5 transposase (Tnp). IS50 has two pairs of 19-bp inverted ends that are outside ends (OEs) and inside ends (IEs). These inverted OEs are target sites of Tn5 transposase. When transposition occurs, transposases bind to the OEs of the Tn5 transposon, forming Tnp-OE complexes and then the two complexes join together. The C-terminus of Tnp interacts and dimerizes to form a synaptic complex that has the ability to cleave DNA. Tnps that bind to the right and left ends are responsible for catalyzing the hydrolysis of the phosphodiester bond at the left and right ends, respectively. Tnp activates water molecules that hydrolyze the DNA strand and forms a 3′-OH nucleophilic group at the 5′ ends of transposons, which in turn attacks the complementary strand to form a hairpin structure. Finally, the synaptic complex captures target DNA and finishes the strand transfer by nucleophilic attack on both strands of the target DNA with 3’ OH groups of the Tn5 transposon.
 
