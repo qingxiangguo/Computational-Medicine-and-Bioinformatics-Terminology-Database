@@ -257,6 +257,21 @@ Using nanopore sequencing, a single molecule of DNA or RNA can be sequenced with
 <img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/b0129ac21a844b3a0252b247a2dc1086a95bcc8a/imgs/nanopore.png">
 </div>
 
+## Nanopore sequencing - Targeted sequencing - enrichment strategy - amplicon
+
+## Nanopore sequencing - Targeted sequencing - enrichment strategy - hybrid-capture
+
+## Nanopore sequencing - Targeted sequencing - enrichment strategy - CRISPR/Cas9
+
+## Nanopore sequencing - Targeted sequencing - enrichment strategy - adaptive sampling
+
+## Nanopore sequencing - whole genome DNA sequencing kits  
+A wide range of library preparation kits are available to suit all whole genome sequencing requirements. Amplification-free kits allow direct, long-read sequencing of native DNA, eliminating the potential for PCR bias and allowing the detection of base modifications alongside nucleotide sequence. Amplification-based kits are also available, enabling whole genome sequencing from low input amounts or poor quality DNA (e.g. FFPE).
+
+<div align=center>
+<img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/8611e16d9176ca1a927e9020fd63350694b6c812/imgs/WGS.png">
+</div>
+
 ## P5 and P7 adaptors
 Regardless of the library construction method, submitted libraries will consist of a sequence of interest flanked on either side by adapter constructs. On each end, these adapter constructs have flow cell binding sites, P5 and P7, which allow the library fragment to attach to the flow cell surface. All Paired-End Format sequencing on the HiSeq and All sequencing of any type on the MiSeq MUST HAVE FULL-LENGTH P5 and P7 sequences . (some of the small RNA libraries and alternative genomic library constructions use a partial P7, this is not supported by the HiSeq PE and MiSeq.)
 
@@ -439,14 +454,6 @@ T7 is a promoter (T7 promoter), a strong promoter from T7 phage that can specifi
 T7 RNA polymerase is highly promoter specific and only transcribes DNA or DNA copies downstream of the T7 promoter in T7 phages. t7 RNA polymerase selectively activates transcription of the T7 phage promoter and synthesizes mRNA at a rate about 5 times faster than that of the common E. coli RNA polymerase.  
 
 In vitro transcription using T7 bacteriophage polymerase is widely used in molecular biology. T7 RNA polymerase is very selective and efficient, resulting both in a high frequency of transcription initiation and effective elongation. These features result in an RNA elongation that is approximately five-fold faster than for E. coli RNA polymerase. 
-
-## Targeted sequencing with nanopore technology - enrichment strategy - amplicon
-
-## Targeted sequencing with nanopore technology - enrichment strategy - hybrid-capture
-
-## Targeted sequencing with nanopore technology - enrichment strategy - CRISPR/Cas9
-
-## Targeted sequencing with nanopore technology - enrichment strategy - adaptive sampling
 
 ## Tn5 transposon  
 Tn5 transposons were discovered in <i>Escherichia coli</i> and consist of a core sequence encoding three antibiotics (neomycin, bleomycin, and streptomycin) and two inverted IS50 sequences, IS50L and IS50R, which encode a Tn5 transposase (Tnp). IS50 has two pairs of 19-bp inverted ends that are outside ends (OEs) and inside ends (IEs). These inverted OEs are target sites of Tn5 transposase. When transposition occurs, transposases bind to the OEs of the Tn5 transposon, forming Tnp-OE complexes and then the two complexes join together. The C-terminus of Tnp interacts and dimerizes to form a synaptic complex that has the ability to cleave DNA. Tnps that bind to the right and left ends are responsible for catalyzing the hydrolysis of the phosphodiester bond at the left and right ends, respectively. Tnp activates water molecules that hydrolyze the DNA strand and forms a 3′-OH nucleophilic group at the 5′ ends of transposons, which in turn attacks the complementary strand to form a hairpin structure. Finally, the synaptic complex captures target DNA and finishes the strand transfer by nucleophilic attack on both strands of the target DNA with 3’ OH groups of the Tn5 transposon.
