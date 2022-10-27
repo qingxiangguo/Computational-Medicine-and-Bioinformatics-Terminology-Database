@@ -256,6 +256,16 @@ Regardless of the library construction method, submitted libraries will consist 
 ## Precision and Recall
 Precision is calculated by dividing the true positives by anything that was predicted as a positive. Recall (or True Positive Rate) is calculated by dividing the true positives by anything that should have been predicted as positive.
 
+# Primary template-directed amplification (PTA)
+An isothermal WGA method that reproducibly captures >95% of the genomes of single cells in a more uniform and accurate manner than existing approaches, resulting in significantly improved variant calling sensitivity and precision.
+
+1. PTA reads are short (they are generated intentionally to avoid uneven amplification) and PTA is not compatible with long-read sequencing.  
+2. PTA does create fewer artifacts (including chimera) than MDA, and this is experimentally verified in papers (https://www.nature.com/articles/s41588-022-01180-2). However, they focus on artifactual SNVs and small INDELs induced by ingle-strand dropout (SSD). 
+3. Accompany with the PTA, the authors developed a tool SCAN-SNV (https://www.nature.com/articles/s41467-019-11857-8) to detect somatic SNV and small INDELs aware of MDA artifact and a tool SCAN2 (https://www.biorxiv.org/content/10.1101/2021.04.30.442032v1.abstract) to detect somatic SNV and small INDELs aware of PTA artifact. 
+4. The PTA is provided as the ResolveDNA Kit in BioSkryb company, with price unlisted. They are provided as 24 and 96 Reaction Kits.  
+
+PTA is provided as  ResolveDNA® Whole Genome Sequencing Workflow, with low-input (>4 pg to 10 ng) DNA samples.For the whole pack you need ResolveDNA Whole Genome Amplification Kit - 96 Reactions, ResolveDNA Bead Purification Kit - 96 Reactions, ResolveDNA Library Preparation Kit - 96 Reactions, ResolveDNA Multi-Use Library Adapters - 960 Reactions, ResolveDNA Cell Buffer Pack, 25 Low Bind 96 Well PCR Plates, PCR Plate Sealing Film - Pack of 100
+
 ## Promoter
 A promoter, as related to genomics, is a region of DNA upstream of a gene where relevant proteins (such as RNA polymerase and transcription factors) bind to initiate transcription of that gene. The resulting transcription produces an RNA molecule (such as mRNA).
 
