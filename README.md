@@ -277,6 +277,9 @@ A wide range of library preparation kits are available to suit all whole genome 
 <img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/8611e16d9176ca1a927e9020fd63350694b6c812/imgs/WGS.png">
 </div>
 
+## Nanopore sequencing - whole genome DNA sequencing kits - Ligation Sequencing Kit - SQK-LSK110  
+Processing singleplex samples. $599.00. Utilise upstream processes such as size selection or whole genome amplification. ~60 minutes. Input requirement	1000 ng gDNA. No PCR. 
+
 ## P5 and P7 adaptors
 Regardless of the library construction method, submitted libraries will consist of a sequence of interest flanked on either side by adapter constructs. On each end, these adapter constructs have flow cell binding sites, P5 and P7, which allow the library fragment to attach to the flow cell surface. All Paired-End Format sequencing on the HiSeq and All sequencing of any type on the MiSeq MUST HAVE FULL-LENGTH P5 and P7 sequences . (some of the small RNA libraries and alternative genomic library constructions use a partial P7, this is not supported by the HiSeq PE and MiSeq.)
 
