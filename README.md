@@ -446,7 +446,7 @@ The software TransIndel (Yang et al., 2018, BMC genomics) used the SA tag of BWA
 Sometimes it is hard to distinguish splicing and deletion, for a true deletion the length of left mapped + lengths of right mapped must be equal to the length of the read itself.
 
 <div align=center>
-<img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/bc9f0ec4b7ee9ac2b0b419c2d1204f596aec288a/imgs/transindel_Algorithm.png">
+<img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/a39ab01d88f7f5f998c7bd3558a055148faeb8d8/imgs/transindel_Algorithm2.png">
 </div
 
 .  
