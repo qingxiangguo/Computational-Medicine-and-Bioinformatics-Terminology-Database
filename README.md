@@ -52,6 +52,29 @@ Copy number variation (CNV) is a phenomenon in which sections of the genome are 
 ## CRAM (file format)
 Compressed Reference-oriented Alignment Map (CRAM) is a compressed columnar file format for storing biological sequences aligned to a reference sequence. CRAM was designed to be an efficient reference-based alternative to the Sequence Alignment Map (SAM) and Binary Alignment Map (BAM) file formats.
 
+## Discordant reads and cordant reads
+1) Concordant reads (Properly aligned reads)
+2) Discordant reads (improperly aligned reads: important to identify genome alteration events)
+
+Concordant reads: have span size within the range of expected fragment size and consistent orientation of read pairs with respect to reference.
+
+Discordant reads: have unexpected span size/inconsistent orientation of read pairs.
+
+Example:
+
+Concordant Reads** - R1----->Expected Mapping distance and orientation<-----R2
+
+Discordant reads: Discordant reads have different categories
+
+A) Based on mapping Distance
+
+R1-----> Unexpected mapping distance <-----R2
+B) Based on read orientation (Expected read orientation for Paired-end data should be R1 (Forward) R2 (Reverse): FR orientation, but in case of discordant reads, orientations are either FF or RR)
+
+R1-----> R2-----> [FF orientation]
+
+R1<----- R2<---- [RR orientation]
+
 ## Enhancer
 An enhancer is a short (50–1500 bp) region of DNA that can be bound by proteins (activators) to increase the likelihood that transcription of a particular gene will occur. They can be located up to 1 Mbp (1,000,000 bp) away from the gene, upstream or downstream from the start site. Enhancers are found mostly in the intergenic and intronic regions, while a few enhancers have been found within exons.
 
