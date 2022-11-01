@@ -285,6 +285,9 @@ Using nanopore sequencing, a single molecule of DNA or RNA can be sequenced with
 <img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/b0129ac21a844b3a0252b247a2dc1086a95bcc8a/imgs/nanopore.png">
 </div>
 
+## Nanopore sequencing - duplex basecalling  
+Oxford Nanopore announced a new method, “Duplex”  which enables nanopore devices to sequence a template and complement strand of a single molecule of DNA, in succession, in order to achieve very high accuracy sequencing results.  This system can currently achieve modal accuracy trending towards Q30 for a single double stranded molecule of DNA.  The goal of Duplex experiments is to achieve a high proportion of instances where the complement follows the template strand through the nanopore and gives the system ‘two looks at the same sequence pairs’.
+
 ## Nanopore sequencing - Targeted sequencing - enrichment strategy - amplicon
 
 ## Nanopore sequencing - Targeted sequencing - enrichment strategy - hybrid-capture
