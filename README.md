@@ -26,6 +26,21 @@ A form of advanced prostate cancer. With CRPC, the cancer no longer completely r
 ## Checkpoint blockade immunotherapy
 Patients are treated with antibodies that block negative regulatory molecules, such as PD-1/PD-L1 or CTLA4, which normally restrain T cell responses. This kind of therapy can reinvigorate a patient's anti-tumor T cell responses, which then can cause tumors to shrink and even lead to cures in some patients
 
+## Chimera rates in Whole Genome Amplification (WGA)  
+Defined as the number of reads that are improperly connected (including abnormal fragment size and interchromosomal connection) divided by the total number of mappable reads. Here are the chimera rates for some commercial kits: 
+
+the SigmaAldrich GenomePlex Single Cell Whole Genome Amplification Kit (DOP-PCR) 15%
+
+the Qiagen REPLI-g Single Cell Kit (MDA) 2%
+
+the General Electric (GE) illustra Single Cell GenomiPhi DNA Amplification Kit (MDA)  3%
+
+the Yikon Genomics Single Cell Whole Genome Amplification Kit (MALBAC)  5%
+
+the Rubicon Genomics PicoPLEX WGA Kit (MALBAC-like)  13%
+
+the Bioskryb PTA  About 15% to 7.5%
+
 ## Chimeric reads 
 Chimeric reads occur when one sequencing read aligns to two distinct portions of the genome with little or no overlap. This could be like sequence A mapped to 85156-85257 bp of genome, while part of sequence A mapped to 85273-85320 bp of genome. Then, sequence A is a chimeric read. Chimeric reads are indicative of structural variation. Chimeric reads are also called split reads.
 
