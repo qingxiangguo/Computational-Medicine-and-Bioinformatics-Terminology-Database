@@ -521,24 +521,25 @@ leverages the template-switching capability of certain reverse transcriptases (R
 <img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/ec3695a90a9d763b2114147fba83572127d9e4e4/imgs/TSO.jpg">
 </div
 .
+        
 ## SMART (Switching Mechanism at the 5′ end of RNA Template) seq 2
 Conventional cDNA construction methods usually result in an underrepresentation of the 5’ ends of cDNA.
 
-1. Single cell sorting: Smart-seq uses flow cytometry for cell sorting, with a maximum throughput of 96 cells at a time.
+1 - Single cell sorting: Smart-seq uses flow cytometry for cell sorting, with a maximum throughput of 96 cells at a time.
 
-2. Cell Lysis: Cell lysis is performed in cell lysis solution.
+2 - Cell Lysis: Cell lysis is performed in cell lysis solution.
 
-3. Reverse transcription (one-strand synthesis): RNA with polyA tails (mainly mRNA) is reverse transcribed using Oligo(dT) primer. Since a mouse-derived reverse transcriptase ( Moloney Murine Leukemia Virus ) is used for reverse transcription, three Cs are added to the 3 end of the cDNA strand.
+3 - Reverse transcription (one-strand synthesis): RNA with polyA tails (mainly mRNA) is reverse transcribed using Oligo(dT) primer. Since a mouse-derived reverse transcriptase ( Moloney Murine Leukemia Virus ) is used for reverse transcription, three Cs are added to the 3 end of the cDNA strand.
 
-4. Template replacement (second-strand synthesis): This step synthesizes the second strand of cDNA using TSO (template-switching oligo) primers, thus replacing the RNA complementary to the first-strand cDNA. TSO also carries the primers required for PCR (green part of the figure).
+4 -Template replacement (second-strand synthesis): This step synthesizes the second strand of cDNA using TSO (template-switching oligo) primers, thus replacing the RNA complementary to the first-strand cDNA. TSO also carries the primers required for PCR (green part of the figure).
 
-5. PCR amplification: This step performs a light cDNA enrichment, and amplification of cDNA to the ng level is sufficient.
+5 - PCR amplification: This step performs a light cDNA enrichment, and amplification of cDNA to the ng level is sufficient.
 
 <b>For the following 6 and 7, please see Tn5 transposase (Tnp) for NGS sequencing library construction. They are the same.</b>
 
-6. Labeling: The DNA is interrupted using a modified, highly active Tn5 transposase while adding the junction to both ends of the cDNA. The DNA fragment after labeling is usually 200-600bp.
+6 - Labeling: The DNA is interrupted using a modified, highly active Tn5 transposase while adding the junction to both ends of the cDNA. The DNA fragment after labeling is usually 200-600bp.
 
-7. PCR Enrichment & On-board Sequencing: After the last PCR amplification, the DNA is ready for onboard sequencing. Smart-seq2 uses the usual Illumina sequencer, as its library ends up being similar to the usual bulk RNA-seq.
+7 - PCR Enrichment & On-board Sequencing: After the last PCR amplification, the DNA is ready for onboard sequencing. Smart-seq2 uses the usual Illumina sequencer, as its library ends up being similar to the usual bulk RNA-seq.
 
 <div align=center>
 <img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/5da88495006b561f1479e44ebf1276f96638c555/imgs/smart2.png">
