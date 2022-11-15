@@ -11,6 +11,19 @@ Qingxiang.guo@northwestern.edu
 In the database, I provide a list of commonly used computational medicine and bioinformatic terminology for quick reference. This database will be kept updating. Feedback or experience is warmly welcomed.
 
 # Terminology Content
+## Avidin 
+Avidin is a protein derived from both avians and amphibians that shows considerable affinity for biotin, a co-factor that plays a role in multiple eukaryotic biological processes. Avidin and other biotin-binding proteins, including Streptavidin and NeutrAvidin protein, have the ability to bind up to four biotin molecules.
+
+Avidin is a biotin-binding protein that is believed to function as an antibiotic in the eggs of birds, reptiles and amphibians. Chicken Avidin has a mass of 67,000-68,000 daltons and is formed from four 128 amino acid-subunits, each binding one molecule of biotin. 
+
+Avidin has a very high affinity for up to four biotin molecules and is stable and functional over a wide range of pH and temperature. Avidin is amenable to extensive chemical modification with little to no effect on function, making it useful for the detection and protein purification of biotinylated molecules in a variety of conditions. Because Avidin is easily purified from chicken egg whites, it is very economical to produce (much more so than streptavidin).
+
+## Avidin-biotin interaction
+Avidin and other biotin-binding proteins, including Streptavidin and NeutrAvidin protein, have the ability to bind up to four biotin molecules. The Avidin-biotin complex is the strongest known non-covalent interaction (Kd = 10-15M) between a protein and ligand. The bond formation between biotin and Avidin is very rapid, and once formed, is unaffected by extremes of pH, temperature, organic solvents and other denaturing agents. These features of biotin and Avidin – features that are shared by Streptavidin and NeutrAvidin Protein – are useful for purifying or detecting proteins conjugated to either component of the interaction.
+
+## Biotin
+Biotin is a vitamin (Vitamin H, Vitamin B7, Coenzyme R) that is present in small amounts in all living cells and is critical for a number of biological processes including cell growth and the citric acid cycle. The valeric acid side chain of the biotin molecule can be derivatized in order to incorporate various reactive groups that facilitate the addition of a biotin tag to other molecules.  Because biotin is relatively small (244.3 Daltons), it can be conjugated to many proteins and other molecules without significantly altering their biological activity. The highly specific interaction of biotin-binding proteins with biotin makes it a useful tool in assay systems designed to detect and target biological analytes.
+
 ## Blunt ends
 In blunt ends, both strands are of equal length – i.e. they end at the same base position, leaving no unpaired bases on either strand. 
 
