@@ -522,7 +522,7 @@ leverages the template-switching capability of certain reverse transcriptases (R
 </div
 .
         
-
+.
 ## SMART (Switching Mechanism at the 5′ end of RNA Template) seq 2
 Conventional cDNA construction methods usually result in an underrepresentation of the 5’ ends of cDNA.
 
