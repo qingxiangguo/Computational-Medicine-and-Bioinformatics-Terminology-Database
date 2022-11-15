@@ -520,7 +520,7 @@ leverages the template-switching capability of certain reverse transcriptases (R
 <div align=center>
 <img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/ec3695a90a9d763b2114147fba83572127d9e4e4/imgs/TSO.jpg">
 </div
-
+.
 ## SMART (Switching Mechanism at the 5′ end of RNA Template) seq 2
 Conventional cDNA construction methods usually result in an underrepresentation of the 5’ ends of cDNA.
 
@@ -528,7 +528,7 @@ Conventional cDNA construction methods usually result in an underrepresentation 
 
 2. Cell Lysis: Cell lysis is performed in cell lysis solution.
 
-3. Reverse transcription (one-strand synthesis): RNA with polyA tails (mainly mRNA) is reverse transcribed using Oligo(dT) primer. Since a mouse-derived reverse transcriptase ( Moloney Murine Leukemia Virus ) is used for reverse transcription, three Cs are added to the 3' end of the cDNA strand.
+3. Reverse transcription (one-strand synthesis): RNA with polyA tails (mainly mRNA) is reverse transcribed using Oligo(dT) primer. Since a mouse-derived reverse transcriptase ( Moloney Murine Leukemia Virus ) is used for reverse transcription, three Cs are added to the 3 end of the cDNA strand.
 
 4. Template replacement (second-strand synthesis): This step synthesizes the second strand of cDNA using TSO (template-switching oligo) primers, thus replacing the RNA complementary to the first-strand cDNA. TSO also carries the primers required for PCR (green part of the figure).
 
@@ -541,7 +541,7 @@ Conventional cDNA construction methods usually result in an underrepresentation 
 7. PCR Enrichment & On-board Sequencing: After the last PCR amplification, the DNA is ready for onboard sequencing. Smart-seq2 uses the usual Illumina sequencer, as its library ends up being similar to the usual bulk RNA-seq.
 
 <div align=center>
-<img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/ec3695a90a9d763b2114147fba83572127d9e4e4/imgs/TSO.jpg">
+<img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/5da88495006b561f1479e44ebf1276f96638c555/imgs/smart2.png">
 </div
 
 ## SNV (Single nucleotide variant)
