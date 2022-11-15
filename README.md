@@ -522,6 +522,7 @@ leverages the template-switching capability of certain reverse transcriptases (R
 </div
 .
         
+
 ## SMART (Switching Mechanism at the 5′ end of RNA Template) seq 2
 Conventional cDNA construction methods usually result in an underrepresentation of the 5’ ends of cDNA.
 
@@ -544,7 +545,8 @@ Conventional cDNA construction methods usually result in an underrepresentation 
 <div align=center>
 <img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/5da88495006b561f1479e44ebf1276f96638c555/imgs/smart2.png">
 </div
-
+        
+.
 ## SNV (Single nucleotide variant)
 A SNV can be rare in one population but common in a different population. Sometimes SNVs are known as single nucleotide polymorphisms (SNPs), although SNV and SNPs are not interchangeable. To qualify as a SNP, the variant must be present in at least 1% of the population.
 
