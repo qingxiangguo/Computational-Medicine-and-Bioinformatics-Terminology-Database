@@ -573,7 +573,7 @@ Conventional cDNA construction methods usually result in an underrepresentation 
 </div
 .
 
-        
+..       
 ## SNV (Single nucleotide variant)
 A SNV can be rare in one population but common in a different population. Sometimes SNVs are known as single nucleotide polymorphisms (SNPs), although SNV and SNPs are not interchangeable. To qualify as a SNP, the variant must be present in at least 1% of the population.
 
