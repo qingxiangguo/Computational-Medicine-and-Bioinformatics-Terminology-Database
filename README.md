@@ -569,7 +569,7 @@ Conventional cDNA construction methods usually result in an underrepresentation 
 </div
         
 <div align=center>
-<img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/64097fd0b647151e7fe5ae47e03b89e3bee775c2/imgs/SMART-1-cDNA.png">
+<img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/e620aa051aa306e5c66ff75790b5e005988465d5/imgs/SMART-single-cell.png">
 </div
 .
 ## SNV (Single nucleotide variant)
