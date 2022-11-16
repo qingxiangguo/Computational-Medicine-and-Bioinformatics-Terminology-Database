@@ -109,6 +109,9 @@ Copy number variation (CNV) is a phenomenon in which sections of the genome are 
 ## CRAM (file format)
 Compressed Reference-oriented Alignment Map (CRAM) is a compressed columnar file format for storing biological sequences aligned to a reference sequence. CRAM was designed to be an efficient reference-based alternative to the Sequence Alignment Map (SAM) and Binary Alignment Map (BAM) file formats.
 
+## Differential transcript usage (DTU) analysis
+A differential transcript usage (DTU) analysis is testing for proportional differences in a gene's transcript composition, and has been of rising interest for many research questions, such as analysis of differential splicing or cell-type identification.
+
 ## Discordant reads and cordant reads
 1) Concordant reads (Properly aligned reads)
 2) Discordant reads (improperly aligned reads: important to identify genome alteration events)
