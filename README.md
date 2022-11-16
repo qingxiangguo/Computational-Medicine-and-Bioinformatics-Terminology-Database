@@ -11,6 +11,9 @@ Qingxiang.guo@northwestern.edu
 In the database, I provide a list of commonly used computational medicine and bioinformatic terminology for quick reference. This database will be kept updating. Feedback or experience is warmly welcomed.
 
 # Terminology Content
+## Allelic balance
+The proportion of reads covering a variant’s location that support the variant. For example, if a variant’s location is covered by 100 reads, of which 25 support the variant and 75 do not, then the variant would have an allelic balance of 25/100 = 0.25.
+
 ## Avidin 
 Avidin is a protein derived from both avians and amphibians that shows considerable affinity for biotin, a co-factor that plays a role in multiple eukaryotic biological processes. Avidin and other biotin-binding proteins, including Streptavidin and NeutrAvidin protein, have the ability to bind up to four biotin molecules.
 
