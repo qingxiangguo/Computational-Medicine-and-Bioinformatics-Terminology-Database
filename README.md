@@ -540,7 +540,7 @@ Slippage during PCR, also known as replication slippage, is a form of mutation t
 leverages the template-switching capability of certain reverse transcriptases (RTs) to capture full-length sequence information from RNA or DNA templates and incorporate adapter sequences during first-strand cDNA synthesis. The adapter sequences serve as primer-binding sites during subsequent rounds of PCR amplification. It has full-length template coverage, high-quality sequencing libraries.
 
 <div align=center>
-<img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/ec3695a90a9d763b2114147fba83572127d9e4e4/imgs/TSO.jpg">
+<img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/64097fd0b647151e7fe5ae47e03b89e3bee775c2/imgs/SMART-1-cDNA.png">
 </div
 .
         
@@ -568,6 +568,9 @@ Conventional cDNA construction methods usually result in an underrepresentation 
 <img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/5da88495006b561f1479e44ebf1276f96638c555/imgs/smart2.png">
 </div
         
+<div align=center>
+<img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/64097fd0b647151e7fe5ae47e03b89e3bee775c2/imgs/SMART-1-cDNA.png">
+</div
 .
 ## SNV (Single nucleotide variant)
 A SNV can be rare in one population but common in a different population. Sometimes SNVs are known as single nucleotide polymorphisms (SNPs), although SNV and SNPs are not interchangeable. To qualify as a SNP, the variant must be present in at least 1% of the population.
