@@ -386,8 +386,12 @@ generates sequencing libraries from extracted gDNA in 10 minutes using a simple 
 ## P5 and P7 adaptors
 Regardless of the library construction method, submitted libraries will consist of a sequence of interest flanked on either side by adapter constructs. On each end, these adapter constructs have flow cell binding sites, P5 and P7, which allow the library fragment to attach to the flow cell surface. All Paired-End Format sequencing on the HiSeq and All sequencing of any type on the MiSeq MUST HAVE FULL-LENGTH P5 and P7 sequences . (some of the small RNA libraries and alternative genomic library constructions use a partial P7, this is not supported by the HiSeq PE and MiSeq.)
 
-## Precision and Recall
-Precision is calculated by dividing the true positives by anything that was predicted as a positive. Recall (or True Positive Rate) is calculated by dividing the true positives by anything that should have been predicted as positive.
+## Precision and Recall (Sensitivity)
+Precision is calculated by dividing the true positives by anything that was predicted as a positive. 
+
+Recall (or True Positive Rate) is calculated by dividing the true positives by anything that should have been predicted as positive.
+
+Recall and Sensitivity are one and the same.
 
 # Primary template-directed amplification (PTA)
 An isothermal WGA method that reproducibly captures >95% of the genomes of single cells in a more uniform and accurate manner than existing approaches, resulting in significantly improved variant calling sensitivity and precision.
