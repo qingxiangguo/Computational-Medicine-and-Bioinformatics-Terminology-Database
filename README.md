@@ -603,6 +603,9 @@ One strand is longer than the other (typically by at least a few nucleotides), s
 ## Structural variation  
 Genomic structural variation is the variation in structure of an organisms chromosome. It consists of many kinds of variation in the genome of one species, and usually includes microscopic and submicroscopic types, such as deletions, duplications, copy-number variants, insertions, inversions and translocations. Originally, a structure variation affects a sequence length about 1kb to 3Mb, which is larger than SNPs and smaller than chromosome abnormality (though the definitions have some overlap). However, the operational range of structural variants has widened to include events > 50bp.The definition of structural variation does not imply anything about frequency or phenotypical effects. Many structural variants are associated with genetic diseases, however many are not.Recent research about SVs indicates that SVs are more difficult to detect than SNPs.
 
+## Supplementary Alignment
+This is the SA tag. A chimeric reads but not a representative reads. 
+
 ## T7 promoter and T7 RNA polymerase  
 T7 is a promoter (T7 promoter), a strong promoter from T7 phage that can specifically respond to T7 RNA polymerase, and is a sequence that initiates transcription of the T7 phage gene.  
 
