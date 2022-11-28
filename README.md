@@ -412,6 +412,15 @@ A promoter, as related to genomics, is a region of DNA upstream of a gene where 
 <img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/119dccf8f9f3b544668ba5945fb3206ac92180a5/imgs/promoter2.png">
 </div>
 
+## REPLI-g Single Cell Kit
+Yields up to 40 µg/reaction, average product length >10 kb.
+
+## REPLI-g Advanced DNA Single Cell Kit
+Yield from a single cell is 25–35 µg of amplified DNA. Saves at least 1 hour of time versus the first-generation REPLI-g Single Cell Kit (cat. nos. 150343 and 150345).
+
+## REPLI-g UltraFast Mini Kit
+Resulting in typical DNA yields of 7 μg per 20 μl reaction. Sufficient product is available for downstream genetic analysis after just 45 minutes. Input, 10 ng DNA, 0.5 µl whole blood, ~300 cells/µl.
+
 ## SAM (file format)
 <div align=center>
 <img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/a4ddccceb15fd1d1ee05ae6bb0183febb48feae4/imgs/1.png">
