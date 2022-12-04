@@ -329,6 +329,17 @@ LNCaP cells are a cell line of human cells commonly used in the field of oncolog
 A quasilinear whole genome amplification method. Unlike conventional DNA amplification methods that are non-linear or exponential (in each cycle, DNA copied can serve as template for subsequent cycles), MALBAC utilizes special primers that allow amplicons to have complementary ends and therefore to loop, preventing DNA from being copied exponentially. This results in amplification of only the original genomic DNA and therefore reduces amplification bias.The key to MALBAC is to not make copies of copies, and instead make copies only of the original genomic DNA by protecting the amplification products. MALBAC uses a thermally stable DNA polymerase with strand displacement activity. This important preamplification stage is then followed by exponential amplification of the full amplicons by PCR, generating the amount of DNA required for next-generation sequencing. MALBAC’s sequence-dependent bias is reproducible along the genome from cell to cell. Therefore, signal normalization for CNV noise reduction can be carried out. As shown below, after signal normalization with a reference cell, MALBAC offers the best CNV accuracy.
 
 
+## MDA - inverted chimera
+The displaced 3'-terminus would be free to reanneal, preferentially at randomly occurring complementary segments on nearby 5'-strands. The outcome will be the joining of two sequences in inverted orientation. The finding that 85% of chimeras had this inverted form supports this as the likely mechanism. The chimeric junctions also reveal the site where the displaced 3'-end annealed to the second template and continued elongation. In the example , from one of the sequenced chimeric junctions, priming was initiated on the new template where the sequence on the 3'-end had annealed to the sequence on the 5'-strand. In 76.8% of cases, the 3'-ends initiated priming at complimentary sequences of ≥ 2 bp on the new templates. These ranged up to 21 base pairs of complimentarity (Fig 4). The complimentarity occurred in 93.5% and 90.9% of cases for inverted and directly joined segments, respectively, when <10 kb apart, but only 34.8% and 27.6%, respectively, when >10 kb apart.
+
+<div align=center>
+<img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/7bfec898f0dbdf331add143ac431db4384ae59d3/imgs/inveerted_chimera.png">
+</div>
+
+<div align=center>
+<img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/7bfec898f0dbdf331add143ac431db4384ae59d3/imgs/inverted_chimera.png">
+</div>
+
 ## Melanoma
 Melanoma, the most serious type of skin cancer, develops in the cells (melanocytes) that produce melanin — the pigment that gives your skin its color.
 
