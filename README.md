@@ -228,7 +228,10 @@ Phasing is the process of inferring haplotypes from genotype data. This informat
 INDEL that is identified in germline (i.e., blood‐extracted) DNA samples. For germline indels from healthy genomes, they are mainly genetic variants with the type and position of the indels presumably conserved in sub-populations or super populations. In other words, they are less random compared with somatic variants and usually do not lead to diseases.
 
 ## Germline mutation 
-A genetic change in a germ cell (egg or sperm) that becomes the DNA of each cell in the offspring's body. a variant (or mutation) contained in the germline can be passed from parent to offspring and is therefore inherited. They are also called germline mutations. INDELs are identified by removing the germline mutations from INDELs.
+A genetic change in a germ cell (egg or sperm) that becomes the DNA of each cell in the offspring's body. A variant (or mutation) contained in the germline can be passed from parent to offspring and is therefore inherited. They are also called germline mutations. INDELs are identified by removing the germline mutations from INDELs.
+
+## GridION
+Up to 250 Gb (all 5 flow cells sequencing).
 
 ## Homopolymer
 Homopolymer, e.g. A-A-A-A-A-A-A-A-A-A-A, simple repetition
@@ -348,8 +351,7 @@ Melanoma, the most serious type of skin cancer, develops in the cells (melanocyt
 MHC class I molecules are expressed in all nucleated cells and also in platelets—in essence all cells but red blood cells. It presents epitopes to killer T cells, also called cytotoxic T lymphocytes (CTLs). A CTL expresses CD8 receptors, in addition to T-cell receptors (TCR)s. When a CTL's CD8 receptor docks to a MHC class I molecule, if the CTL's TCR fits the epitope within the MHC class I molecule, the CTL triggers the cell to undergo programmed cell death by apoptosis. Thus, MHC class I helps mediate cellular immunity, a primary means to address intracellular pathogens, such as viruses and some bacteria, including bacterial L forms, bacterial genus Mycoplasma, and bacterial genus Rickettsia. In humans, MHC class I comprises HLA-A, HLA-B, and HLA-C molecules.
 
 ## MinION
-Similar to MinION Mk1C, but come without screen. Starter Packs from $1,000 including 1 flow cell andd 1 kit.
-
+Similar to MinION Mk1C, but come without screen. Starter Packs from $1,000 including 1 flow cell andd 1 kit. The enhanced has 4 flow cells and 1 kit with $3,250.
 
 ## MinION Mk1C
 Nanopores read the length of DNA or RNA presented to them — from short to ultra-long (longest >4 Mb). Up to 50 Gb per MinION Flow Cell / 2.8 Gb per Flongle Flow Cell. Theoretical max output when system is run for 72 hours (or 16 hours for Flongle) at 420 bases / second. Outputs may vary according to library type, run conditions, etc. Starter Packs from $4,900, including consumables Compatible with Flongle Flow Cells for smaller tests and analyses. The starter pack includes six flow cells and 1 library kit. It is for filed-use and come with a screen.
@@ -423,6 +425,12 @@ An isothermal WGA method that reproducibly captures >95% of the genomes of singl
 4. The PTA is provided as the ResolveDNA Kit in BioSkryb company, with price unlisted. They are provided as 24 and 96 Reaction Kits.  
 
 PTA is provided as  ResolveDNA® Whole Genome Sequencing Workflow, with low-input (>4 pg to 10 ng) DNA samples.For the whole pack you need ResolveDNA Whole Genome Amplification Kit - 96 Reactions, ResolveDNA Bead Purification Kit - 96 Reactions, ResolveDNA Library Preparation Kit - 96 Reactions, ResolveDNA Multi-Use Library Adapters - 960 Reactions, ResolveDNA Cell Buffer Pack, 25 Low Bind 96 Well PCR Plates, PCR Plate Sealing Film - Pack of 100
+
+## PromethION P2 and P2 Solo 
+Up to 580 Gb (both flow cells sequencing). 290 Gb per flow cell.
+
+## PromethION P24 and P48 
+Up to 7,000 Gb (P24) or 14,000 Gb (P48) (all 24 or 48 flow cells sequencing respectively)
 
 ## Promoter
 A promoter, as related to genomics, is a region of DNA upstream of a gene where relevant proteins (such as RNA polymerase and transcription factors) bind to initiate transcription of that gene. The resulting transcription produces an RNA molecule (such as mRNA).
