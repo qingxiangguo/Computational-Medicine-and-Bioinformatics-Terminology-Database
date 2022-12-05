@@ -137,6 +137,11 @@ R1-----> R2-----> [FF orientation]
 
 R1<----- R2<---- [RR orientation]
 
+## DNA dA-Tailing
+This is a next step of DNA end-repair. Adding a non-template dAMP (dA) to the 3’ end of a blunt-ended DNA fragment. This incorporated 3’-dA prevents concatemer formation and prepares the DNA fragment for subsequent ligation of adaptors or cloning vectors that have complementary 3’-dT overhangs. 
+
+In other words, add "A" base to the 3´ end of a blunt phosphorylated DNA fragment. This treatment creates compatible overhangs for the next step of DNA sample preparation.T
+
 ## Enhancer
 An enhancer is a short (50–1500 bp) region of DNA that can be bound by proteins (activators) to increase the likelihood that transcription of a particular gene will occur. They can be located up to 1 Mbp (1,000,000 bp) away from the gene, upstream or downstream from the start site. Enhancers are found mostly in the intergenic and intronic regions, while a few enhancers have been found within exons.
 
@@ -408,6 +413,9 @@ The kit is optimised to achieve sequencing accuracies of over 99% (Q20+) with hi
 
 ## Nanopore sequencing - whole genome DNA sequencing kits - Rapid Sequencing Kit - SQK-RAD004  
 generates sequencing libraries from extracted gDNA in 10 minutes using a simple two-step protocol. At the heart of the kit is a transposase which simultaneously cleaves template molecules and attaches tags to the cleaved ends. Rapid Sequencing Adapters are then added to the tagged ends.  Input requirement 400 ng gDNA (<30 kb). No PCR. Shipped at 2–8°C. Long-term storage -20°C.  Due to the simple nature of the workflow and the fact that little sample manipulation is required (e.g. minimal pipetting steps and no clean-ups) some very long reads can be achieved with this kit, despite the required transposase fragmentation. However, in order for long reads to be observed in sequencing, long fragments need to be present in the sample in the first place. Typical throughput is lower than Ligation Sequencing Kit.
+
+## NEBNext Quick Ligation Module (E6056)
+Another name, NEBNext Quick T4 DNA Ligase. This module is also compatible with some Oxford Nanopore Technologies workflows. 
 
 ## P5 and P7 adaptors
 Regardless of the library construction method, submitted libraries will consist of a sequence of interest flanked on either side by adapter constructs. On each end, these adapter constructs have flow cell binding sites, P5 and P7, which allow the library fragment to attach to the flow cell surface. All Paired-End Format sequencing on the HiSeq and All sequencing of any type on the MiSeq MUST HAVE FULL-LENGTH P5 and P7 sequences . (some of the small RNA libraries and alternative genomic library constructions use a partial P7, this is not supported by the HiSeq PE and MiSeq.)
