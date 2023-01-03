@@ -653,6 +653,9 @@ Genomic structural variation is the variation in structure of an organisms chrom
 ## Structural variation - Inversion
 Why are inversions defined as the reverse complement and not just the reverse of the reference? If an inversion were just reversed then there would be 3' -> 3' bonds and 5' -> 5' bonds. That's why inversions are reverse complemented, you then maintain the normal 5'->3' direction.
 
+## Structural variation - Novel sequence insertion
+An insertion the sequence of which cannot be mapped to the reference genome.
+
 ## Supplementary Alignment
 This is the SA tag. A chimeric reads but not a representative reads. 
 
