@@ -755,8 +755,6 @@ The QV field indicates the quality score of the variant. In this case, the value
 + The AAL field indicates the alternate alleles of the variant. In this case, the value is NA, which indicates that the alternate alleles are not available.
 + The CO field indicates the components of the variant. In this case, the value is chr1_876903-chr20_29368734, which indicates that the variant is a breakend involving chromosome 1 and chromosome 20 and spanning from position 876903 on chromosome 1 to position 29368734 on chromosome 20.
 
-when performing statistical analyses of structural variants, it is generally best to consider each breakend variant as a separate event, in order to preserve the maximum amount of information about the individual variants. 
-
 ## Structural variation detection algorithm
 
 <div align=center>
