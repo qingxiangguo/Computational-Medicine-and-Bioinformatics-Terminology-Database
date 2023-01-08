@@ -184,24 +184,31 @@ A fusion gene is a hybrid gene formed from two previously independent genes. It 
 </div>
 
 ## Gene fusion - Anchor length
+
 The length of the left and right ends of the read spanning the fusion site, as shown in the right panel in Figure B above.
 
 ## Gene fusion - Breakpoint  
+
 The location on the genome where the fusion of two fused genes occurs, such as the site where Gene A (blue) and Gene B (green) are fused in Figure B above.
 
 ## Gene fusion - Broken exon (BE) type fusion  
+
 Which refers to the fusion without retaining the original intact exon sequence. For example, in the above figure A, part of the sequence of Exon3 of Gene A is fused with Exon2 of Gene B. In the new gene after fusion, part of the sequence of Exon3 from Gene A is lost.
 
 ## Gene fusion - Circular RNAs (false-positive)
+
 Circular RNAs are transcripts which are spliced in a non-canonical mannor such that the 5' and 3' ends are ligated together, yielding a closed ring. In RNA-Seq data they manifest as intragenic duplications with both breakpoints at splice-sites. It is very hard to distinguish genomic duplications from circular RNAs without whole-genome sequencing data. Similar to read-through fusions, these transcripts are abundant in healthy tissue and affect many genes. Arriba's blacklist effectively filters the majority of such events, but occasionally some pass the filter. For this reason, they are tagged as duplication/non-canonical_splicing to warn the user about a potential false positive.
 
 ## Gene fusion - Intact exon (IE) type fusion  
+
 The original exon is retained intact after the fusion, and the original exon structure is not affected. For example, in the above figure A, Exon2 of Gene A and Exon1 of Gene B are fused and the sequences of the two exons are retained intact.
 
 ## Gene fusion - Long insert size
+
 The longer distance between two reads in double-end sequencing mate-pair sequencing, generally several kilobases or even longer.
 
 ## Gene fusion - Read-through fusions (false-positive)
+
 Even in healthy tissue it happens very frequently that transcripts are produced which are composed of exons from two neighboring genes on the same strand. These transcripts often contain all but the last exon of the 5' gene and all but the first exon of the 3' gene. They are caused by RNA polymerases missing the stop sign at the end of the 5' gene and "reading through" until reaching the next stop sign at the end of the 3' gene. The splicesome then removes the intergenic region between the two genes, yielding a chimeric transcript.
 
 For some genes, this is a common phenomenon, which is not reflected in the gene annotation, however, and therefore appears like an aberrant transcript at first glance. The SLC45A3:ELK4 fusion, which has been discovered in prostate cancer and has also been described in benign prostate tissue, is one such example. It is risky to discard all read-through events, however, because they might be the result of a focal deletion, which fuses two neighboring genes together. For example, the GOPC:ROS1 fusion in glioblastoma multiforme is caused by a 240 kb deletion. Arriba uses a comprehensive blacklist trained on collections of RNA-Seq samples from healthy tissue to remove likely harmless transcript variants. Rare transcript variants still bypass this filter often enough. Read-through events are therefore tagged as deletion/read-through to make the user aware of a potential false positive. Further evidence should be sought to substantiate the prediction, such as:
@@ -213,15 +220,19 @@ For some genes, this is a common phenomenon, which is not reflected in the gene 
 </div>
 
 ## Gene fusion - Short insert size
+
 The shorter distance between two reads in double-end sequencing paired-end sequencing, generally a few hundred bp.
 
 ## Gene fusion - Spanning read
+
 a paired-end read that matches across the fusion site to two fusion genes, respectively, such as the pair of reads matching to Gene A (blue) and Gene B (green) in Figure B above.
 
 ## Gene fusion - Split read
+
 A read that matches exactly to the fusion site, as shown in the right panel in Figure B above.
 
 ## Genotype phasing
+
 Phasing is the process of inferring haplotypes from genotype data. This information is often important for understanding gene expression patterns for genetic disease research. The popular NGS sequencing technology is to mix the sequences together, and after sequencing, we cannot directly distinguish which of these sequences is the parental source and which is the maternal source. We usually only detect which variants are present in the genome and the base composition of these variants (pure and heterozygous), which is usually referred to as genotype. This distinction can only be achieved with Phasing.
 
 <div align=center>
@@ -242,27 +253,34 @@ A genetic change in a germ cell (egg or sperm) that becomes the DNA of each cell
 The GridION Mk1 provides users with five sequencing ports where MinION flow cells or Flongle adapters with flow cells can be connected, as well as a high performance integrated computer and basecalling accelerator. The device can basecall, in real-time, the data generated by five flow cells/Flongles. The current chemistry and software enables generation of up to 150 Gbases of data during a GridION Mk1 run. Up to 250 Gb (all 5 flow cells sequencing).
 
 ## Homopolymer
+
 Homopolymer, e.g. A-A-A-A-A-A-A-A-A-A-A, simple repetition
 
 ## Human genome assembly - b37
+
 The Broad Institute created a human genome reference file based on GRCh37. When people at The Broad Institute's Genomics Platform refer to the hg19 reference, they are actually referring to b37.
 
 ## Human genome assembly - GRCh37
+
 GRCh37 is the Genome Reference Consortium Human genome build 37. As of May 7, 2014 it has been replaced with GRCh38 as the standard reference assembly sequence used by NCBI. Unlike other sequences, GRCh37 is not from one individual's genome sequence, but is built from reference sequences of different individuals. In essence: GRCh37 is identical to hg19 on the main contigs (chr1-24), but differ on chrM.
 
 ## Human genome assembly - GRCh38
+
 GRCh38 is an improved representation of the human genome compared to GRCh37, where many gaps were closed, sequencing errors corrected and centromere sequences modelled. For the state-of-the-art of the human genome and its annotation, go to GRCh38.
 
 ## Human genome assembly - hg19
+
 There are a few minor differences between GRCh37 and hg19. The contig sequences are the same but the names are different, i.e. "1" may need to be converted to "chr1". In addition UCSC hg19 is currenly using the old mitochondrial sequence but NCBI and Ensembl have transitioned to NC_012920.
 
 ## Human genome assembly - hg38
 The same with GRCh38.
 
 ## Human genome assembly - hs37d5
+
 hs37d5 (known also as b37 + decoy) was released by The 1000 Genomes Project (Phase II), which introduced additional sequence (BAC/fosmid clones, HuRef contigs, Epstein-Barr Virus genome) to the b37 reference to help reduce false positives for mapping. Note that this one uses the primary assembly of GRCh37.
 
 ## Illumina adapter portfolio
+
 The first step of sequencing is to construct a library from DNA or RNA. A library contains DNA inserts flanked on each side by an adapter, as shown below:
 
 <div align=center>
@@ -287,6 +305,7 @@ An intergenic region is a stretch of DNA sequences located between genes. Interg
 </div>
 
 ## Intron retention 
+
 An overview of the intron retention (IR) mechanism: different isoforms can be produced from a single gene through AS. (A), Isoforms with introns fully spliced are sent out of the nucleus for translation. Intron-retaining isoforms (IRIs) can be generated through IR (no intron retention): (B), In most cases, the IRIs are degraded by the nonsense-mediated decay (NMD) pathway, the reason being that retained introns often contain premature termination codons (PTCs) that can trigger NMD (with intron retention): (C), In some cases, the IRIs are detained in the nucleus, and in response to stimuli these IRIs can undergo further splicing to remove the retained intron, before being exported out of nucleus for translation (with intron retention): (D), In the case of cytoplasmic splicing, IRIs are shuttled to the cytoplasm for preservation and may be subject to further splicing (with intron retention): (E), In yet another case, IRIs escape from the NMD pathway and are translated into protein isoforms, which, compared with normal protein isoforms, are often truncated and may lose domains; however, it could also be that the alternative protein isoforms include extra domains formed by the amino acid sequences translated from retained introns (with intron retention).  
 
 <div align=center>
@@ -294,9 +313,11 @@ An overview of the intron retention (IR) mechanism: different isoforms can be pr
 </div>
 
 ## Lambda control DNA  
+
 Lambda DNA is 48 kb long and serves as a good model system to evaluate the sequencing workflow. The DNA molecule of 48502 basepairs is linear and except for the extreme ends double-stranded. At each end the 5' strand overhangs the 3' strand by 12 bases. The sequences of the ends are complementary.
 
 ## Linear Amplification via Transposon Insertion (LIANTI)  
+
 A linear whole genome amplification (WGA) method.LIANTI achieved linear amplification of the whole genome for the first time, enabling more uniform and accurate amplification.  
 
 Genomic DNA is randomly fragmented and tagged by Tn5 transposon insertion containing T7 promoter sequence, and the resulting DNA fragments are linearly amplified into RNAs by T7 in vitro transcription. Following reverse transcription and second strand synthesis, double-stranded DNA amplicons are formed representing the linear amplification product of the original genomic DNA, which is suitable for DNA library preparation and sequencing.
@@ -353,9 +374,11 @@ Inverted chimera is characterized by the fact that the original sequence (A), af
 </div>
 
 ## Melanoma
+
 Melanoma, the most serious type of skin cancer, develops in the cells (melanocytes) that produce melanin — the pigment that gives your skin its color.
 
 ## MHC class I
+
 MHC class I molecules are expressed in all nucleated cells and also in platelets—in essence all cells but red blood cells. It presents epitopes to killer T cells, also called cytotoxic T lymphocytes (CTLs). A CTL expresses CD8 receptors, in addition to T-cell receptors (TCR)s. When a CTL's CD8 receptor docks to a MHC class I molecule, if the CTL's TCR fits the epitope within the MHC class I molecule, the CTL triggers the cell to undergo programmed cell death by apoptosis. Thus, MHC class I helps mediate cellular immunity, a primary means to address intracellular pathogens, such as viruses and some bacteria, including bacterial L forms, bacterial genus Mycoplasma, and bacterial genus Rickettsia. In humans, MHC class I comprises HLA-A, HLA-B, and HLA-C molecules.
 
 ## MinION
@@ -365,9 +388,11 @@ Similar to MinION Mk1C, but come without screen. Starter Packs from $1,000 inclu
 Nanopores read the length of DNA or RNA presented to them — from short to ultra-long (longest >4 Mb). Up to 50 Gb per MinION Flow Cell / 2.8 Gb per Flongle Flow Cell. Theoretical max output when system is run for 72 hours (or 16 hours for Flongle) at 420 bases / second. Outputs may vary according to library type, run conditions, etc. Starter Packs from $4,900, including consumables Compatible with Flongle Flow Cells for smaller tests and analyses. The starter pack includes six flow cells and 1 library kit. It is for filed-use and come with a screen.
 
 ## Multiple displacement amplification (MDA)  
+
 MDA offers much higher genome coverage than DOP-PCR. However, like DOP-PCR, MDA is an exponential amplification process. This results in sequence-dependent bias, causing overamplification in certain genomic regions and underamplification in other regions. However, such uneven bias of MDA is not reproducible along the genome from cell to cell, causing CNV measurements noisy and normalization ineffective. Nevertheless, MDA has been widely applied since its invention. <b> It is PCR-free, and under isothermal conditions, The DNA fragments are 50–100 kb long. </b>
 
-## Multiplex sequencing  
+## Multiplex sequencing 
+
 Allows large numbers of libraries to be pooled and sequenced simultaneously during a single run on Illumina instruments. Sample multiplexing is useful when targeting specific genomic regions or working with smaller genomes. Pooling samples exponentially increases the number of samples analyzed in a single run, without drastically increasing cost or time.
 
 With multiplex sequencing, individual "barcode" sequences are added to each DNA fragment during next-generation sequencing (NGS) library preparation so that each read can be identified and sorted before the final data analysis. These barcodes, or index adapters, can follow one of two major indexing strategies depending on your library prep kit and application.
@@ -380,6 +405,7 @@ Using nanopore sequencing, a single molecule of DNA or RNA can be sequenced with
 </div>
 
 ## Nanopore sequencing - duplex basecalling  
+
 Oxford Nanopore announced a new method, “Duplex”  which enables nanopore devices to sequence a template and complement strand of a single molecule of DNA, in succession, in order to achieve very high accuracy sequencing results.  This system can currently achieve modal accuracy trending towards Q30 for a single double stranded molecule of DNA.  The goal of Duplex experiments is to achieve a high proportion of instances where the complement follows the template strand through the nanopore and gives the system ‘two looks at the same sequence pairs’.
 
 ## Nanopore sequencing - Targeted sequencing - enrichment strategy - amplicon
@@ -391,6 +417,7 @@ Oxford Nanopore announced a new method, “Duplex”  which enables nanopore dev
 ## Nanopore sequencing - Targeted sequencing - enrichment strategy - adaptive sampling
 
 ## Nanopore sequencing - whole genome DNA sequencing kits  
+
 A wide range of library preparation kits are available to suit all whole genome sequencing requirements. Amplification-free kits allow direct, long-read sequencing of native DNA, eliminating the potential for PCR bias and allowing the detection of base modifications alongside nucleotide sequence. Amplification-based kits are also available, enabling whole genome sequencing from low input amounts or poor quality DNA (e.g. FFPE).
 
 <div align=center>
@@ -398,17 +425,21 @@ A wide range of library preparation kits are available to suit all whole genome 
 </div>
 
 ## Nanopore sequencing - whole genome DNA sequencing kits - Ligation Sequencing Kit - SQK-LSK109
+
 An old version of whole genome DNA sequencing kits. Recommend using our latest version: SQK-LSK114.
 
 ## Nanopore sequencing - whole genome DNA sequencing kits - Ligation Sequencing Kit - SQK-LSK110  
+
 Processing singleplex samples. $599.00. Utilise upstream processes such as size selection or whole genome amplification. ~60 minutes. Input requirement	1000 ng gDNA. No PCR. Shipped at 2–8°C. Long-term storage -20°C. The library preparation method is straightforward: DNA ends are repaired and dA-tailed using the NEBNext End Repair/dA-tailing module, and then sequencing adapters, supplied in the kit, are ligated onto the prepared ends.
 
 <b>The kit is optimised to generate maximum output and read length. The kit contains an updated sequencing adapter (Adapter Mix F, or AMX-F), which is designed to turn over significantly less fuel during a sequencing run compared to previous kit versions.</b> If your experiment requires long reads, it is recommended to start with full-length gDNA, and fragmentation/shearing is neither advised nor required. To determine purity, we suggest using the Nanodrop to measure the A260/280 and A260/230 ratios and we recommend that the sample should meet the following criteria: A260/280 = 1.8, A260/230 = 2.0-2.2. The Ligation Sequencing Kit is compatible with upstream whole genome amplification (for applications where under 1 ng of sample is available).
 
 ## Nanopore sequencing - whole genome DNA sequencing kits - Ligation Sequencing Kit - SQK-LSK112  
+
 Legacy product, no longer support.
 
 ## Nanopore sequencing - whole genome DNA sequencing kits - Ligation Sequencing Kit - SQK-LSK114  
+
 The kit is optimised to achieve sequencing accuracies of over 99% (Q20+) with high output on our latest nanopore: R10.4.1. Our flow cell priming and sequencing reagents have been reformulated to be compatible with this improved Kit 14 adapter and R10.4.1 nanopore.Kit 14 also includes previous updates such as the higher capture rate of DNA to enable lower flow cell loading amounts, and fuel fix technology, allowing users to run longer experiments without the need for fuel addition during the run. Users can either start with 1 μg of gDNA or 100-200 fmol of shorter-fragment input such as amplicons or cDNA. If your experiment requires long reads, it is recommended to start with full-length gDNA, and fragmentation/shearing is not advised. 
 
 ## Nanopore sequencing - whole genome DNA sequencing kits - Rapid Sequencing Kit - SQK-RAD004  
@@ -428,6 +459,7 @@ Recall (or True Positive Rate) is calculated by dividing the true positives by a
 Recall and Sensitivity are one and the same.
 
 # Primary template-directed amplification (PTA)
+
 An isothermal WGA method that reproducibly captures >95% of the genomes of single cells in a more uniform and accurate manner than existing approaches, resulting in significantly improved variant calling sensitivity and precision.
 
 1. PTA reads are short (they are generated intentionally to avoid uneven amplification) and PTA is not compatible with long-read sequencing.  
@@ -444,6 +476,7 @@ Up to 580 Gb (both flow cells sequencing). 290 Gb per flow cell. PromethION 2 So
 Up to 7,000 Gb (P24) or 14,000 Gb (P48) (all 24 or 48 flow cells sequencing respectively). 290 Gb per flow cell.
 
 ## Promoter
+
 A promoter, as related to genomics, is a region of DNA upstream of a gene where relevant proteins (such as RNA polymerase and transcription factors) bind to initiate transcription of that gene. The resulting transcription produces an RNA molecule (such as mRNA).
 
 <div align=center>
@@ -451,12 +484,15 @@ A promoter, as related to genomics, is a region of DNA upstream of a gene where 
 </div>
 
 ## REPLI-g Single Cell Kit
+
 Yields up to 40 µg/reaction, average product length >10 kb.
 
 ## REPLI-g Advanced DNA Single Cell Kit
+
 Yield from a single cell is 25–35 µg of amplified DNA. Saves at least 1 hour of time versus the first-generation REPLI-g Single Cell Kit (cat. nos. 150343 and 150345).
 
 ## REPLI-g UltraFast Mini Kit
+
 Resulting in typical DNA yields of 7 μg per 20 μl reaction. Sufficient product is available for downstream genetic analysis after just 45 minutes. Input, 10 ng DNA, 0.5 µl whole blood, ~300 cells/µl.
 
 ## SAM (file format)
@@ -573,6 +609,7 @@ XS:A:+, XS:A- -XS to indicate the genomic strand that produced the RNA from whic
 SA: BWA uses SA tag for marking chimeric reads. 
 
 ## SA tag in SAM file
+
 After aligning with bwa mem, chimeric reads will have an SA tag. Their format is: SA:Z:(rname ,pos ,strand ,CIGAR ,mapQ ,NM ;)
 Each element in the list represents a part of the chimeric alignment. Conventionally, at a supplementary line, the first element points to the primary line. Strand is either ‘+’ or ‘-’, indicating forward/reverse strand, corresponding to FLAG bit 0x10. Pos is a 1-based coordinate.
 
@@ -605,6 +642,7 @@ leverages the template-switching capability of certain reverse transcriptases (R
         
 .
 ## SMART (Switching Mechanism at the 5′ end of RNA Template) seq 2
+
 Conventional cDNA construction methods usually result in an underrepresentation of the 5’ ends of cDNA.
 
 1 - Single cell sorting: Smart-seq uses flow cytometry for cell sorting, with a maximum throughput of 96 cells at a time.
@@ -637,11 +675,13 @@ Conventional cDNA construction methods usually result in an underrepresentation 
 A SNV can be rare in one population but common in a different population. Sometimes SNVs are known as single nucleotide polymorphisms (SNPs), although SNV and SNPs are not interchangeable. To qualify as a SNP, the variant must be present in at least 1% of the population.
 
 ## Soft clipping and hard clipping
+
 About soft clipping and hard clipping, it means that when query matching, some sequences are not matched completely, but soft clipping will keep the unmatched part afterwards, and hard clipping can remove the matched part completely. For example, when there is only part of the fragment is compared to the reference sequence when comparing. The difference is that a Soft Clip will eventually retain the corresponding sequence in the sequence that follows, while a Hard Clip will delete the fragment directly in the sequence that follows. BWA-MEM uses soft clipping CIGAR operation for supplementary alignments. By default, BWA-MEM uses soft clipping for the primary alignment and hard clipping for supplementary alignments.
 
 Hard Clip exists with the intention of reducing the redundancy of BAM file sequences, for example, there is a read which can be compared to two places A, B. In place A, it is 60M90S, and in place B it is 60H90M, at this time a read actually already has the complete sequence information in position A, and the information in position B is actually redundant. So a marker form like Hard Clip can be introduced at location B, and it will be able to mark the sequence at location B as secondary.
 
 ## Splicing junctions
+
 Key to defining the complexity of alternative splicing within a gene is the identification of splice junctions (SJs), which occur at exon-exon boundaries and are typically characterized in pairs representing both the donor site (5’ intron boundary to 3’ upstream exon boundary) and acceptor site (3’ intron boundary to 5’ downstream exon boundary).
 
 ## Sticky ends
@@ -651,22 +691,92 @@ One strand is longer than the other (typically by at least a few nucleotides), s
 Genomic structural variation is the variation in structure of an organisms chromosome. It consists of many kinds of variation in the genome of one species, and usually includes microscopic and submicroscopic types, such as deletions, duplications, copy-number variants, insertions, inversions and translocations. Originally, a structure variation affects a sequence length about 1kb to 3Mb, which is larger than SNPs and smaller than chromosome abnormality (though the definitions have some overlap). However, the operational range of structural variants has widened to include events > 50bp.The definition of structural variation does not imply anything about frequency or phenotypical effects. Many structural variants are associated with genetic diseases, however many are not.Recent research about SVs indicates that SVs are more difficult to detect than SNPs.
 
 ## Structural variation - Inversion
+
 Why are inversions defined as the reverse complement and not just the reverse of the reference? If an inversion were just reversed then there would be 3' -> 3' bonds and 5' -> 5' bonds. That's why inversions are reverse complemented, you then maintain the normal 5'->3' direction.
 
 ## Structural variation - Novel sequence insertion
+
 An insertion the sequence of which cannot be mapped to the reference genome.
 
+## Structural variation - SURVIVIOR software merge translocation
+
+Here is a translocation result from SVIM:
+
+chr1	876903	svim.BND.3	N	[chr20:29368734[N	6	PASS	SVTYPE=BND;SUPPORT=5;STD_POS1=.;STD_POS2=.	GT:DP:AD	./.:.:.,.
+
+Here is a translocation result from pbsv:
+
+chr1	876903	pbsv.BND.chr1:876903-chr20:29368734	G	[chr20:29368734[G	.	PASS	SVTYPE=BND;CIPOS=0,0;MATEID=pbsv.BND.chr20:29368734-chr1:876903	GT:AD:DP	0/1:30,8:38
+
+Here is merged result from SURVIVOR:
+
+chr1	876903	svim.BND.3	N	N[chr20:29368734[	6	PASS	SUPP=2;SUPP_VEC=11;SVLEN=0;SVTYPE=TRA;SVMETHOD=SURVIVOR1.0.7;CHR2=chr20;END=29368734;CIPOS=0,0;CIEND=0,0;STRANDS=++	GT:PSV:LN:DR:ST:QV:TY:ID:RAL:AAL:CO	0/1:NA:28491831:0,0:++:.:TRA:pbsv.BND.chr1_876903-chr20_29368734:NA:NA:chr1_876903-chr20_29368734	./.:NA:28491831:0,0:++:6:TRA:svim.BND.3:NA:NA:chr1_876903-chr20_29368734
+
+Here is a detailed explanation of each field in the merged VCF line:
+
+1. chr1: This is the name of the chromosome on which the variant is located. In this case, the variant is located on chromosome 1.
+2. 876903: This is the position of the variant on the chromosome, in base pairs. In this case, the variant is located at position 876903 on chromosome 1.
+3. svim.BND.3: This is the ID of the variant as called by the SVIM software. It is a breakend variant with ID 3.
+4. N: This is the reference allele at the position of the variant on chromosome 1.
+5. N[chr20:29368734[G: This is the alternate allele at the position of the variant on chromosome 1. It indicates that the variant involves a breakend on chromosome 1 and a breakpoint on chromosome 20 at position 29368734.
+6. 6: This is the quality score of the variant.
+7. PASS: This field indicates whether the variant passed filtering. In this case, the variant passed filtering.
+8. SUPP=2;SUPP_VEC=11;SVLEN=0;SVTYPE=TRA;SVMETHOD=SURVIVOR1.0.7;CHR2=chr20;END=29368734;CIPOS=0,0;CIEND=0,0;STRANDS=++: This field contains additional information about the variant. The SUPP field indicates the number of supporting reads for the variant. The SUPP_VEC field indicates the number of supporting read pairs.
+9. The SVLEN field indicates the length of the variant, in base pairs. In this case, the value is 0, which indicates that the variant is 0 base pairs in length.
+10. The SVTYPE field indicates the type of structural variant. In this case, the value is TRA, which indicates that the variant is a translocation.
+11. The SVMETHOD field indicates the software that was used to call the variant. In this case, the value is SURVIVOR1.0.7, which indicates that the variant was called using the SURVIVOR software.
+12. The CHR2 field indicates the second chromosome involved in the variant, if applicable. In this case, the value is chr20, which indicates that chromosome 20 is also involved in the variant.
+13. The END field indicates the end position of the variant on the chromosome. In this case, the value is 29368734, which indicates that the variant ends at position 29368734 on chromosome 20.
+14. The CIPOS and CIEND fields indicate the confidence intervals for the start and end positions of the variant, respectively. In this case, the values are 0,0, which indicates that the confidence intervals for the start and end positions are 0 base pairs.
+15. The STRANDS field indicates the strands on which the variant was observed. In this case, the value is ++, which indicates that the variant was observed on both strands.
+
+GT:PSV:LN:DR:ST:QV:TY:ID:RAL:AAL:CO	0/1:NA:28491831:0,0:++:.:TRA:pbsv.BND.chr1_876903-chr20_29368734:NA:NA:chr1_876903-chr20_29368734	./.:NA:28491831:0,0:++:6:TRA:svim.BND.3:NA:NA:chr1_876903-chr20_29368734
+
+the explanation for the genotype, phase set, and other information for the two samples:
+
+For the first sample:
+
++ The ID field indicates the ID of the variant. In this case, the value is pbsv.BND.chr1_876903-chr20_29368734, which is the ID of the variant as called by the PBSV software.
++ The RAL field indicates the reference alleles of the variant. In this case, the value is NA, which indicates that the reference alleles are not available.
++ The AAL field indicates the alternate alleles of the variant. In this case, the value is NA, which indicates that the alternate alleles are not available.
++ The CO field indicates the components of the variant. In this case, the value is chr1_876903-chr20_29368734, which indicates that the variant is a breakend involving chromosome 1 and chromosome 20 and spanning from position 876903 on chromosome 1 to position 29368734 on chromosome 20.
+
+For the second sample:
+
++ The GT field indicates the genotype of the sample. In this case, the value is ./, which indicates that the genotype of the sample is missing.
++ The PSV field indicates the phase set of the sample. In this case, the value is NA, which indicates that the phase set is not available.
++ The LN field indicates the length of the variant. In this case, the value is 28491831, which indicates that the variant is 28491831 base pairs in length.
++ The DR field indicates the number of supporting reads for the variant. In this case, the value is 0,0, which indicates that there are no supporting reads for the variant.
++ The ST field indicates the strands on which the variant was observed. In this case, the value is ++, which indicates that the variant was observed on both strands.
+The QV field indicates the quality score of the variant. In this case, the value is 6, which is the quality score of the variant as called by the SVIM software.
++ The TY field indicates the type of variant. In this case, the value is TRA, which indicates that the variant is a translocation.
++ The ID field indicates the ID of the variant. In this case, the value is svim.BND.3, which is the ID of the variant as called by the SVIM software.
++ The RAL field indicates the reference alleles of the variant. In this case, the value is NA, which indicates that the reference alleles are not available.
++ The AAL field indicates the alternate alleles of the variant. In this case, the value is NA, which indicates that the alternate alleles are not available.
++ The CO field indicates the components of the variant. In this case, the value is chr1_876903-chr20_29368734, which indicates that the variant is a breakend involving chromosome 1 and chromosome 20 and spanning from position 876903 on chromosome 1 to position 29368734 on chromosome 20.
+
+when performing statistical analyses of structural variants, it is generally best to consider each breakend variant as a separate event, in order to preserve the maximum amount of information about the individual variants. 
+
+## Structural variation detection algorithm
+
+<div align=center>
+<img src="imgs/SV_algo.jpeg">
+</div
+
 ## Supplementary Alignment
+
 This is the SA tag. A chimeric reads but not a representative reads. 
 
 ## T7 promoter and T7 RNA polymerase  
+
 T7 is a promoter (T7 promoter), a strong promoter from T7 phage that can specifically respond to T7 RNA polymerase, and is a sequence that initiates transcription of the T7 phage gene.  
 
 T7 RNA polymerase is highly promoter specific and only transcribes DNA or DNA copies downstream of the T7 promoter in T7 phages. t7 RNA polymerase selectively activates transcription of the T7 phage promoter and synthesizes mRNA at a rate about 5 times faster than that of the common E. coli RNA polymerase.  
 
 In vitro transcription using T7 bacteriophage polymerase is widely used in molecular biology. T7 RNA polymerase is very selective and efficient, resulting both in a high frequency of transcription initiation and effective elongation. These features result in an RNA elongation that is approximately five-fold faster than for E. coli RNA polymerase. 
 
-## Tn5 transposon  
+## Tn5 transposon 
+
 Tn5 transposons were discovered in <i>Escherichia coli</i> and consist of a core sequence encoding three antibiotics (neomycin, bleomycin, and streptomycin) and two inverted IS50 sequences, IS50L and IS50R, which encode a Tn5 transposase (Tnp). IS50 has two pairs of 19-bp inverted ends that are outside ends (OEs) and inside ends (IEs). These inverted OEs are target sites of Tn5 transposase. When transposition occurs, transposases bind to the OEs of the Tn5 transposon, forming Tnp-OE complexes and then the two complexes join together. The C-terminus of Tnp interacts and dimerizes to form a synaptic complex that has the ability to cleave DNA. Tnps that bind to the right and left ends are responsible for catalyzing the hydrolysis of the phosphodiester bond at the left and right ends, respectively. Tnp activates water molecules that hydrolyze the DNA strand and forms a 3′-OH nucleophilic group at the 5′ ends of transposons, which in turn attacks the complementary strand to form a hairpin structure. Finally, the synaptic complex captures target DNA and finishes the strand transfer by nucleophilic attack on both strands of the target DNA with 3’ OH groups of the Tn5 transposon.
 
 Outside end（OE）sequences composed of 19 bases that are recognized by Tnp and involved in the transposition of the entire Tn5.
