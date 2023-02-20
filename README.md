@@ -451,6 +451,25 @@ Another name, NEBNext Quick T4 DNA Ligase. This module is also compatible with s
 ## P5 and P7 adaptors
 Regardless of the library construction method, submitted libraries will consist of a sequence of interest flanked on either side by adapter constructs. On each end, these adapter constructs have flow cell binding sites, P5 and P7, which allow the library fragment to attach to the flow cell surface. All Paired-End Format sequencing on the HiSeq and All sequencing of any type on the MiSeq MUST HAVE FULL-LENGTH P5 and P7 sequences . (some of the small RNA libraries and alternative genomic library constructions use a partial P7, this is not supported by the HiSeq PE and MiSeq.)
 
+# Percent spliced in (PSI) for short reads
+The percent spliced in index (PSI) indicates the efficiency of splicing a specific exon into the transcript population of a gene. It shows the frequency/degree of a specific alternative splicing event. It is calculated by IR/(IR + ER)%, where IR is inclusion reads, ER is exclusion reads. IR means reads that support the event. ER means reads that do not support the event.
+
+However, without normalization, the PSI of long exons would always approximate 100%. We need to normalize them by dividing the possible mapping length of a certian reads. For short reads NGS, the read length is fixed, like 100 bp, 150 bp.
+
+So normalized IR = IR/(exon length + (read length -1)), normalized ER = ER/(read length -1).
+
+How to understand this? For a certain read, the possible mapping read range is the exon length + read length - 1. The read can be mapped to either the upstream or downstream of the exon. For ER, the maximum range is the read length - 1. It has nothing to do with the exon length.
+
+The traditional PSI can not be calculated for long read sequencing, since the read length is not fixed. You can calulate just the number of IR and ER without normalization. This may not be that strict, but it can work.
+
+<div align=center>
+<img src="/Computational-Medicine-and-Bioinformatics-Terminology-Database/imgs/PSI1.png">
+</div>
+
+<div align=center>
+<img src="/Computational-Medicine-and-Bioinformatics-Terminology-Database/imgs/PSI2.png">
+</div>
+
 ## Precision and Recall (Sensitivity)
 Precision is calculated by dividing the true positives by anything that was predicted as a positive. 
 
