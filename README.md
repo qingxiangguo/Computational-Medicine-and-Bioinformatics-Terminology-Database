@@ -463,11 +463,11 @@ How to understand this? For a certain read, the possible mapping read range is t
 The traditional PSI can not be calculated for long read sequencing, since the read length is not fixed. You can calulate just the number of IR and ER without normalization. This may not be that strict, but it can work.
 
 <div align=center>
-<img src="/Computational-Medicine-and-Bioinformatics-Terminology-Database/imgs/PSI1.png">
+<img src="imgs/PSI1.png">
 </div>
 
 <div align=center>
-<img src="/Computational-Medicine-and-Bioinformatics-Terminology-Database/imgs/PSI2.png">
+<img src="imgs/PSI2.png">
 </div>
 
 ## Precision and Recall (Sensitivity)
