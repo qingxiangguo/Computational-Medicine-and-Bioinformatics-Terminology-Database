@@ -460,7 +460,7 @@ So normalized IR = IR/(exon length + (read length -1)), normalized ER = ER/(read
 
 How to understand this? For a certain read, the possible mapping read range is the exon length + read length - 1. The read can be mapped to either the upstream or downstream of the exon. For ER, the maximum range is the read length - 1. It has nothing to do with the exon length.
 
-The traditional PSI can not be calculated for long read sequencing, since the read length is not fixed. You can calulate just the number of IR and ER without normalization. This may not be that strict, but it can work.
+<b>The traditional PSI can not be calculated for long read sequencing</b>, since the read length is not fixed. You can calulate just the number of IR and ER without normalization. This may not be that strict, but it can work.
 
 <div align=center>
 <img src="imgs/PSI1.png">
