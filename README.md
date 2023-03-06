@@ -357,10 +357,12 @@ Genomic DNA is randomly fragmented and tagged by Tn5 transposon insertion contai
 ## LNCaP cells
 LNCaP cells are a cell line of human cells commonly used in the field of oncology. LNCaP cells are androgen-sensitive human prostate adenocarcinoma cells derived from the left supraclavicular lymph node metastasis from a 50-year-old caucasian male in 1977. They are adherent epithelial cells growing in aggregates and as single cells.
 
-## Multiple Annealing and Looping Based Amplification Cycles (MALBAC)  
+## (MALBAC) Multiple Annealing and Looping Based Amplification Cycles
+
 A quasilinear whole genome amplification method. Unlike conventional DNA amplification methods that are non-linear or exponential (in each cycle, DNA copied can serve as template for subsequent cycles), MALBAC utilizes special primers that allow amplicons to have complementary ends and therefore to loop, preventing DNA from being copied exponentially. This results in amplification of only the original genomic DNA and therefore reduces amplification bias.The key to MALBAC is to not make copies of copies, and instead make copies only of the original genomic DNA by protecting the amplification products. MALBAC uses a thermally stable DNA polymerase with strand displacement activity. This important preamplification stage is then followed by exponential amplification of the full amplicons by PCR, generating the amount of DNA required for next-generation sequencing. MALBAC’s sequence-dependent bias is reproducible along the genome from cell to cell. Therefore, signal normalization for CNV noise reduction can be carried out. As shown below, after signal normalization with a reference cell, MALBAC offers the best CNV accuracy.
 
 ## MDA - inverted chimera
+
 The displaced 3'-terminus would be free to reanneal, preferentially at randomly occurring complementary segments on nearby 5'-strands. The outcome will be the joining of two sequences in inverted orientation. The finding that 85% of chimeras had this inverted form supports this as the likely mechanism. The chimeric junctions also reveal the site where the displaced 3'-end annealed to the second template and continued elongation. In the example , from one of the sequenced chimeric junctions, priming was initiated on the new template where the sequence on the 3'-end had annealed to the sequence on the 5'-strand. In 76.8% of cases, the 3'-ends initiated priming at complimentary sequences of ≥ 2 bp on the new templates. These ranged up to 21 base pairs of complimentarity (Fig 4). The complimentarity occurred in 93.5% and 90.9% of cases for inverted and directly joined segments, respectively, when <10 kb apart, but only 34.8% and 27.6%, respectively, when >10 kb apart.
 
 Inverted chimera is characterized by the fact that the original sequence (A), after a small sequence (green, usually 3-31bp), the new sequence is an inverted sequence (B) at another position. This inverted sequence is compared to the negative strand of the genome. The sequence that corresponds to the positive strand is the reverse complementary sequence of B, and a small segment of sequence downstream of this new reverse complementary sequence in plus strand (towards the 3 end of the genome) should be reverse complementary to a segment of the original sequence (A). The segment is taken at breakingpoint forward (toward the 5 end of the genome).
@@ -381,10 +383,24 @@ Melanoma, the most serious type of skin cancer, develops in the cells (melanocyt
 
 MHC class I molecules are expressed in all nucleated cells and also in platelets—in essence all cells but red blood cells. It presents epitopes to killer T cells, also called cytotoxic T lymphocytes (CTLs). A CTL expresses CD8 receptors, in addition to T-cell receptors (TCR)s. When a CTL's CD8 receptor docks to a MHC class I molecule, if the CTL's TCR fits the epitope within the MHC class I molecule, the CTL triggers the cell to undergo programmed cell death by apoptosis. Thus, MHC class I helps mediate cellular immunity, a primary means to address intracellular pathogens, such as viruses and some bacteria, including bacterial L forms, bacterial genus Mycoplasma, and bacterial genus Rickettsia. In humans, MHC class I comprises HLA-A, HLA-B, and HLA-C molecules.
 
+## Microhomology in structural variations
+
+Besides the micro-insertions, short stretches (usually 2–6 nucleotides) of identical sequence, known as overlapping microhomology31, were frequently spotted at SV breakpoint junctions.
+
+<div align=center>
+<img src="imgs/micro.png">
+</div>
+
+## Micro-insertion in structural variantions
+
+Micro-insertions refer to the addition of small segments of DNA (usually less than 500 bp in length) at the breakpoints of structural variations (SVs) in the genome. These inserted sequences are often non-aligned, meaning that they do not match up with the reference genome, and are frequently novel with no homology to known sequences. Micro-insertions are thought to be the result of non-templated DNA synthesis at the rearrangement junctions during the repair of DNA double-strand breaks through the non-homologous end-joining (NHEJ) mechanism.
+
 ## MinION
+
 Similar to MinION Mk1C, but come without screen. Starter Packs from $1,000 including 1 flow cell andd 1 kit. The enhanced has 4 flow cells and 1 kit with $3,250.
 
 ## MinION Mk1C
+
 Nanopores read the length of DNA or RNA presented to them — from short to ultra-long (longest >4 Mb). Up to 50 Gb per MinION Flow Cell / 2.8 Gb per Flongle Flow Cell. Theoretical max output when system is run for 72 hours (or 16 hours for Flongle) at 420 bases / second. Outputs may vary according to library type, run conditions, etc. Starter Packs from $4,900, including consumables Compatible with Flongle Flow Cells for smaller tests and analyses. The starter pack includes six flow cells and 1 library kit. It is for filed-use and come with a screen.
 
 ## Multiple displacement amplification (MDA)  
