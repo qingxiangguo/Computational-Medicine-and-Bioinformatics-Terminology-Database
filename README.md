@@ -14,6 +14,38 @@ In the database, I provide a list of commonly used computational medicine and bi
 ## Allelic balance
 The proportion of reads covering a variant’s location that support the variant. For example, if a variant’s location is covered by 100 reads, of which 25 support the variant and 75 do not, then the variant would have an allelic balance of 25/100 = 0.25.
 
+## ATAC-seq (Assay for Transposase-Accessible Chromatin using sequencing)
+
+It is a powerful technique for profiling chromatin accessibility and identifying regions of open chromatin in the genome.
+
+ATAC-seq works by using a hyperactive Tn5 transposase enzyme to tag regions of open chromatin with sequencing adapters. The transposase inserts sequencing adapters into the chromatin accessible regions, which can then be PCR-amplified and sequenced using next-generation sequencing technology.
+
+The resulting sequence data can be used to identify regions of open chromatin and to map transcription factor binding sites, enhancers, promoters, and other regulatory elements. By comparing ATAC-seq data from different cell types or under different conditions, researchers can gain insights into the regulation of gene expression and cellular differentiation.
+
+So what are the common chromatin open regions?
+
+The common chromatin open regions are mainly the promoter upstream of the gene and the distal regulatory elements such as enhancers and silencers. The promoter is the DNA region near the transcription start site (TSS), which contains the transcription factor binding site (TFBS), so the transcription factor can bind to the TFBS on the promoter and recruit RNA polymerase to transcribe the gene. The TSS contains a transcription factor binding site (TFBS), so the transcription factor can bind to the TFBS on the promoter and recruit RNA polymerase to transcribe genes. Enhancers are generally located in the 1 Mb DNA region downstream or upstream of the promoter, and when transcription factors bind to enhancers and make contact with the promoter region, they can promote gene transcription. Conversely, silencers reduce or repress the expression of genes.
+
+<div align=center>
+<img src="imgs/promoter3.png">
+</div>
+
+Therefore, ATAC-seq can help identify promoter regions, potential enhancers or silencers, that is, the peaks in ATAC-seq, are often sites where promoters, enhancer sequences, and some trans-regulators bind.
+
+Isn't the body of that gene a chromatin open region? Yes ~ but the chromatin opening in the body region of a gene is not stable; when transcription is performed, the body region is transcribed with each step forward, after opening, and quickly returns to its original state after transcription.
+
+So let's summarize, what can ATAC-seq be used for in the end?
+
+1. Identification of important transcription factors: According to the principle, the chromatin open region captured by ATAC is generally upstream and downstream of the part of the DNA sequence being transcribed, so that we can combine the enriched sequences with motif analysis to identify which transcription factors are involved in the regulation of gene expression. (particularly effective for transcription factors with poor antibody quality)
+
+2. Generate features of transcription factor binding regions (footprinting): After a transcription factor binds to DNA, it occupies a space that prevents the transposase Tn5 enzyme from cutting in other nucleosome-free regions, which leaves a small region, called a footprint, in which reads drop abruptly from high coverage peaks. So ATAC-seq footprints can help us to see the state of transcription factors binding on the whole genome, and are mainly applied to study cellular reprogramming mechanisms, chromatin remodeling factors, domains of epigenetic modifications on diseases, T cell depletion, etc.
+
+3、Generate the epigenome map
+
+4、Get the corresponding accessibility regions in different tissues or under different conditions.
+
+5、Get the nucleosome location
+
 ## Avidin 
 Avidin is a protein derived from both avians and amphibians that shows considerable affinity for biotin, a co-factor that plays a role in multiple eukaryotic biological processes. Avidin and other biotin-binding proteins, including Streptavidin and NeutrAvidin protein, have the ability to bind up to four biotin molecules.
 
@@ -25,24 +57,41 @@ Avidin has a very high affinity for up to four biotin molecules and is stable an
 Avidin and other biotin-binding proteins, including Streptavidin and NeutrAvidin protein, have the ability to bind up to four biotin molecules. The Avidin-biotin complex is the strongest known non-covalent interaction (Kd = 10-15M) between a protein and ligand. The bond formation between biotin and Avidin is very rapid, and once formed, is unaffected by extremes of pH, temperature, organic solvents and other denaturing agents. These features of biotin and Avidin – features that are shared by Streptavidin and NeutrAvidin Protein – are useful for purifying or detecting proteins conjugated to either component of the interaction.
 
 ## Biotin
+
 Biotin is a vitamin (Vitamin H, Vitamin B7, Coenzyme R) that is present in small amounts in all living cells and is critical for a number of biological processes including cell growth and the citric acid cycle. The valeric acid side chain of the biotin molecule can be derivatized in order to incorporate various reactive groups that facilitate the addition of a biotin tag to other molecules.  Because biotin is relatively small (244.3 Daltons), it can be conjugated to many proteins and other molecules without significantly altering their biological activity. The highly specific interaction of biotin-binding proteins with biotin makes it a useful tool in assay systems designed to detect and target biological analytes.
 
 ## Blunt ends
+
 In blunt ends, both strands are of equal length – i.e. they end at the same base position, leaving no unpaired bases on either strand. 
 
 ## Blunt end ligation
+
 Usually, a straight cut creates blunt ends or non-overhanging ends. These ends can be joined using a DNA ligase enzyme. The joining of two blunt ends is called blunt end ligation. This does not need matching or complementary ends for ligation.
 
 ## Cancer immune Evasion through loss of MHC Class I antigen presentation
+
 Major histocompatibility class I (MHC I) molecules bind peptides derived from a cell's expressed genes and then transport and display this antigenic information on the cell surface. This allows CD8 T cells to identify pathological cells that are synthesizing abnormal proteins, such as cancers that are expressing mutated proteins. In order for many cancers to arise and progress, they need to evolve mechanisms to avoid elimination by CD8 T cells. MHC I molecules are not essential for cell survival and therefore one mechanism by which cancers can evade immune control is by losing MHC I antigen presentation machinery (APM). Not only will this impair the ability of natural immune responses to control cancers, but also frustrate immunotherapies that work by re-invigorating anti-tumor CD8 T cells, such as checkpoint blockade. 
 
 ## Castration-resistant prostate cancer (CRPC) 
+
 A form of advanced prostate cancer. With CRPC, the cancer no longer completely responds to treatments that lower testosterone. It shows signs of growth, like a rising PSA (prostate-specific antigen), even with low levels of testosterone.
 
+## cDNA second strand synthesis vs SMART-seq2
+
+Normal cDNA second strand sythesis is not a PCR process. But Takara smart-seq2 containing PCR of cDNA. The first strand cDNA synthesis is typically carried out using reverse transcription (RT) enzymes, which use a reverse transcriptase to synthesize cDNA from an RNA template. The resulting single-stranded cDNA is then converted to double-stranded cDNA through a second strand synthesis step that typically uses DNA polymerase and RNase H to remove the RNA template.
+
+Smart-seq2 is a modified RNA-Seq protocol that combines template switching with PCR amplification to generate high-quality, full-length cDNA libraries from single cells. In this protocol, after the reverse transcription step, a template switching oligonucleotide (TSO) is added to the reaction mixture. This TSO has a short poly-dT sequence at its 3' end, which hybridizes to the poly-A tail of the mRNA template. The TSO also has a non-templated sequence at its 5' end that serves as a template for a second strand synthesis, which is carried out by a reverse transcriptase.
+
+After the second strand synthesis, PCR amplification is carried out to amplify the cDNA libraries. The PCR step is designed to specifically amplify only full-length cDNAs, which helps to reduce bias and improve the quality of the final library. The amplified cDNA libraries can then be used for high-throughput sequencing.
+
+So while the second strand synthesis in Smart-seq2 does involve PCR amplification, it is not a standard cDNA second strand synthesis process.
+
 ## Checkpoint blockade immunotherapy
+
 Patients are treated with antibodies that block negative regulatory molecules, such as PD-1/PD-L1 or CTLA4, which normally restrain T cell responses. This kind of therapy can reinvigorate a patient's anti-tumor T cell responses, which then can cause tumors to shrink and even lead to cures in some patients
 
 ## Chimera rates in Whole Genome Amplification (WGA)  
+
 Defined as the number of reads that are improperly connected (including abnormal fragment size and interchromosomal connection) divided by the total number of mappable reads. Here are the chimera rates for some commercial kits: 
 
 the SigmaAldrich GenomePlex Single Cell Whole Genome Amplification Kit (DOP-PCR) 15%
@@ -74,12 +123,31 @@ Reads structure looks like this: ----R1--->--A--<--R1.rc--. This happens quite f
 --R->-J-<----R.rc-----   siameric read2
         <----R.rc-----   trimmed read2
 ```
+
 2. random fusion chimeras
+
 I’m not exactly sure, when or how this happens, but there is a fraction of reads, where random sequences seem to be fused together. Probably some blunt end ligations during library prep, or similar effect … This seems to happen quite rarely, and it is hard to quantify exactly, as there are other effects, that can cause reads to look like chimeras, although they aren’t.
 
 SMRT Bells are blunt end ligated to the DNA fragment being sequenced, sometimes a DNA fragment ligating to another DNA fragment before having a SMRT Bell adapter added. This would generate the classic chimera, a sequenced read being from two random parts of a genome. Note this is random and will not happen at exactly the same location more than once, so it is easily dealt with at the analysis stage. The "siamaeras" or missing adapter look like a sequence followed by the reverse complement of the sequence, and results from the SMRT Bell being missing/not-detected on one end of the insert i.e. you read a sequence forward then backwards without an adapter so the software does not know that the read needs to be split. This can happen due to sample prep - a long overhang forms a hairpin, mimicking a SMRT Bell, or less frequently due to a real SMRT bell being missed in software.
 
+## Chromatin
+
+Chromatin refers to the complex of DNA, RNA, and proteins that make up the chromosomes in eukaryotic cells. Chromatin is composed of nucleosomes and other proteins that interact with DNA and regulate its function. chromatin can contain RNA, although the amount and type of RNA can vary depending on the specific cell type, developmental stage, and physiological conditions.
+
+There are different types of RNA that can associate with chromatin, including messenger RNA (mRNA), long non-coding RNA (lncRNA), small nucleolar RNA (snoRNA), and others. These RNA molecules can interact with chromatin-associated proteins, including histones and other transcriptional regulators, to modulate gene expression and chromatin structure.
+
+It consists of genomic DNA together with all directly or indirectly associated protein and RNA molecules.
+
+## Chromatin accessibility
+
+Chromatin accessibility refers to the degree to which DNA is accessible to transcriptional machinery, such as RNA polymerase and other regulatory proteins. When the chromatin structure is open and accessible, transcription factors and other regulatory proteins can easily bind to specific DNA sequences and initiate gene expression. Conversely, when the chromatin structure is tightly packed and inaccessible, these proteins may not be able to access the DNA, and gene expression may be suppressed.
+
+<div align=center>
+<img src="imgs/chromatin_access.jpg">
+</div>
+
 ## Chromium X Series - 10x Genomics
+
 A commom strategy for single cell RNA library prep. The figure explains better. Please see below.
 <div align=center>
 <img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/1368b03b35308002fcf2890f0f2820a7e16312e4/imgs/10x1.png">
@@ -89,7 +157,12 @@ A commom strategy for single cell RNA library prep. The figure explains better. 
 <img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/1368b03b35308002fcf2890f0f2820a7e16312e4/imgs/10x2.png">
 </div>
 
+## Chromosome
+
+A chromosome is a linear strand of DNA that is compacted and organized by proteins, including histones, into a highly condensed structure. Chromosomes carry genetic information in the form of genes and are passed down from parent to offspring during cell division.
+
 ## Cis and trans regulation
+
 Let’s start by discussing the meaning of “cis” and “trans.” The term cis is derived from the Latin root “cis,” meaning “the same side as.” In contrast, the term trans comes from the Latin root “trans,” meaning “across from.” In molecular biology, a cis-acting (or cis-regulatory) element refers to a region of the chromosomal DNA that regulates the transcription or expression of a gene that is on the same chromosome. A trans-acting (or trans-regulatory) element, on the other hand, refers to a soluble protein that binds to the cis-acting element of a gene to control its expression. The gene that encodes the soluble trans-acting protein can reside on any chromosome, often located far away from the gene whose expression it regulates.
 
 Cis-acting elements are not part of the coding sequences of the gene they regulate: they may be near the promoter or the 5’ region of the gene, and in some cases they may be many kilobases downstream of the gene. In eukaryotes, enhancers are a common type of cis-acting element. As its name implies, an enhancer promotes gene expression when the appropriate trans-acting element(s) binds to it.
@@ -155,10 +228,22 @@ An enhancer is a short (50–1500 bp) region of DNA that can be bound by protein
 
 Here is an enhancer diagram. Within this DNA sequence, protein(s) known as transcription factor(s) bind to the enhancer and increases the activity of the promoter. 1. DNA 2. Enhancer 3. Promoter 4. Gene 5. Transcription Activator Protein 6. Mediator Protein 7. RNA Polymerase
 
+## Epigenome
+
+An epigenome consists of a record of the chemical changes to the DNA and histone proteins of an organism; these changes can be passed down to an organism's offspring via transgenerational stranded epigenetic inheritance. Changes to the epigenome can result in changes to the structure of chromatin and changes to the function of the genome.
+
+The epigenome refers to a collection of chemical modifications that occur on the DNA molecule and its associated proteins, which can alter gene expression without changing the underlying DNA sequence. These modifications include the addition or removal of small chemical tags, such as methyl groups, to the DNA molecule or its associated histone proteins, as well as the presence of non-coding RNA molecules. These modifications can influence the way that the DNA is packaged and accessed within the cell, allowing genes to be turned on or off in response to environmental and developmental cues.
+
+The epigenome can be inherited from one generation to the next. In some cases, the modifications to the epigenome that occur during an individual's lifetime can be passed on to their offspring through a process called epigenetic inheritance. This occurs when the modifications to the epigenome are present in the sperm or egg cells that will form the embryo.
+
+ATAC-seq and ChIP-seq are two methods used to study the epigenome.
+
 ## Epitope
+
 It is capable of stimulating an immune response. This is usually one to six monosaccharides or five to eight amino acid residues on the surface of the antigen. Each antigen typically has many epitopes. 
 
 ## Exitron
+
 Exitrons are exon-like introns located within protein-coding exons. Removal or retention of exitrons through alternative splicing increases proteome complexity and thus adds to phenotypic diversity.Exitrons are defined as introns within protein-coding exons that, when retained, maintain the protein-coding potential of the transcript. Marquez and colleagues argue that four features distinguish exitrons from other introns: high GC content, absence of stop codons, overrepresentation of a size corresponding to multiples of three nucleotides, and prevalence of synonymous substitutions (as usually observed for exonic sequences).
 
 Transcripts with exitrons in their sequences can be distinguished from those with retained introns in three ways. First, transcripts containing exitrons are transported out of the nucleus to be translated, whereas those containing introns are identified as incompletely processed and are kept in the nucleus where they cannot be translated. Second, only transcripts with exitrons of lengths not divisible by three have the potential to incorporate premature termination sequences, while sequences with introns normally result in premature termination. Third, exitron transcripts are usually the major isoform, but those with introns are only present in small amounts.
@@ -251,6 +336,14 @@ A genetic change in a germ cell (egg or sperm) that becomes the DNA of each cell
 
 ## GridION Mk1
 The GridION Mk1 provides users with five sequencing ports where MinION flow cells or Flongle adapters with flow cells can be connected, as well as a high performance integrated computer and basecalling accelerator. The device can basecall, in real-time, the data generated by five flow cells/Flongles. The current chemistry and software enables generation of up to 150 Gbases of data during a GridION Mk1 run. Up to 250 Gb (all 5 flow cells sequencing).
+
+## Histone proteins
+
+Histone proteins are a family of small, positively charged proteins that are rich in arginine and lysine residues. They are the major protein component of nucleosomes and are involved in the packaging of DNA into chromatin. There are five main types of histones: H1, H2A, H2B, H3, and H4.
+
+<div align=center>
+<img src="imgs/Histone.jpg">
+</div>
 
 ## Homopolymer
 
@@ -459,15 +552,27 @@ Legacy product, no longer support.
 The kit is optimised to achieve sequencing accuracies of over 99% (Q20+) with high output on our latest nanopore: R10.4.1. Our flow cell priming and sequencing reagents have been reformulated to be compatible with this improved Kit 14 adapter and R10.4.1 nanopore.Kit 14 also includes previous updates such as the higher capture rate of DNA to enable lower flow cell loading amounts, and fuel fix technology, allowing users to run longer experiments without the need for fuel addition during the run. Users can either start with 1 μg of gDNA or 100-200 fmol of shorter-fragment input such as amplicons or cDNA. If your experiment requires long reads, it is recommended to start with full-length gDNA, and fragmentation/shearing is not advised. 
 
 ## Nanopore sequencing - whole genome DNA sequencing kits - Rapid Sequencing Kit - SQK-RAD004  
+
 generates sequencing libraries from extracted gDNA in 10 minutes using a simple two-step protocol. At the heart of the kit is a transposase which simultaneously cleaves template molecules and attaches tags to the cleaved ends. Rapid Sequencing Adapters are then added to the tagged ends.  Input requirement 400 ng gDNA (<30 kb). No PCR. Shipped at 2–8°C. Long-term storage -20°C.  Due to the simple nature of the workflow and the fact that little sample manipulation is required (e.g. minimal pipetting steps and no clean-ups) some very long reads can be achieved with this kit, despite the required transposase fragmentation. However, in order for long reads to be observed in sequencing, long fragments need to be present in the sample in the first place. Typical throughput is lower than Ligation Sequencing Kit.
 
 ## NEBNext Quick Ligation Module (E6056)
+
 Another name, NEBNext Quick T4 DNA Ligase. This module is also compatible with some Oxford Nanopore Technologies workflows. 
 
+## Nucleosome
+
+ A nucleosome is the basic unit of chromatin structure and consists of a segment of DNA wrapped around a core of eight histone proteins (two copies of each of the histones H2A, H2B, H3, and H4). Nucleosomes compact DNA and help regulate access to the DNA by various proteins.
+
+ <div align=center>
+<img src="imgs/Chromosomes-are-made-of-DNA-histone-protein-complexes-Chromosomal-DNA-is-packaged.png">
+</div>
+
 ## P5 and P7 adaptors
+
 Regardless of the library construction method, submitted libraries will consist of a sequence of interest flanked on either side by adapter constructs. On each end, these adapter constructs have flow cell binding sites, P5 and P7, which allow the library fragment to attach to the flow cell surface. All Paired-End Format sequencing on the HiSeq and All sequencing of any type on the MiSeq MUST HAVE FULL-LENGTH P5 and P7 sequences . (some of the small RNA libraries and alternative genomic library constructions use a partial P7, this is not supported by the HiSeq PE and MiSeq.)
 
 # Percent spliced in (PSI) for short reads
+
 The percent spliced in index (PSI) indicates the efficiency of splicing a specific exon into the transcript population of a gene. It shows the frequency/degree of a specific alternative splicing event. It is calculated by IR/(IR + ER)%, where IR is inclusion reads, ER is exclusion reads. IR means reads that support the event. ER means reads that do not support the event.
 
 However, without normalization, the PSI of long exons would always approximate 100%. We need to normalize them by dividing the possible mapping length of a certian reads. For short reads NGS, the read length is fixed, like 100 bp, 150 bp.
@@ -487,6 +592,7 @@ How to understand this? For a certain read, the possible mapping read range is t
 </div>
 
 ## Precision and Recall (Sensitivity)
+
 Precision is calculated by dividing the true positives by anything that was predicted as a positive. 
 
 Recall (or True Positive Rate) is calculated by dividing the true positives by anything that should have been predicted as positive.
