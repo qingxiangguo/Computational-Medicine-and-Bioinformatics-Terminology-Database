@@ -181,7 +181,7 @@ A commom strategy for single cell RNA library prep. The figure explains better. 
 A detailed description of the whole library preparation workflow.
 
 <div align=center>
-<img src="/Computational-Medicine-and-Bioinformatics-Terminology-Database/imgs/10x-2.png">
+<img src="/imgs/10x-2.png">
 </div>
 
 10x Genomics technology is based on the partitioning of samples and reagents into droplets, each called a Gel
@@ -199,13 +199,13 @@ in Illumina bridge amplification and sequencing. Additionally, each fragment con
 cDNA insert sequence used in data analysis.
 
 <div align=center>
-<img src="/Computational-Medicine-and-Bioinformatics-Terminology-Database/imgs/10x-3.png">
+<img src="/imgs/10x-3.png">
 </div>
 
 What does the final seq looks like?
 
 <div align=center>
-<img src="/Computational-Medicine-and-Bioinformatics-Terminology-Database/imgs/10x-40.png">
+<img src="/imgs/10x-40.png">
 </div>
 
 
