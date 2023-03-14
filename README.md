@@ -176,6 +176,39 @@ A commom strategy for single cell RNA library prep. The figure explains better. 
 <img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/1368b03b35308002fcf2890f0f2820a7e16312e4/imgs/10x2.png">
 </div>
 
+## Chromium X Series - 10x Genomics single cell library construction
+
+A detailed description of the whole library preparation workflow.
+
+<div align=center>
+<img src="/Computational-Medicine-and-Bioinformatics-Terminology-Database/imgs/10x-2.png">
+</div>
+
+10x Genomics technology is based on the partitioning of samples and reagents into droplets, each called a Gel
+Bead in Emulsion (GEM). Once partitioned, the Gel Bead dissolves and its oligo primers are released into the
+aqueous environment of the GEM. The cell captured in the GEM is also lysed. The contents of the GEM (oligos,
+lysed cell components and Master Mix) are incubated in an RT reaction to generate full-length, barcoded cDNA
+from the poly A-tailed mRNA transcripts. The reverse transcription reaction is primed by the barcoded Gel Bead
+oligo and the reverse transcriptase incorporates the template switch oligo via a template switching reaction at
+the 5’ end of the transcript. The GEMs are then “broken”, pooling single-stranded, barcoded cDNA molecules
+from every cell. A bulk PCR-amplification and Enzymatic Fragmentation follow. Size selection is then used to
+optimize the insert size of the double-stranded cDNA prior to library construction. During library construction
+Read 2 is added by Adapter ligation. Illumina P5 and P7 sequences and sample index sequences are added
+during the Sample Index PCR. The final library fragments contain the P5, P7, Read 1 and Read 2 sequences used
+in Illumina bridge amplification and sequencing. Additionally, each fragment contains the 10x Barcode, UMI and
+cDNA insert sequence used in data analysis.
+
+<div align=center>
+<img src="/Computational-Medicine-and-Bioinformatics-Terminology-Database/imgs/10x-3.png">
+</div>
+
+What does the final seq looks like?
+
+<div align=center>
+<img src="/Computational-Medicine-and-Bioinformatics-Terminology-Database/imgs/10x-40.png">
+</div>
+
+
 ## Chromosome
 
 A chromosome is a linear strand of DNA that is compacted and organized by proteins, including histones, into a highly condensed structure. Chromosomes carry genetic information in the form of genes and are passed down from parent to offspring during cell division.
