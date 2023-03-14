@@ -106,13 +106,32 @@ the Rubicon Genomics PicoPLEX WGA Kit (MALBAC-like)  13%
 
 the Bioskryb PTA  About 15% to 7.5%
 
-## Chimeric reads 
+## Chimeric/split/supplementary reads
+
+They are the same thing.
+
 Chimeric reads occur when one sequencing read aligns to two distinct portions of the genome with little or no overlap. This could be like sequence A mapped to 85156-85257 bp of genome, while part of sequence A mapped to 85273-85320 bp of genome. Then, sequence A is a chimeric read. Chimeric reads are indicative of structural variation. Chimeric reads are also called split reads.
 
-An alignment of a read that cannot be represented as a linear alignment. A chimeric alignment is represented as a set of linear alignments that do not have large overlaps. Typically, one of the linear alignments in a chimeric alignment is considered the “representative” alignment, and the others are called “supplementary” and are distinguished by the supplementary alignment flag. All the SAM records in a chimeric alignment have the same QNAME
+An alignment of a read that cannot be represented as a linear alignment. A chimeric alignment is represented as a set of linear alignments that do not have large overlaps. Typically, one of the linear alignments in a chimeric alignment is considered the “representative” alignment, and the others are called “supplementary” and are distinguished by the supplementary alignment flag. All the SAM records in a chimeric alignment have the same QNAME.
+
+Split alignments, or chimeric alignments, are alignments where part of the read maps to one place, and another part to another. For example, part of a long read may map to chr1 and part of it maps to chr4.
+
+One record is marked as "representative", sometimes also called the "primary" record, while the other components of the split read are marked "supplementary", given the 2048 flag. The "primary" record generally has a SEQ field that represents the entirety of the original read's sequence (with CIGAR soft clipping operators saying which part of that sequence aligned), and the "supplementary alignments" will have SEQ field but sometimes just segments of the original read's sequence with CIGAR hard clipping operators indicating that it is partial.
+
+Supplementary alignments are especially common with long reads, and it can be a signal for structural variants e.g. where two chromosomes are fused together, and parts of the read align to multiple chromosomes, or the split alignment may align to either side of a large deletion, or they may be split to align through an inversion (part of it aligns to the forward strand, part of it to the reverse strand, and again the forward strand)
+
+There is no limitation on how many splits might occur so the split can align to 3, 4, or more different places. Each part of the split puts a new line in the SAM file, and note that all the records also have the same read name, or QNAME (first column of SAM).
+
+<div align=center>
+<img src="imgs/326013ae-35ce-4f20-8992-09c89110.png">
+</div>
+
+The figure is from: https://cmdcolin.github.io/posts/2022-02-06-sv-sam
 
 ## Chimeric read in PacBio
+
 PacBio generates two types of chimeric reads:
+
 1. unsplit subreads, i.e. siamaera
 Reads structure looks like this: ----R1--->--A--<--R1.rc--. This happens quite frequently, however, it strongly depends on chemistry and particularly the quality of the libary prep. For siamaera detection, Siamaeric reads usually are separated by short joint sequences (corrupted adapter). Detection is based on blasting and identifying reads with reverse complement self hits. Reads are trimmed to the longest non-chimaeric subsequence without joint sequence.
 
