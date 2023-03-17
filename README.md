@@ -510,6 +510,20 @@ A quasilinear whole genome amplification method. Unlike conventional DNA amplifi
 <img src="/imgs/malbac2.png">
 </div>
 
+## MAS-seq from Pacbio
+
+The MAS-Seq for 10x Single Cell 3’ kit takes as input single-cell cDNA and outputs a sequencing-ready library that results in a 16-fold throughput increase compared to regular single-cell Iso-Seq® libraries.
+
+However, MAS-Seq cannot detect RNA modifications.
+
+Regular 10x single-cell RNA sequencing does not directly detect RNA modifications. The standard protocol for 10x single-cell RNA sequencing uses oligo-dT primers to capture the poly-A tails of mRNA molecules, which are then reverse transcribed to generate cDNA libraries for sequencing. During this process, RNA modifications are not specifically labeled or detected, and therefore are not directly captured in the resulting sequencing data.
+
+Steps include: (1) PCR with biotin-primer and TSO primer, to label full length cDNA; (2) Beads pull down to remove TSO artifact; (3) another PCR to amplify; (4) Add adaptor.
+
+<div align=center>
+<img src="/imgs/mas-seq.png">
+</div>
+
 ## MDA - inverted chimera
 
 The displaced 3'-terminus would be free to reanneal, preferentially at randomly occurring complementary segments on nearby 5'-strands. The outcome will be the joining of two sequences in inverted orientation. The finding that 85% of chimeras had this inverted form supports this as the likely mechanism. The chimeric junctions also reveal the site where the displaced 3'-end annealed to the second template and continued elongation. In the example , from one of the sequenced chimeric junctions, priming was initiated on the new template where the sequence on the 3'-end had annealed to the sequence on the 5'-strand. In 76.8% of cases, the 3'-ends initiated priming at complimentary sequences of ≥ 2 bp on the new templates. These ranged up to 21 base pairs of complimentarity (Fig 4). The complimentarity occurred in 93.5% and 90.9% of cases for inverted and directly joined segments, respectively, when <10 kb apart, but only 34.8% and 27.6%, respectively, when >10 kb apart.
