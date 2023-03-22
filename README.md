@@ -33,13 +33,13 @@ The common chromatin open regions are mainly the promoter upstream of the gene a
 Workflow
 
 <div align=center>
-<img src="/Computational-Medicine-and-Bioinformatics-Terminology-Database/imgs/atac22.jpg">
+<img src="imgs/atac22.jpg">
 </div>
 
 Workflow
 
 <div align=center>
-<img src="/Computational-Medicine-and-Bioinformatics-Terminology-Database/imgs/atac33.png">
+<img src="imgs/atac33.png">
 </div>
 
 Therefore, ATAC-seq can help identify promoter regions, potential enhancers or silencers, that is, the peaks in ATAC-seq, are often sites where promoters, enhancer sequences, and some trans-regulators bind.
