@@ -869,6 +869,7 @@ The amplification will not remove the already-fixed methylation information.
 <img src="imgs/scNMT-seq.png">
 </div
 
+.
 ## Slippage during polymerase chain reaction amplification  
 
 Slippage during PCR, also known as replication slippage, is a form of mutation that causes trinucleotide or dinucleotide amplification and sometimes even contraction during DNA replication, resulting in tandem repeat sequences.
