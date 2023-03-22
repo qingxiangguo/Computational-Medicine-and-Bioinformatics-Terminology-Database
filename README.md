@@ -866,7 +866,7 @@ The main process of scNMT-seq can be summarized as follows:
 The amplification will not remove the already-fixed methylation information.
 
 <div align=center>
-<img src="/Computational-Medicine-and-Bioinformatics-Terminology-Database/imgs/scNMT-seq.png">
+<img src="imgs/scNMT-seq.png">
 </div
 
 ## Slippage during polymerase chain reaction amplification  
