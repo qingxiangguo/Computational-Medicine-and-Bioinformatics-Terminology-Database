@@ -30,6 +30,18 @@ The common chromatin open regions are mainly the promoter upstream of the gene a
 <img src="imgs/promoter3.png">
 </div>
 
+Workflow
+
+<div align=center>
+<img src="/Computational-Medicine-and-Bioinformatics-Terminology-Database/imgs/atac22.jpg">
+</div>
+
+Workflow
+
+<div align=center>
+<img src="/Computational-Medicine-and-Bioinformatics-Terminology-Database/imgs/atac33.png">
+</div>
+
 Therefore, ATAC-seq can help identify promoter regions, potential enhancers or silencers, that is, the peaks in ATAC-seq, are often sites where promoters, enhancer sequences, and some trans-regulators bind.
 
 Isn't the body of that gene a chromatin open region? Yes ~ but the chromatin opening in the body region of a gene is not stable; when transcription is performed, the body region is transcribed with each step forward, after opening, and quickly returns to its original state after transcription.
@@ -840,7 +852,25 @@ Sometimes it is hard to distinguish splicing and deletion, for a true deletion t
 </div
 
 .  
+
+## scNMT-seq (single-cell nucleosome, methylation and transcription sequencing)
+
+The main process of scNMT-seq can be summarized as follows:
+
+1. Cell collection and methyltransferase reaction: Cells are collected into a methyltransferase reaction mixture and incubated at 37°C for 15 minutes. The reaction is stopped, and RNA is preserved using RLT plus.
+
+2. scM&T-seq library preparation: mRNA is captured using Smart-seq2 oligo-dT, and the lysate containing gDNA is transferred to a separate PCR plate. Reverse transcription, PCR amplification, and cDNA purification are performed. Libraries are prepared using the Nextera XT Kit. In parallel, genomic DNA is purified and bisulfite-converted using the EZ Methylation Direct MagBead kit.
+
+3. First and second strand synthesis of converted DNA, and library amplification: The converted DNA undergoes first strand synthesis using klenow exo- enzyme and is purified using AMPure XP beads. The second strand synthesis is performed, and products are purified again. The final PCR amplification is carried out, and scBS-seq libraries are purified using AMPure XP beads before pooling and sequencing.
+
+The amplification will not remove the already-fixed methylation information.
+
+<div align=center>
+<img src="/Computational-Medicine-and-Bioinformatics-Terminology-Database/imgs/scNMT-seq.png">
+</div
+
 ## Slippage during polymerase chain reaction amplification  
+
 Slippage during PCR, also known as replication slippage, is a form of mutation that causes trinucleotide or dinucleotide amplification and sometimes even contraction during DNA replication, resulting in tandem repeat sequences.
 
 ## SMART (Switching Mechanism at the 5′ end of RNA Template) technology
