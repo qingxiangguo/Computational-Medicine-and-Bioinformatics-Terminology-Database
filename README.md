@@ -473,6 +473,28 @@ An overview of the intron retention (IR) mechanism: different isoforms can be pr
 
 Lambda DNA is 48 kb long and serves as a good model system to evaluate the sequencing workflow. The DNA molecule of 48502 basepairs is linear and except for the extreme ends double-stranded. At each end the 5' strand overhangs the 3' strand by 12 bases. The sequences of the ends are complementary.
 
+## Lentivirus transfection
+
+Three plasmid systems, PAX2, VSVG and shuttle plasmids (containing shRNA genes, or siRNA genes, or cDNA, or the CDS region of the target gene)
+
+Using shRNA as an example, the shuttle plasmid contains the DNA encoding the shRNA. shRNA formed by two structural proteins + shRNA genes at the time of viral packaging (this part acts as the lentiviral genome because lentiviruses are RNA viruses). The shRNA formed is packaged with the structural proteins to form the virus because of the packaging signal. The virus then enters the target cell and the shRNA is reverse transcribed into DNA, which is integrated into the host genome, and then transcribed into shRNA for expression, and the expressed shRNA produces siRNA, which represses the corresponding gene.
+
+As an example of common gene overexpression, the target gene DNA is added to the shuttle plasmid. The virus is packaged with two structural proteins + the RNA formed from the transcription of the target gene (this part acts as the lentiviral genome because lentiviruses are RNA viruses). The target gene RNA formed is packaged into the virus along with the structural proteins because of the packaging signal. Then the virus enters the target cell, the target gene RNA is reverse transcribed into DNA, integrated into the host genome, and then transcribed into RNA for expression, and the expressed protein becomes more and becomes overexpressed.
+
+As for the target gene of overexpression, it is the CDS region: design upstream and downstream specific amplification primers, while introducing enzyme cut sites, PCR (using high fidelity KOD enzyme with 0% mutation rate within 3K) to retrieve the target gene CDS region (coding sequence) from the template (CDNA plasmid or library) connected into the T vector. The CDS region is excised from the T vector and loaded into a lentiviral overexpression plasmid vector.
+
+The target gene is transcribed into RNA in 293T cells. this RNA can be recognized and packaged into viral particles because the other two plasmids, required for viral packaging, encode the viral structural proteins and the proteins required for packaging signals. When these proteins are expressed in 293T cells, they are able to recognize specific sequences in the RNA of the target gene (called psi sequences, or packaging signals) and thus package the target gene RNA into the viral particle.
+
+In this way, in 293T cells, we have viral structural proteins, reverse transcriptase and target gene RNA, which together make up the lentiviral particles. The viral particles can infect the target cells, where the target gene RNA is reverse transcribed into DNA and integrated into the target cell genome. The target gene is then expressed in the target cell. Depending on the different functions of the target gene, overexpression or repression of a specific gene can be achieved. For example, if the target gene is a shRNA, then the shRNA expressed in the target cell will produce siRNA, which enables RNA interference and suppresses the expression of the corresponding gene. If the target gene is a protein-coding gene, then it will be transcribed and translated in the target cell, thereby producing protein and achieving overexpression.
+
+In summary, during lentiviral packaging, the target gene is transcribed into RNA in packaging cells (e.g. 293T cells), which together with viral structural proteins and reverse transcriptase form lentiviral particles. These particles can infect the target cells and integrate the target gene into the host cell genome to achieve its function.
+
+In 293T cells, it is indeed possible for the RNA of the target gene to be translated into a protein. However, the formation and packaging of viral particles is usually a highly prioritized process during viral packaging. In addition, the expression of other viral components in virus packaging cells, such as structural proteins and reverse transcriptase, may take up more translation resources. Therefore, in practice, the expression of target genes in 293T cells is relatively low and has a limited impact on the viral packaging process. Of course, this does not mean that the target gene will not be expressed at all in 293T cells, but this expression is usually not sufficient to have a significant impact on the viral packaging process.
+
+<div align=center>
+<img src="imgs/lenti.png">
+</div>
+
 ## Linear Amplification via Transposon Insertion (LIANTI)  
 
 A linear whole genome amplification (WGA) method.LIANTI achieved linear amplification of the whole genome for the first time, enabling more uniform and accurate amplification.  
