@@ -714,7 +714,19 @@ An isothermal WGA method that reproducibly captures >95% of the genomes of singl
 
 PTA is provided as  ResolveDNA® Whole Genome Sequencing Workflow, with low-input (>4 pg to 10 ng) DNA samples.For the whole pack you need ResolveDNA Whole Genome Amplification Kit - 96 Reactions, ResolveDNA Bead Purification Kit - 96 Reactions, ResolveDNA Library Preparation Kit - 96 Reactions, ResolveDNA Multi-Use Library Adapters - 960 Reactions, ResolveDNA Cell Buffer Pack, 25 Low Bind 96 Well PCR Plates, PCR Plate Sealing Film - Pack of 100
 
-## PromethION 2 Solo
+## P2
+Component	Specicification
+Processor	Latest Generation CPU processor
+GPU	Latest generation Ampere NVIDIA GPU for basecalling acceleration
+Storage	16 TB SSD
+RAM	128 GB
+
+Self-contained benchtop device with compute inside
+Powerful GPU and built-in screen
+Can run up to two PromethION flow cells
+Simple, preconfigured device - plug in and start running
+
+## P 2 Solo
 Up to 580 Gb (both flow cells sequencing). 290 Gb per flow cell. PromethION 2 Solo is a modular nanopore sequencing device using the same technology found in the MinION and GridION devices. It allows up to two sequencing experiments to be run concurrently or individually. The device has no integrated compute, but can be plugged into a GridION Mk1 or a stand-alone computer that meets the minimum spec.
 
 ## PromethION P24 and P48 
