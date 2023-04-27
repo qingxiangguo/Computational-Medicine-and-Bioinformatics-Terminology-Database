@@ -80,6 +80,49 @@ In blunt ends, both strands are of equal length – i.e. they end at the same ba
 
 Usually, a straight cut creates blunt ends or non-overhanging ends. These ends can be joined using a DNA ligase enzyme. The joining of two blunt ends is called blunt end ligation. This does not need matching or complementary ends for ligation.
 
+## Breakend symbol in BND translocation - square brackets
+
+These 3 elements are combined in 4 possible ways to create the ALT. In each of the 4 cases, the assertion is that s
+is replaced with t, and then some piece starting at position p is joined to t. The cases are:
+REF ALT Meaning
+
+s t[p[ piece extending to the right of p is joined after t
+s t]p] reverse complementary sequence piece extending left of p is joined after t
+s ]p]t piece extending to the left of p is joined before t
+s [p[t reverse complementary sequence piece extending right of p is joined before t
+
+So what does "piece extending left of p" mean? It is very hard to understand without figures.
+
+There are two key points to understand:
+
+One is that the breakpoints are connected. You have to make sure the connected reads are from 5 to 3 end, so it can be translated properly. In this way, sometimes the positive strand might be connected to the minus strand of another chromosome to make sure that the result sequence is from 5 to 3 end. The other point is that when we describe this connection in the VCF file, we represent the case of a connection on a positive chain (and what is the status of the other strand). In fact, in biological phenomena, both chains are connected.
+
+<div align=center>
+<img src="imgs/bnd6.png">
+</div>
+
+<div align=center>
+<img src="imgs/bnd1.jpeg">
+</div>
+
+<div align=center>
+<img src="imgs/bnd2.jpeg">
+</div>
+
+<div align=center>
+<img src="imgs/bnd3.jpeg">
+</div>
+
+<div align=center>
+<img src="imgs/bnd4.jpeg">
+</div>
+
+<div align=center>
+<img src="imgs/bnd5.jpeg">
+</div>
+
+
+
 ## Cancer immune Evasion through loss of MHC Class I antigen presentation
 
 Major histocompatibility class I (MHC I) molecules bind peptides derived from a cell's expressed genes and then transport and display this antigenic information on the cell surface. This allows CD8 T cells to identify pathological cells that are synthesizing abnormal proteins, such as cancers that are expressing mutated proteins. In order for many cancers to arise and progress, they need to evolve mechanisms to avoid elimination by CD8 T cells. MHC I molecules are not essential for cell survival and therefore one mechanism by which cancers can evade immune control is by losing MHC I antigen presentation machinery (APM). Not only will this impair the ability of natural immune responses to control cancers, but also frustrate immunotherapies that work by re-invigorating anti-tumor CD8 T cells, such as checkpoint blockade. 
