@@ -87,8 +87,11 @@ is replaced with t, and then some piece starting at position p is joined to t. T
 REF ALT Meaning
 
 s t[p[ piece extending to the right of p is joined after t
+
 s t]p] reverse complementary sequence piece extending left of p is joined after t
+
 s ]p]t piece extending to the left of p is joined before t
+
 s [p[t reverse complementary sequence piece extending right of p is joined before t
 
 So what does "piece extending left of p" mean? It is very hard to understand without figures.
