@@ -207,6 +207,16 @@ I’m not exactly sure, when or how this happens, but there is a fraction of rea
 
 SMRT Bells are blunt end ligated to the DNA fragment being sequenced, sometimes a DNA fragment ligating to another DNA fragment before having a SMRT Bell adapter added. This would generate the classic chimera, a sequenced read being from two random parts of a genome. Note this is random and will not happen at exactly the same location more than once, so it is easily dealt with at the analysis stage. The "siamaeras" or missing adapter look like a sequence followed by the reverse complement of the sequence, and results from the SMRT Bell being missing/not-detected on one end of the insert i.e. you read a sequence forward then backwards without an adapter so the software does not know that the read needs to be split. This can happen due to sample prep - a long overhang forms a hairpin, mimicking a SMRT Bell, or less frequently due to a real SMRT bell being missed in software.
 
+## ChIP-seq and RNA-seq co analysis
+
+In genomic research, ChIP-seq (Chromatin Immunoprecipitation Sequencing) and RNA-seq (RNA Sequencing) are commonly used experimental techniques. When presented side by side in the same chart, they are often used to illustrate the relationship between the state of epigenetic modifications in chromatin (such as methylation, acetylation, etc.) and gene expression.
+
+Specifically, ChIP-seq is primarily used to detect the distribution of specific proteins or epigenetic markers on chromatin, such as histone modifications or transcription factor binding sites. On the other hand, RNA-seq is used to quantitatively measure gene expression levels.
+
+In a chart with aligned coordinates, the x-axis represents the position on the genome, and the y-axis represents the signal intensity at that position. The peaks in ChIP-seq indicate the presence of specific epigenetic markers or protein binding at that location, while the peaks in RNA-seq represent gene expression at that location. By jointly analyzing these two types of data, the relationship between gene expression and chromatin status can be derived. For example, a specific histone modification might be enriched in areas with high gene expression, suggesting that this modification might facilitate gene expression.
+
+Additionally, this analysis can also help to reveal the mechanisms of gene regulation. For example, if the binding sites of a transcription factor (detected by ChIP-seq) highly correlate with the expression level of a gene (detected by RNA-seq), it can be inferred that this transcription factor may play a crucial role in regulating the expression of this gene.
+
 ## Chromatin
 
 Chromatin refers to the complex of DNA, RNA, and proteins that make up the chromosomes in eukaryotic cells. Chromatin is composed of nucleosomes and other proteins that interact with DNA and regulate its function. chromatin can contain RNA, although the amount and type of RNA can vary depending on the specific cell type, developmental stage, and physiological conditions.
@@ -266,6 +276,26 @@ What does the final seq looks like?
 <img src="/imgs/10x-40.png">
 </div>
 
+## Chromoplexy and chromothripsis
+
+Chromoplexy:
+Chromoplexy is like a complicated puzzle. It takes pieces from different chromosomes (DNA sequences) and mixes them up, creating a new configuration. In terms of sequences, it might look like parts of Chromosome 1, 3, and 5 getting jumbled together.
+
+Chromothripsis:
+Chromothripsis is like shattering a glass. It typically affects one or two chromosomes that get broken into many pieces. These pieces are then put back together in a haphazard manner, often missing some fragments (like when you can't find all pieces of the shattered glass).
+
+Their difference:
+
+1. Scope: Chromoplexy usually involves multiple chromosomes, while chromothripsis typically affects one or two chromosomes.
+Outcome: Chromoplexy results in a more mixed or shuffled sequence with pieces from different chromosomes. Chromothripsis results in a more shattered and reassembled sequence from the same chromosome.
+
+2. Missing DNA: Chromothripsis often has missing pieces, while chromoplexy usually doesn't.
+
+Difference from normal SVs (Structural Variants):
+
+Normal structural variants are usually simpler. They can involve deletions (missing pieces), duplications (extra copies), inversions (flipped sequences), and translocations (pieces switching places). Chromoplexy and chromothripsis are more complex, involving multiple changes happening all at once.
+
+Think of normal structural variants like moving furniture in your house (a single couch or table), while chromoplexy and chromothripsis are like rearranging or remodeling multiple rooms at once.
 
 ## Chromosome
 
@@ -1164,8 +1194,10 @@ The fraction of genome copies in the (tumor or control) sample affected by the v
   
 The variant allele frequency (VAF; also known as variant allele fraction) is used to infer whether a variant comes from somatic cells or inherited from parents when a matched normal sample is not provided. A variant is potentially a germline mutation if the VAF is approximately 50% or 100%.
   
-## VCF (file format)
+## VCF format
 VCF is a text file format (most likely stored in a compressed manner). It contains meta-information lines, a header line, and then data lines each containing information about a position in the genome.
+
+<b>This most important thing is that for deletion, dup, or insertion, the base at the ref is not included. </b>
 
 ```
 ##fileformat=VCFv4.0
