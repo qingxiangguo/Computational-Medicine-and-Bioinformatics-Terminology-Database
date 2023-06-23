@@ -217,6 +217,20 @@ In a chart with aligned coordinates, the x-axis represents the position on the g
 
 Additionally, this analysis can also help to reveal the mechanisms of gene regulation. For example, if the binding sites of a transcription factor (detected by ChIP-seq) highly correlate with the expression level of a gene (detected by RNA-seq), it can be inferred that this transcription factor may play a crucial role in regulating the expression of this gene.
 
+## CPU vs Core vs Thread vs Node
+
+CPU (Central Processing Unit): The CPU is the core part of the computer and is responsible for executing most of the instructions of the computer program. It is the core part of the computer hardware system and is responsible for interpreting and executing instructions from the operating system, applications, and controlling other hardware. A CPU can have one or more cores.
+
+Core: A core is a component of a CPU that can execute instructions independently. A CPU may contain one or more cores (e.g. dual-core, quad-core, octa-core, etc.). Each core can execute a program or part of a program individually, so multiple cores can execute multiple programs or multiple parts of a program at the same time, which can greatly improve computing performance. For example, you mentioned the Intel Xeon Gold 6338, which is a CPU with 32 cores.
+
+Thread: A thread is the smallest unit in program execution and is the basic unit of processor scheduling (task execution). It is contained within the process and is the actual unit of operation within the process. A thread refers to a single sequential flow of control within a process. A process with multiple threads can perform concurrent execution of multiple tasks (functions).
+
+When we talk about a CPU having multi-threading capabilities, we usually mean that each core of the CPU is capable of handling multiple threads of execution simultaneously.
+
+Node: In computing, a node can mean many things, but usually we refer to a device or server running a certain computational task. In a computing network or cluster, a node is usually a single computer that contains its own CPU, memory, and storage devices, and can run an operating system and various software to perform specific computing tasks independently. When multiple nodes join together to form a network or cluster, they can work together to handle larger, more complex computing tasks.
+
+<b>For example, a node with one CPU (32 cores, 64 threads) and 2 A100 GPUs</b>
+
 ## Chromatin
 
 Chromatin refers to the complex of DNA, RNA, and proteins that make up the chromosomes in eukaryotic cells. Chromatin is composed of nucleosomes and other proteins that interact with DNA and regulate its function. chromatin can contain RNA, although the amount and type of RNA can vary depending on the specific cell type, developmental stage, and physiological conditions.
