@@ -999,6 +999,24 @@ Sometimes it is hard to distinguish splicing and deletion, for a true deletion t
 
 .  
 
+## scCOOL-seq (Chromatin Overall Omic-scale Landscape Sequencing) 
+
+DNA sequences are made up of four bases: A, T, C, and G. CG sites refer to the occurrence of CG base pairs in DNA sequences. For example, in the sequence AGCTCGAT, there is one CG site.
+
+In mammalian genomes, DNA methylation primarily occurs at CG sites (CpG dinucleotides), meaning methylation mainly occurs on these CG base pairs. This is a key characteristic of DNA methylation in mammals.
+
+In the study, the enzyme M.CviPI is used, which can introduce artificial methylation at GCH sites (where H is A, C, or T). This means it adds CH3 groups to DNA sequence sites like GCA, GCC, GCT, etc., but does not affect other sequences, such as CpG (WCG) sites.
+
+In single-cell COOL-seq technology, the specificity of M.CviPI enzyme is utilized to distinguish between open and closed chromatin regions. In open chromatin regions, GCH sequences are accessible to M.CviPI enzyme, so these sites are methylated. In closed chromatin regions, where DNA is tightly packed, M.CviPI enzyme cannot access these sites, so they remain unmethylated.
+
+WCG sites include all CpG sites (as 'W' can be A or T), covering potential methylation sites more comprehensively. Since M.CviPI enzyme does not act on CpG sites, its use does not affect the state of endogenous genome methylation, allowing researchers to independently assess endogenous DNA methylation (mainly occurring at CpG sites) and artificially introduced methylation (occurring at GCH sites) in the same cell.
+
+Thus, by detecting Cs that are not converted after bisulfite treatment (indicating methylation), one can distinguish artificially methylated GCH sites and endogenously methylated WCG sites:
+
+GCH sites detected with methylation - This is introduced by M.CviPI enzyme, indicating the region has open chromatin.
+WCG sites detected with methylation - This represents the natural state of endogenous methylation.
+This approach enables simultaneous detection of chromatin openness and endogenous methylation levels.
+
 ## scNMT-seq (single-cell nucleosome, methylation and transcription sequencing)
 
 The main process of scNMT-seq can be summarized as follows:
