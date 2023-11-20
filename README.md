@@ -333,15 +333,34 @@ While SV is typically defined by its canonical forms – duplication, deletion, 
 </div>
 
 ## Copy number variation (CNV)
+
 Copy number variation (CNV) is a phenomenon in which sections of the genome are repeated and the number of repeats in the genome varies between individuals. Such regions may or may not contain a gene(s).
+
+## CpG site and CpG islands
+
+1. **CpG Sites**:
+   - CpG sites refer to specific DNA sequences where a cytosine (C) is followed by a guanine (G) directly connected through a phosphate bond, denoted as "CpG" (the 'p' indicates the phosphate link).
+   - These sites are widely distributed across the entire genome but are generally less frequent in number.
+   - In most regions of the genome, CpG sites tend to be methylated.
+   - Methylation of CpG sites can influence gene expression, but this effect is usually more localized compared to CpG islands.
+
+2. **CpG Islands**:
+   - CpG islands are longer regions in DNA with a high density of CpG sites, typically extending over at least 200 base pairs and characterized by a higher CpG density and G+C content compared to the surrounding regions.
+   - They are often located near gene promoters, especially around the transcription start sites (TSS).
+   - Unlike CpG sites in other genomic regions, CpG islands are usually unmethylated and associated with active gene expression.
+   - The methylation status of CpG islands is closely linked to gene expression regulation, cell-type-specific expression patterns, and the development of diseases, particularly cancer.
+
+Therefore, while both CpG sites and CpG islands involve sequences of cytosine and guanine, they differ significantly in terms of function, distribution, and their impact on gene expression. Research on CpG islands is particularly important in epigenetics and disease studies due to their key role in regulating gene expression.
 
 ## CRAM (file format)
 Compressed Reference-oriented Alignment Map (CRAM) is a compressed columnar file format for storing biological sequences aligned to a reference sequence. CRAM was designed to be an efficient reference-based alternative to the Sequence Alignment Map (SAM) and Binary Alignment Map (BAM) file formats.
 
 ## Differential transcript usage (DTU) analysis
+
 A differential transcript usage (DTU) analysis is testing for proportional differences in a gene's transcript composition, and has been of rising interest for many research questions, such as analysis of differential splicing or cell-type identification.
 
 ## Discordant reads and cordant reads
+
 1) Concordant reads (Properly aligned reads)
 2) Discordant reads (improperly aligned reads: important to identify genome alteration events)
 
@@ -1068,6 +1087,60 @@ This approach enables simultaneous detection of chromatin openness and endogenou
 
 - **Endogenous Methylation Areas**:  
   These areas are naturally occurring methylation regions, typically in CpG islands (WCG sequences, where W represents A or T). In bisulfite treatment, unmethylated cytosines are converted to uracils (including areas methylated artificially in the previous step), while methylated cytosines remain unchanged. Therefore, after treatment, methylated CpG islands can be identified through the preserved WCG sequences.
+
+## scNanoCOOL-seq
+
+### General Process
+
+1. **In vitro GpC Methylation (IVM) of Individual Cells**
+   - Each cell is placed in a PCR tube containing a cell lysis and methylase reaction mixture, including RNase inhibitor, GC reaction buffer, S-adenosylmethionine, GpC Methyltransferase (M.CviPI), and IGEPAL CA-630.
+   - The lysate is incubated to allow in vitro methylation of the cell nuclei, with subsequent heat inactivation of M.CviPI.
+   - This step is critical for differentiating endogenously methylated DNA and artificially methylated open chromatin areas.
+
+2. **Physical Separation of Single-Cell DNA and RNA**
+   - A DNA/RNA separation mixture is added to the lysate for efficient separation of nucleic acids.
+   - The mixture contains RNase inhibitor, Triton X-100, Tween 20, DTT, superscript II first-strand buffer, and Dynabeads Myone Carboxylic Acid.
+   - This results in the separation of RNA (in the supernatant) and relatively intact nuclei (on the beads).
+
+### DNA Part
+
+1. **Cell Lysis and Genomic DNA Release**
+   - Protein lysis buffer is used to release genomic DNA from the nuclei contained within the beads.
+   - Buffer components: M-digestion buffer, Lambda DNA, and protease K.
+
+2. **Bisulfite Conversion**
+   - Genomic DNA undergoes bisulfite treatment to convert unmethylated cytosines to uracils, preserving methylated cytosines.
+   - This step is crucial for distinguishing methylated and unmethylated regions in the genome.
+
+3. **Random Priming with Oligo 1-N6**
+   - Oligo 1-N6 random primers are used to tag bisulfite-converted DNA, enhancing library complexity.
+   - The fixed part of the primer (CTACACGACGCTCTTCCGATCT) ensures efficient PCR amplification and compatibility with sequencing platforms.
+
+4. **Library Amplification and Purification**
+   - PCR is used to amplify the tagged DNA, introducing a 24-nucleotide barcode for sample tracking.
+   - PCR conditions and AMPure XP beads purification steps are optimized to enrich longer DNA fragments.
+
+5. **Sequencing Preparation**
+   - The library is prepared for Nanopore sequencing using a Ligation Sequencing Kit.
+   - End-repair, dA-tailing, and adapter ligation steps are included before loading the DNA library onto the PromethION platform.
+
+### RNA Part
+
+1. **Cell Lysis and RNA Isolation**
+   - Cells are lysed, and RNA is isolated from the cytoplasmic fraction.
+   - Special buffers are used to ensure RNA integrity.
+
+2. **Reverse Transcription**
+   - RNA is reverse-transcribed into cDNA using oligo(dT) primers with unique barcodes for each cell.
+   - This step includes the use of SuperScript II reverse transcriptase and RNase inhibitors.
+
+3. **cDNA Synthesis and Amplification**
+   - Second-strand cDNA synthesis is performed, followed by PCR amplification.
+   - Biotinylated pre-indexed primers and IS primers are used for efficient and specific amplification.
+
+4. **cDNA Library Purification and Sequencing**
+   - Amplified cDNA is purified using AMPure XP beads and biotin-streptavidin capture system.
+   - The cDNA library is then prepared for sequencing on the Illumina platform, using specific adapters and PCR conditions.
 
 
 ## scNMT-seq (single-cell nucleosome, methylation and transcription sequencing)
