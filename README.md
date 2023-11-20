@@ -1017,6 +1017,59 @@ GCH sites detected with methylation - This is introduced by M.CviPI enzyme, indi
 WCG sites detected with methylation - This represents the natural state of endogenous methylation.
 This approach enables simultaneous detection of chromatin openness and endogenous methylation levels.
 
+### **The scCOOL-seq Protocol Key Steps**
+
+- **In vitro Methylation**  
+  This step methylates all the cytosines in the genome, allowing differentiation between endogenous methylation (which will be protected) and open chromatin (which will be methylated).
+
+- **Bisulfite Conversion**  
+  This converts unmethylated cytosines to uracils, while leaving methylated cytosines unchanged.
+
+- **Amplification with P5-N6-oligo1**  
+  This adds the P5 adapter sequence needed for Illumina sequencing to the molecules. The N6 random sequence helps maintain library complexity. This initial amplification is done with linear amplification to maintain the integrity of the molecules.
+
+- **Second Strand Synthesis with P7-N6-oligo2**  
+  This converts the molecules to double-stranded DNA and adds the P7 adapter sequence.
+
+- **PCR Amplification**  
+  This does a standard PCR amplification of the library using primers complementary to the P5 and P7 adapter sequences to generate sufficient material for sequencing.
+
+### **Why Only One Primer in the First Amplification Round**
+
+- The first round of amplification using only one primer, such as scBS-seq-P5-N6-oligo1, is feasible in some special PCR applications. This strategy is commonly used for specific types of sequence amplification, known as Single Primer Amplification (SPA). In this case, the PCR process is different from traditional double-primer PCR. Here is a brief explanation of its working principle:
+  
+  - **Template Specificity**: In single primer amplification, the primer is designed to specifically bind to one end of the target DNA. This usually involves specific sequence design, enabling the primer to effectively bind with DNA treated with bisulfite.
+  
+  - **Amplification Mechanism**: Single primer PCR only synthesizes one strand in the first cycle. In subsequent cycles, the newly synthesized DNA strand itself serves as the template, while the original template strand is no longer involved in amplification. This method produces single-stranded DNA (ssDNA), not double-stranded DNA (dsDNA) as in traditional PCR.
+
+### **Amplification Target Areas in the First Step**
+
+- The template for the first step of linear amplification in scCOOL-seq is DNA that has undergone bisulfite treatment.
+  
+- Bisulfite treatment converts unmethylated cytosines to uracils, while methylated cytosines remain unchanged.
+  
+- Therefore, on the template DNA, only the originally methylated-protected cytosines remain as normal C, while most of the other cytosines are converted to U.
+  
+- During linear amplification, P5-N6-oligo1 as a primer hybridizes with the template. It can only form stable base pairing with C bases on the template.
+  
+- It cannot form stable pairing with U. Therefore, P5-N6-oligo1 actually can only hybridize with regions on the template that were originally methylated.
+  
+- These methylation-protected areas include:
+  
+  - Endogenously methylated regions
+  - Regions methylated by the M.CviPI methyltransferase enzyme that has no base preference (i.e., open chromatin regions)
+  
+- Therefore, the main areas amplified by linear amplification are these two areas, not the entire genome.
+
+### **Differentiating Open Chromatin and Endogenous Methylation**
+
+- **Open Chromatin Areas**:  
+  These areas are targeted for methylation by M.CviPI enzyme prior to bisulfite treatment. M.CviPI is a methyltransferase enzyme that specifically recognizes GCH sequences (where H represents A, C, or T) and adds a methyl group to cytosine. Since bisulfite treatment does not change methylated cytosines, these methylated GCH sequences remain unchanged after treatment and can be detected by subsequent sequencing.
+
+- **Endogenous Methylation Areas**:  
+  These areas are naturally occurring methylation regions, typically in CpG islands (WCG sequences, where W represents A or T). In bisulfite treatment, unmethylated cytosines are converted to uracils (including areas methylated artificially in the previous step), while methylated cytosines remain unchanged. Therefore, after treatment, methylated CpG islands can be identified through the preserved WCG sequences.
+
+
 ## scNMT-seq (single-cell nucleosome, methylation and transcription sequencing)
 
 The main process of scNMT-seq can be summarized as follows:
