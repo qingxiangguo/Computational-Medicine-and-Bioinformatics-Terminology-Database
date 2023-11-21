@@ -2,17 +2,51 @@
 A comprehensive mapping database, including detailed information, of the terminology and concepts in computational medicine and bioinformatics field.
 
 # Contributors
+
 Qingxiang (Allen) Guo  
 Postdoctoral Fellow  
 Northwestern University, Feinberg School of Medicine
 Qingxiang.guo@northwestern.edu
 
 # Introduction
+
 In the database, I provide a list of commonly used computational medicine and bioinformatic terminology for quick reference. This database will be kept updating. Feedback or experience is warmly welcomed.
 
 # Terminology Content
+
 ## Allelic balance
 The proportion of reads covering a variant’s location that support the variant. For example, if a variant’s location is covered by 100 reads, of which 25 support the variant and 75 do not, then the variant would have an allelic balance of 25/100 = 0.25.
+
+## Amplification Efficiency Differences Post-Bisulfite Treatment in scCOOL-seq, scNanoCOOL-seq, and scBS-seq
+
+### Key Factors Influencing Efficiency Differences
+
+1. **Chemical Transformation Impact**:
+   - Bisulfite treatment chemically transforms unmethylated cytosines (C) into uracil (U), affecting the stability and replication of the DNA strand.
+   - Transformed U, acting like thymine (T), pairs with adenine (A) instead of guanine (G), altering the original base pairing pattern of the DNA sequence.
+
+2. **Pairing Stability**:
+   - Methylated C-G pairings are more stable than U-A pairings due to the presence of three hydrogen bonds in C-G, compared to two in U-A.
+   - Stability of base pairing is crucial for PCR amplification efficiency. Instability may lead to errors or reduced efficiency during amplification.
+
+3. **Primer Specificity and Hybridization Efficiency**:
+   - Specific primers are required to hybridize with bases on the DNA template during amplification. Primers designed to hybridize more easily with methylated C may lead to higher amplification efficiency in these regions.
+   - Transformed U sites might not be ideal targets for all primers, leading to reduced amplification efficiency in these regions.
+
+4. **Polymerase Selectivity**:
+   - DNA polymerases used for DNA amplification may exhibit different efficiencies in processing different base pairings. Some enzymes might be less efficient in incorporating bases opposite transformed U (read as T) compared to C.
+
+### Core Reasons for Efficiency Differences
+
+- Methylated C remains a standard nucleotide, capable of standard base pairing with primers and enzymes.
+- Modified U, though capable of pairing with A, may have slightly inferior interactions with primers and polymerases.
+- In PCR cycles, these minor efficiency differences accumulate, leading to significant differences in amplification product abundance.
+- The key reason lies in the subtle but crucial differences in interactions between the modified non-natural base U and the standard components of PCR, leading to overall amplification efficiency differences.
+
+### Conclusion
+
+- Amplification efficiency differences post-bisulfite treatment between methylated C and unmethylated U (originally C) are primarily due to the chemical transformation's impact on base pairing stability, primer specificity, and DNA polymerase selectivity.
+- These factors collectively affect the amplification efficiency and outcomes of bisulfite-treated DNA.
 
 ## ATAC-seq (Assay for Transposase-Accessible Chromatin using sequencing)
 
@@ -806,7 +840,42 @@ Another name, NEBNext Quick T4 DNA Ligase. This module is also compatible with s
 
 Regardless of the library construction method, submitted libraries will consist of a sequence of interest flanked on either side by adapter constructs. On each end, these adapter constructs have flow cell binding sites, P5 and P7, which allow the library fragment to attach to the flow cell surface. All Paired-End Format sequencing on the HiSeq and All sequencing of any type on the MiSeq MUST HAVE FULL-LENGTH P5 and P7 sequences . (some of the small RNA libraries and alternative genomic library constructions use a partial P7, this is not supported by the HiSeq PE and MiSeq.)
 
-# Percent spliced in (PSI) for short reads
+## Post-Bisulfite Adapter Tagging (PBAT) - core technique of scBS-seq, scNanoCOOL-seq, scCOOL-seq
+
+PBAT is a technique used in DNA methylation studies, specifically designed for bisulfite-treated DNA (BS-DNA), which allows for the analysis of methylation patterns at a single-nucleotide resolution. The figure provided illustrates the PBAT method, which is adapted for sequencing on Illumina platforms. 
+
+ <div align=center>
+<img src="imgs/PBAT1.png">
+</div>
+
+ <div align=center>
+<img src="imgs/PBAT2.png">
+</div>
+
+### Key Steps in the PBAT Process:
+
+1. **Random Priming**: Initially, a random primer with a sequence of NNNN (where N represents any nucleotide) is annealed to the BS-DNA at random locations across the genome.
+
+2. **First Strand Synthesis**: The 5' end of the random primer is extended using a DNA polymerase, creating the first cDNA strand complementary to the bisulfite-converted DNA template.
+
+3. **Second Random Priming**: After the synthesis of the first strand, a second random priming event occurs, where a new random primer with an NNNN sequence anneals to the newly synthesized cDNA.
+
+4. **Second Strand Synthesis**: This step extends the second primer, creating a double-stranded DNA with adapters at both ends.
+
+### Adapter Design for Illumina Sequencing:
+
+In the context of Illumina sequencing, the oligo sequences are designed to include the P5 and P7 sequences which are standard Illumina adapters. These are crucial for the DNA library to properly bind to the flow cell and for bridge amplification to occur.
+
+- The **P5+N6** sequence corresponds to the first adapter, which is bound to the first strand synthesized from the BS-DNA.
+- The **P7+N6** sequence corresponds to the second adapter, which is attached to the complementary strand generated from the first cDNA.
+
+### Importance for Illumina Sequencing:
+
+The inclusion of P5 and P7 sequences in the PBAT process is essential to align the DNA fragments correctly onto the Illumina flow cell. These sequences are recognized by the Illumina sequencer, allowing the bound DNA fragments to undergo bridge amplification, which is a hallmark of the Illumina sequencing process.
+
+By integrating PBAT with Illumina’s sequencing technology, researchers can efficiently analyze genome-wide methylation patterns at single-base resolution in single cells or low-input DNA samples, which is critical for understanding epigenetic regulation and its impact on gene function and disease.
+
+## Percent spliced in (PSI) for short reads
 
 The percent spliced in index (PSI) indicates the efficiency of splicing a specific exon into the transcript population of a gene. It shows the frequency/degree of a specific alternative splicing event. It is calculated by IR/(IR + ER)%, where IR is inclusion reads, ER is exclusion reads. IR means reads that support the event. ER means reads that do not support the event.
 
@@ -834,7 +903,7 @@ Recall (or True Positive Rate) is calculated by dividing the true positives by a
 
 Recall and Sensitivity are one and the same.
 
-# Primary template-directed amplification (PTA)
+## Primary template-directed amplification (PTA)
 
 An isothermal WGA method that reproducibly captures >95% of the genomes of single cells in a more uniform and accurate manner than existing approaches, resulting in significantly improved variant calling sensitivity and precision.
 
@@ -1114,7 +1183,8 @@ This approach enables simultaneous detection of chromatin openness and endogenou
 
 3. **Random Priming with Oligo 1-N6**
    - Oligo 1-N6 random primers are used to tag bisulfite-converted DNA, enhancing library complexity.
-   - The fixed part of the primer (CTACACGACGCTCTTCCGATCT) ensures efficient PCR amplification and compatibility with sequencing platforms.
+   - Four rounds of random priming on bisulfite-converted DNA to obtain oligo 1-tagged DNAs and skipped the oligo 2 priming,
+   - It is random priming not PCR. The purpose of this method is to capture and amplify sulfite-treated DNA fragments, especially those regions containing methylated cytosines.
 
 4. **Library Amplification and Purification**
    - PCR is used to amplify the tagged DNA, introducing a 24-nucleotide barcode for sample tracking.
@@ -1142,6 +1212,54 @@ This approach enables simultaneous detection of chromatin openness and endogenou
    - Amplified cDNA is purified using AMPure XP beads and biotin-streptavidin capture system.
    - The cDNA library is then prepared for sequencing on the Illumina platform, using specific adapters and PCR conditions.
 
+Certainly, here's the explanation in English, formatted as Markdown notes, regarding the selective sequencing aspect of scNanoCOOL-seq after bisulfite treatment:
+
+---
+
+## scNanoCOOL-seq and Bisulfite-Treated Genome Sequencing
+
+### Bisulfite Treatment Impact
+
+- **Transformation by Bisulfite**: Bisulfite treatment converts unmethylated cytosines (C) to uracils (U), while methylated cytosines remain unchanged.
+- **Selective Preservation**: Post-treatment, only the originally methylated-protected cytosines remain as normal C, most other cytosines are converted to U.
+
+### Amplification Strategy
+
+- **Random Priming with Oligo 1-N6**: scNanoCOOL-seq uses Oligo 1-N6 random primers (not P5-N6-oligo1) for random priming and amplification.
+- **Selective Hybridization and Amplification**: This primer can initiate DNA synthesis across a broader region, but due to bisulfite treatment characteristics, it primarily hybridizes and amplifies with the remaining unconverted C (i.e., originally methylated regions).
+
+### Limitation of Sequencing Scope
+
+- **Partial Genomic Coverage**: Thus, scNanoCOOL-seq primarily measures and analyzes those regions in the genome that were methylated prior to bisulfite treatment, not the entire genome.
+- **Focused Analysis**: This means the method mainly captures specific, methylation-status-related genomic information, rather than providing a comprehensive overview of the entire genome.
+
+## scNanoCOOL-seq Primer Usage Summary
+
+### Random Priming with Oligo 1-N6
+
+- **Purpose:** To initiate multiple rounds of amplification on bisulfite-treated single-stranded DNA, enhancing the complexity of the library.
+- **Primer Structure:** Oligo 1-N6 primer has a sequence `5‘ - CTACACGACGCTCTTCCGATCTNNNNNN - 3’`.
+- **Process:** Random priming is performed several times to tag bisulfite-converted DNA with Oligo 1-N6, generating complementary DNA strands. This step is crucial for preparing the DNA for subsequent PCR amplification.
+
+### PCR Amplification with 24bp Barcode-Oligo1 Primer
+
+- **Purpose:** To amplify the tagged DNA while introducing a unique 24-nucleotide barcode for each sample.
+- **Primer Structure:** The 24bp Barcode-Oligo1 primer is designed as `5‘ - /24 bp barcode/CTACACGACGCTCTTCCGATCT - 3’`.
+- **Process:** 
+    - The PCR amplification utilizes only the Barcode-Oligo1 primer, relying on the complementary strands generated during the random priming phase.
+    - This approach is possible because the initial random priming with Oligo 1-N6 produces complementary strands that are suitable for amplification with the Barcode-Oligo1 primer.
+    - The PCR conditions are optimized to efficiently amplify the library, ensuring adequate representation of the bisulfite-converted DNA and maintaining the library complexity.
+
+### Single-Strand Information
+
+- **Information from One Strand:** In scNanoCOOL-seq, the amplification and sequencing primarily capture information from a single DNA strand.
+- **Bisulfite Treatment Effect:** The bisulfite treatment converts unmethylated cytosines to uracil, and the subsequent amplification process effectively reads and amplifies the converted strand.
+- **Focus on Methylation Status:** Since the main focus is on identifying methylation status, sequencing one strand provides sufficient information to determine the methylation pattern.
+
+### Key Considerations
+
+- **Single Primer PCR:** While traditional PCR usually requires two complementary primers, in this specific context, the previous random priming step facilitates the use of a single primer for effective amplification.
+- **Library Complexity:** The combined use of Oligo 1-N6 in random priming and the Barcode-Oligo1 primer in PCR ensures high complexity and accurate representation of the DNA methylation state in the library.
 
 ## scNMT-seq (single-cell nucleosome, methylation and transcription sequencing)
 
