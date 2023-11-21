@@ -836,6 +836,79 @@ Another name, NEBNext Quick T4 DNA Ligase. This module is also compatible with s
 <img src="imgs/Chromosomes-are-made-of-DNA-histone-protein-complexes-Chromosomal-DNA-is-packaged.png">
 </div>
 
+## Nucleosome-Depleted Regions (NDRs) and Cis-Regulatory Elements
+
+Open chromation = Nucleosome-Depleted Regions (NDRs) 
+
+The identification of open chromatin, i.e., Nucleosome-Depleted Regions (NDRs), is indeed a critical early step in the process of distinguishing cell-type-specific NDRs and cis-regulatory elements. 
+
+The analysis includes:
+
+### Identification of Open Chromatin
+Initially, researchers use a sliding window chi-square test to identify NDRs through the analysis of single-cell-level methylation data. This step involves searching for regions that show a methylation pattern at GCH sites, areas that have a higher level of GCH than the genomic background and meet specific criteria for size and coverage of GCH sites.
+
+### Identification of Cell-Type-Specific NDRs
+Once open chromatin regions have been identified, researchers look for specific NDRs within each major cell type group (such as spermatogonia, spermatocytes, and spermatozoa). These are regions that display a methylation level at least 10% higher than the maximum level found in other cell types within the group.
+
+### Identification of Shared NDRs Across Consecutive Stages
+In addition, NDRs shared between consecutive stages are sought after. These NDRs display a methylation level difference of less than 10% across consecutive stages but more than 10% compared to the remaining stages within each group.
+
+### Correlation Calculation
+For the identified specific NDRs, researchers calculate the correlation between their methylation levels and the RNA expression levels of their neighboring genes. "Neighboring genes" refer to the closest gene within 2 kb of the TSS (proximal NDRs) or within 100 kb of the TSS (distal NDRs). Only NDRs with a correlation coefficient greater than 0.6 are defined as cis-regulatory elements.
+
+The process is iterative and multi-staged, potentially involving extensive data analysis and statistical validation. Through this method, researchers can pinpoint those NDRs and cis-regulatory elements that are crucial for gene expression regulation in specific cell types or developmental stages.
+
+ <div align=center>
+<img src="imgs/ndr1.png">
+</div>
+
+So the NDRs for the red color of these three genes are NDRs that are shared between the three periods, except that the chromatin level changes and gets lower and lower.
+
+The red NDRs (Nucleosome-Depleted Regions) of the three genes (UTF1, MEIOB, TNP1) shown in the figure are regions shared by these genes in sperm cells at different developmental stages. These areas are marked in red because they are open chromatin regions at these stages, indicating their crucial role in gene expression regulation during spermatogenesis.
+
+The changes in chromatin accessibility shown in the figure suggest that as development progresses, the chromatin accessibility near these genes decreases, which might be related to a reduction in gene expression levels. For instance, for the MEIOB gene, the chromatin is more accessible in the early stages, which may be related to its function in the early stages of spermatogenesis. As development progresses, the chromatin accessibility decreases, possibly reflecting that this gene no longer needs to be actively expressed in later developmental stages.
+
+## Nucleosome-Depleted Regions (NDRs) and transcription factor motif
+
+<div align=center>
+<img src="imgs/ndr2.png">
+</div>
+
+### What is a Motif?
+
+A motif in genetics refers to a specific, short sequence of nucleotides within DNA that is recognized and bound by a particular transcription factor. These motifs are crucial for gene expression regulation, as they direct the binding of transcription factors to specific DNA locations, impacting the gene's transcription process.
+
+### Insights from Figure 3e
+
+Figure 3e focuses on transcription factor motif enrichment in distal Nucleosome-Depleted Regions (NDRs).
+
+- **Transcription Factor Binding**: This figure analyzes which transcription factors' binding motifs are enriched in distal NDRs. The presence of specific motifs indicates potential activity of certain transcription factors.
+
+- **Circle Representation**: The size of each circle represents the level of motif enrichment (-log10 P-value), and the color indicates the RNA expression level of the corresponding transcription factor.
+
+- **Key Findings**: 
+    - Motifs of transcription factors like KLF family and FOXP1 were highly enriched in specific cell populations (e.g., Undiff.SPG-1).
+    - The enrichment suggests roles these transcription factors might play in spermatogenesis stages.
+
+### Methodology for Motif Identification
+
+The article outlines a comprehensive process for motif identification:
+
+1. **Identification of Open Chromatin Regions (NDRs)**:
+    - Using scCOOL-seq, open chromatin regions are identified in each cell type.
+
+2. **Searching for Transcription Factor Motifs**:
+    - HOMER software's `findMotifsGenome.pl` command is used to search for transcription factor binding motifs in these open regions.
+    - Specific parameters: Searching for motifs with lengths of 8-12bp (`-size given -len 8,10,12`).
+
+3. **Selection Based on Enrichment and Expression Levels**:
+    - Motifs are reported based on their enrichment (P-value ≤ 10^-10) and expression levels (TPM ≥ 10 in at least one cell type).
+
+### Conclusion
+
+This methodology, combining single-cell chromatin accessibility data and motif analysis, helps predict key transcription regulatory factors by utilizing open chromatin regions as prior information and correlating motif enrichment with transcription factor expression levels. The study of motifs, especially in NDRs, provides significant insights into regulatory mechanisms controlling gene expression during different cell development stages like spermatogenesis.
+
+
 ## P5 and P7 adaptors
 
 Regardless of the library construction method, submitted libraries will consist of a sequence of interest flanked on either side by adapter constructs. On each end, these adapter constructs have flow cell binding sites, P5 and P7, which allow the library fragment to attach to the flow cell surface. All Paired-End Format sequencing on the HiSeq and All sequencing of any type on the MiSeq MUST HAVE FULL-LENGTH P5 and P7 sequences . (some of the small RNA libraries and alternative genomic library constructions use a partial P7, this is not supported by the HiSeq PE and MiSeq.)
@@ -1288,6 +1361,30 @@ This approach enables simultaneous detection of chromatin openness and endogenou
 
 - **Partial Genomic Coverage**: Thus, scNanoCOOL-seq primarily measures and analyzes those regions in the genome that were methylated prior to bisulfite treatment, not the entire genome.
 - **Focused Analysis**: This means the method mainly captures specific, methylation-status-related genomic information, rather than providing a comprehensive overview of the entire genome.
+
+## scNanoCOOL-seq core idea
+
+scnanocool-seq is an innovative sequencing method derived from bisulfite sequencing techniques, specifically adapted to single-cell epigenetic analysis. It leverages unique properties of DNA primers to selectively enrich for longer DNA fragments suitable for high-resolution methylation profiling.
+
+## **Key Insight into Primer Design**
+
+**In the initial Oligo 1-N6 random priming step of scnanocool-seq, the Oligo 1-N6 primer can anneal to both the template and extension products, generating a complex mixture of DNA fragments (different combination of oligo1 + template seq; oligo1 + oligo1). This mixture includes fragments where the target sequence is flanked by Oligo 1-N6 adapters on both ends. When these adapters are reverse-complementary, short sequences can self-anneal to form closed structures, preventing their amplification in subsequent PCR cycles. This selective process enriches the library with longer, linear fragments.**
+
+### Primers:
+
+- **Oligo 1-N6 Random Primer**: `5‘ - CTACACGACGCTCTTCCGATCTNNNNNN - 3’`
+  - Used for initial random priming, this primer introduces adapter sequences at both ends of the DNA fragments.
+
+- **24bp Barcode-Oligo1 Primer**: `5‘ - [24 bp barcode]CTACACGACGCTCTTCCGATCT - 3’`
+  - Despite having a sequence identical to the Oligo 1-N6 adapter, this primer is used in PCR amplification to target longer fragments that have not self-annealed. The barcode allows for subsequent identification and multiplexing of samples.
+
+### Amplification Process:
+
+1. **Initial Priming Event**: The Oligo 1-N6 primer anneals to bisulfite-converted DNA at random sites, initiating the synthesis of various DNA products.
+2. **Selective Enrichment**: Only those longer DNA fragments that are not self-annealed are efficiently amplified in PCR, due to the inability of circularized short fragments to act as templates.
+3. **Barcode PCR Amplification**: PCR amplification using the 24bp Barcode-Oligo1 primer ensures that only the desired DNA fragments with the correct adapter configuration are amplified.
+
+This strategic use of identical adapter sequences on both the Oligo 1-N6 primer and the Barcode-Oligo1 primer is critical for the scnanocool-seq method's ability to enrich for longer fragments and exclude short, self-annealed fragments from amplification, thereby optimizing the sequencing library for high-throughput analysis.
 
 ## scNMT-seq (single-cell nucleosome, methylation and transcription sequencing)
 
