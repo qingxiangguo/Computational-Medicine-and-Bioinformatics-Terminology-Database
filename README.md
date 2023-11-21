@@ -856,9 +856,9 @@ PBAT is a technique used in DNA methylation studies, specifically designed for b
 
 1. **Random Priming**: Initially, a random primer with a sequence of NNNN (where N represents any nucleotide) is annealed to the BS-DNA at random locations across the genome.
 
-2. **First Strand Synthesis**: The 5' end of the random primer is extended using a DNA polymerase, creating the first cDNA strand complementary to the bisulfite-converted DNA template.
+2. **First Strand Synthesis**: The 5' end of the random primer is extended using a DNA polymerase, creating the first DNA strand complementary to the bisulfite-converted DNA template.
 
-3. **Second Random Priming**: After the synthesis of the first strand, a second random priming event occurs, where a new random primer with an NNNN sequence anneals to the newly synthesized cDNA.
+3. **Second Random Priming**: After the synthesis of the first strand, a second random priming event occurs, where a new random primer with an NNNN sequence anneals to the newly synthesized first strand DNA.
 
 4. **Second Strand Synthesis**: This step extends the second primer, creating a double-stranded DNA with adapters at both ends.
 
@@ -1087,7 +1087,63 @@ Sometimes it is hard to distinguish splicing and deletion, for a true deletion t
 
 .  
 
+# Single-cell Bisulfite Sequencing (scBS-seq)
+
+<div align=center>
+<img src="/imgs/scBS-seq.png">
+</div
+
+<div align=center>
+<img src="/imgs/scbs.png">
+</div
+
+## **Key Insight**
+
+**During the initial oligo1 random priming in scBS-seq, various product combinations are generated. Oligo1 acts not only on the template but also on the newly synthesized products, leading to a diverse range of amplification products.**
+
+## Introduction
+Single-cell bisulfite sequencing (scBS-seq) is a specialized protocol for analyzing DNA methylation at single-cell resolution. It is a modification of traditional bisulfite sequencing and incorporates unique steps suitable for single cells. The process involves treating isolated single-cell genomic DNA with sodium bisulfite, followed by random priming and PCR amplification for sequencing.
+
+## Detailed Workflow
+
+### Cell Lysis and Bisulfite Conversion
+
+- **Cell Lysis**: Cells are lysed using a protein lysis buffer, and genomic DNA is released.
+- **Bisulfite Conversion**: The Imprint DNA Modification Kit (Sigma, Cat# D5044) is used for bisulfite conversion, modifying unmethylated cytosines to uracil while leaving methylated cytosines unchanged. This process involves denaturation and incubation steps at specific temperatures.
+
+### DNA Priming and Amplification
+
+- **Random Priming**: Post-conversion, DNA undergoes multiple rounds of random priming. Key primers include:
+
+  - **Oligo1 Primer**: `[Btn]CTACACGACGCTCTTCCGATCTNNNNNNNNN`
+  - **Oligo2 Primer**: `TGCTGAACCGCTCTTCCGATCTNNNNNNNNN`
+
+- These primers facilitate the synthesis of new DNA strands from the bisulfite-treated DNA.
+
+### PCR and Library Preparation
+
+- **PCR Amplification**: Using primers such as the PE1.0 forward primer and indexed iPCRTag reverse primer, the DNA is amplified.
+  - **PE1.0 Forward Primer**: `AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT`
+- Amplified libraries are purified and quantified, ensuring only high-quality DNA is used for sequencing.
+
+### Sequencing and Analysis
+
+- The prepared libraries are then sequenced using deep sequencing technology, providing a high-resolution profile of methylated cytosines at a single-cell level.
+
+## Applications
+
+scBS-seq is invaluable in epigenetics for understanding methylation patterns in individual cells, crucial for studying:
+
+- Cellular heterogeneity and epigenetic variability.
+- Developmental processes and disease progression at the single-cell level.
+
+By providing detailed methylation profiles of individual cells, scBS-seq offers insights into the complex regulation of gene expression and contributes significantly to the understanding of epigenetic mechanisms in health and disease.
+
 ## scCOOL-seq (Chromatin Overall Omic-scale Landscape Sequencing) 
+
+<div align=center>
+<img src="/imgs/sccool-seq.png">
+</div
 
 DNA sequences are made up of four bases: A, T, C, and G. CG sites refer to the occurrence of CG base pairs in DNA sequences. For example, in the sequence AGCTCGAT, there is one CG site.
 
@@ -1159,6 +1215,10 @@ This approach enables simultaneous detection of chromatin openness and endogenou
 
 ## scNanoCOOL-seq
 
+<div align=center>
+<img src="/imgs/scnanocool-seq.png">
+</div
+
 ### General Process
 
 1. **In vitro GpC Methylation (IVM) of Individual Cells**
@@ -1212,10 +1272,6 @@ This approach enables simultaneous detection of chromatin openness and endogenou
    - Amplified cDNA is purified using AMPure XP beads and biotin-streptavidin capture system.
    - The cDNA library is then prepared for sequencing on the Illumina platform, using specific adapters and PCR conditions.
 
-Certainly, here's the explanation in English, formatted as Markdown notes, regarding the selective sequencing aspect of scNanoCOOL-seq after bisulfite treatment:
-
----
-
 ## scNanoCOOL-seq and Bisulfite-Treated Genome Sequencing
 
 ### Bisulfite Treatment Impact
@@ -1232,34 +1288,6 @@ Certainly, here's the explanation in English, formatted as Markdown notes, regar
 
 - **Partial Genomic Coverage**: Thus, scNanoCOOL-seq primarily measures and analyzes those regions in the genome that were methylated prior to bisulfite treatment, not the entire genome.
 - **Focused Analysis**: This means the method mainly captures specific, methylation-status-related genomic information, rather than providing a comprehensive overview of the entire genome.
-
-## scNanoCOOL-seq Primer Usage Summary
-
-### Random Priming with Oligo 1-N6
-
-- **Purpose:** To initiate multiple rounds of amplification on bisulfite-treated single-stranded DNA, enhancing the complexity of the library.
-- **Primer Structure:** Oligo 1-N6 primer has a sequence `5‘ - CTACACGACGCTCTTCCGATCTNNNNNN - 3’`.
-- **Process:** Random priming is performed several times to tag bisulfite-converted DNA with Oligo 1-N6, generating complementary DNA strands. This step is crucial for preparing the DNA for subsequent PCR amplification.
-
-### PCR Amplification with 24bp Barcode-Oligo1 Primer
-
-- **Purpose:** To amplify the tagged DNA while introducing a unique 24-nucleotide barcode for each sample.
-- **Primer Structure:** The 24bp Barcode-Oligo1 primer is designed as `5‘ - /24 bp barcode/CTACACGACGCTCTTCCGATCT - 3’`.
-- **Process:** 
-    - The PCR amplification utilizes only the Barcode-Oligo1 primer, relying on the complementary strands generated during the random priming phase.
-    - This approach is possible because the initial random priming with Oligo 1-N6 produces complementary strands that are suitable for amplification with the Barcode-Oligo1 primer.
-    - The PCR conditions are optimized to efficiently amplify the library, ensuring adequate representation of the bisulfite-converted DNA and maintaining the library complexity.
-
-### Single-Strand Information
-
-- **Information from One Strand:** In scNanoCOOL-seq, the amplification and sequencing primarily capture information from a single DNA strand.
-- **Bisulfite Treatment Effect:** The bisulfite treatment converts unmethylated cytosines to uracil, and the subsequent amplification process effectively reads and amplifies the converted strand.
-- **Focus on Methylation Status:** Since the main focus is on identifying methylation status, sequencing one strand provides sufficient information to determine the methylation pattern.
-
-### Key Considerations
-
-- **Single Primer PCR:** While traditional PCR usually requires two complementary primers, in this specific context, the previous random priming step facilitates the use of a single primer for effective amplification.
-- **Library Complexity:** The combined use of Oligo 1-N6 in random priming and the Barcode-Oligo1 primer in PCR ensures high complexity and accurate representation of the DNA methylation state in the library.
 
 ## scNMT-seq (single-cell nucleosome, methylation and transcription sequencing)
 
