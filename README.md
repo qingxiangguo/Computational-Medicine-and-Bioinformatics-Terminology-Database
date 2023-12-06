@@ -422,6 +422,41 @@ This is a next step of DNA end-repair. Adding a non-template dAMP (dA) to the 3�
 
 In other words, add "A" base to the 3´ end of a blunt phosphorylated DNA fragment. This treatment creates compatible overhangs for the next step of DNA sample preparation.T
 
+## Dr-Seq single cell sequencing technology
+
+Dr-Seq technology separates the sequencing of gDNA and mRNA from a single cell. The workflow is as follows:
+
+### Cell lysis and reverse transcription
+- Cells are lysed and reverse transcription is performed using primer **Ad-1x** to obtain cDNA with cell-specific barcodes  
+- The cDNA contains **Ad-1x** sequence on 5' end
+- Quasilinear amplification is then performed to amplify cDNA, which introduces **Ad-2** sequence
+  - The amplified cDNA can have two forms:  
+    1. **3' end with Ad-2**  
+    2. **5' end with Ad-1x and 3' end with Ad-2** (due to linear amplification nature)
+
+### Sequencing of gDNA and mRNA
+The amplified product is split into two parts:
+
+#### mRNA Sequencing
+- In vitro transcription using T7 promoter in **Ad-1x** to specifically amplify cDNA
+- Build library and sequence
+
+#### gDNA Sequencing 
+- PCR using primers complementary to **Ad-2** to amplify gDNA
+- Remove Ad-2 sequence
+- Build library and sequence 
+
+### Bioinformatic analysis
+- Align reads to reference transcriptome and genome
+- Distinguish cDNA and gDNA reads by alignment
+  - However, has limitations due to sequence ambiguities
+
+In summary, Dr-Seq lyses single cells, reverse transcribes mRNA, and amplifies both gDNA and cDNA with different barcoded primers. It then separates the two and processes them independently for sequencing.
+
+<div align=center>
+<img src="/imgs/DR-seq.png">
+</div>
+
 ## Enhancer
 An enhancer is a short (50–1500 bp) region of DNA that can be bound by proteins (activators) to increase the likelihood that transcription of a particular gene will occur. They can be located up to 1 Mbp (1,000,000 bp) away from the gene, upstream or downstream from the start site. Enhancers are found mostly in the intergenic and intronic regions, while a few enhancers have been found within exons.
 
