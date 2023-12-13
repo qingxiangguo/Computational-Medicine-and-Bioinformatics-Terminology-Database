@@ -14,6 +14,31 @@ In the database, I provide a list of commonly used computational medicine and bi
 
 # Terminology Content
 
+## 5mC, 5hmC, CpG Sites, and CpG Islands
+
+#### 5-Methylcytosine (5mC)
+5mC is a form of DNA methylation occurring at the 5th carbon of the cytosine ring in DNA. It's often associated with gene silencing, particularly when present in CpG sites. 5mC is a common epigenetic mark and plays a crucial role in regulating gene expression.
+
+#### 5-Hydroxymethylcytosine (5hmC)
+5hmC is formed from 5mC through the addition of a hydroxyl group, marking an intermediate step in DNA demethylation. Though it's a methylated form, it often indicates a transition towards gene activation, showcasing a key role in dynamic gene regulation.
+
+#### CpG Sites
+CpG sites are DNA regions where a cytosine nucleotide is followed by a guanine nucleotide. Methylation at these sites, primarily involving 5mC, is vital for controlling gene expression. These sites are significant in epigenetic studies due to their influence on gene activity.
+
+#### CpG Islands
+CpG islands are dense CpG site regions typically located near gene promoters. Unlike isolated CpG sites, these islands are usually unmethylated, facilitating active gene expression. However, methylation can occur under certain conditions (like in diseases), leading to gene silencing. CpG islands can undergo demethylation, reactivating previously silenced genes.
+
+#### Interplay
+The interplay among 5mC, 5hmC, CpG sites, and CpG islands is central to DNA methylation dynamics and gene regulation:
+
+1. **CpG Sites and 5mC**: In CpG sites, cytosine is often methylated to form 5mC, which is associated with gene suppression. This methylation plays a pivotal role in silencing gene functions.
+
+2. **CpG Islands and Transcriptional Activity**: CpG islands, rich in CpG sites, are usually unmethylated, maintaining transcriptional activity in the associated gene regions.
+
+3. **Methylation of CpG Islands**: When CpG islands undergo methylation, it leads to the suppression of downstream gene expression.
+
+4. **5hmC and Gene Reactivation**: The formation of 5hmC is sometimes linked to the demethylation of CpG islands, potentially leading to the reactivation of previously silenced genes. This shift from 5mC to 5hmC signals a tendency towards demethylation and gene activation.
+
 ## Allelic balance
 The proportion of reads covering a variant’s location that support the variant. For example, if a variant’s location is covered by 100 reads, of which 25 support the variant and 75 do not, then the variant would have an allelic balance of 25/100 = 0.25.
 
