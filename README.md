@@ -495,6 +495,26 @@ An enhancer is a short (50–1500 bp) region of DNA that can be bound by protein
 
 Here is an enhancer diagram. Within this DNA sequence, protein(s) known as transcription factor(s) bind to the enhancer and increases the activity of the promoter. 1. DNA 2. Enhancer 3. Promoter 4. Gene 5. Transcription Activator Protein 6. Mediator Protein 7. RNA Polymerase
 
+## Enzymatic Methyl-seq (EM-seq)
+
+EM-seq is a bisulfite-free, enzymatic method for detecting 5-methylcytosine (5mC) and 5-hydroxymethylcytosine (5hmC) in DNA. This technique is an alternative to bisulfite sequencing, offering a less damaging approach to detect DNA methylation.
+
+### Detailed Workflow
+1. **DNA Shearing**: Genomic DNA is fragmented into smaller pieces.
+2. **End Repair/A-Tailing**: The DNA fragments are polished and adenine-tailed, preparing them for ligation.
+3. **Adaptor Ligation**: Adaptors are ligated to the DNA fragments, preparing them for amplification and sequencing.
+4. **Oxidation and Protection**: An oxidation step protects 5mC and 5hmC from subsequent deamination, thus preserving the methylation information.
+5. **Deamination**: Unprotected cytosines are deaminated to uracil (U), differentiating them from methylated cytosines.
+6. **PCR Amplification**: The NEBNext® Q5U Master Mix amplifies the DNA, enriching for fragments that have undergone the conversion.
+7. **Sequencing**: High-throughput sequencing, like Illumina sequencing, is used to read the DNA sequences and identify methylation patterns.
+
+### Advantages
+- Preserves DNA integrity by avoiding harsh chemical treatments.
+- Enables detection of both 5mC and 5hmC.
+- Compatible with low input DNA and single-cell analysis.
+
+The EM-seq approach provides greater accuracy and less DNA damage, enhancing the reliability of methylation data for epigenetic studies.
+
 ## Epigenome
 
 An epigenome consists of a record of the chemical changes to the DNA and histone proteins of an organism; these changes can be passed down to an organism's offspring via transgenerational stranded epigenetic inheritance. Changes to the epigenome can result in changes to the structure of chromatin and changes to the function of the genome.
