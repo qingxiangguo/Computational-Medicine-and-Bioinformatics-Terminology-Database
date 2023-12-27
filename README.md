@@ -995,23 +995,23 @@ Regardless of the library construction method, submitted libraries will consist 
 
 ## Pore-C Technology Overview
 
-## Introduction
+### Introduction
 Pore-C is an innovative genomic technique that enhances our understanding of the 3D genome structure. While sharing initial steps with Hi-C, Pore-C extends capabilities to capture complex multi-way DNA interactions, offering a more comprehensive view of chromatin architecture.
 
-## Comparison with Hi-C
+### Comparison with Hi-C
 - **Shared Initial Steps**: Both Pore-C and Hi-C begin with similar wet lab procedures, including cell culture, cross-linking, DNA digestion, and ligation.
 - **Divergence in Sequencing and Analysis**:
   - **Sequencing Method**: Pore-C employs long-read nanopore sequencing, contrasting Hi-C's short-read Illumina sequencing.
   - **Data Complexity**: Pore-C captures multi-way DNA contacts, providing richer spatial chromatin structure information, unlike Hi-C which focuses on pairwise interactions.
 
-## Experimental Workflow
+### Experimental Workflow
 1. **Cell Culture and Cross-Linking**: Similar to Hi-C, cells are grown and treated with formaldehyde for DNA-protein cross-linking.
 2. **DNA Digestion and Ligation**: DNA is digested with restriction enzymes and ligated, mirroring Hi-C's approach.
 3. **Key Divergences Post-Ligation**:
    - **DNA Purification and Sequencing**: Post-ligation steps involve DNA purification followed by long-read nanopore sequencing.
    - **Bioinformatics Analysis**: Pore-C requires specialized analysis pipelines to handle long-read data and multi-way contact mapping.
 
-## Bioinformatics Workflow (Pore-C Specific)
+### Bioinformatics Workflow (Pore-C Specific)
 1. **Local Alignments to Reference(s)**: DNA reads are aligned to the reference genome using BWA.
 2. **Optimize Alignment Path Through Read**: Identifying the most probable DNA segment combinations covering each read.
 3. **Assign Alignments to Restriction Fragments**: Alignments are mapped to specific restriction fragments.
@@ -1019,12 +1019,12 @@ Pore-C is an innovative genomic technique that enhances our understanding of the
 5. **Tabulate Support for Bin-Bin Contacts**: Calculating interaction frequencies between genomic bins.
 6. **Generate Contact Map**: Creating a comprehensive chromatin contact map from the interaction data.
 
-## Advantages of Pore-C
+### Advantages of Pore-C
 - **Detailed Chromatin Interactions**: Captures complex, high-order DNA interactions.
 - **Long-Read Sequencing**: Provides more extensive coverage and insight into chromatin structure.
 - **Enhanced Analytical Depth**: Offers deeper insights into genome organization and gene regulation.
 
-## Conclusion
+### Conclusion
 Pore-C represents a significant advancement in chromatin conformation studies. By building on the foundational steps of Hi-C and incorporating advanced sequencing and analysis techniques, Pore-C provides a more nuanced and comprehensive understanding of the genome's 3D structure.
 
 <div align=center>
@@ -1143,6 +1143,54 @@ Yield from a single cell is 25–35 µg of amplified DNA. Saves at least 1 hour 
 ## REPLI-g UltraFast Mini Kit
 
 Resulting in typical DNA yields of 7 μg per 20 μl reaction. Sufficient product is available for downstream genetic analysis after just 45 minutes. Input, 10 ng DNA, 0.5 µl whole blood, ~300 cells/µl.
+
+## RNA-Binding Proteins (RBPs)
+
+RNA-binding proteins (RBPs) play a crucial role in various aspects of RNA metabolism and gene regulation. They interact with different types of RNA molecules, influencing their function, localization, stability, and processing.
+
+### Functions of RBPs
+
+#### RNA Processing and Splicing
+- RBPs are involved in the processing of pre-mRNA into mature mRNA.
+- They participate in RNA splicing, editing, and modification processes.
+
+#### RNA Transport and Localization
+- RBPs facilitate the transport of RNA molecules to specific locations within the cell.
+- This localization is crucial for localized protein synthesis and cellular function.
+
+#### RNA Stability and Degradation
+- RBPs can increase or decrease the stability of RNA molecules.
+- They play a role in determining the half-life and degradation of RNAs.
+
+#### Protein Synthesis Regulation
+- By binding to mRNA, RBPs regulate protein synthesis.
+- They modulate gene expression through promotion or inhibition of translation.
+
+#### Involvement in Non-Coding RNA Functions
+- RBPs interact with non-coding RNAs like miRNAs and lncRNAs.
+- They are involved in gene silencing, chromatin remodeling, and other regulatory processes.
+
+### Interaction with Various RNA Types
+
+#### Messenger RNA (mRNA)
+- RBPs regulate the translation, stability, and processing of mRNA.
+- They are key players in post-transcriptional gene regulation.
+
+#### Ribosomal RNA (rRNA) and Transfer RNA (tRNA)
+- RBPs are involved in the structural formation and function of rRNA and tRNA in protein synthesis.
+
+#### Small Nuclear RNA (snRNA) and Small Nucleolar RNA (snoRNA)
+- These RNAs, in association with RBPs, are involved in RNA splicing and modification.
+
+#### Long Non-Coding RNA (lncRNA)
+- RBPs interact with lncRNAs in gene expression regulation, chromatin structure organization, and other cellular processes.
+
+#### MicroRNA (miRNA)
+- RBPs play a role in the maturation and function of miRNAs, impacting gene silencing and post-transcriptional regulation.
+
+### Importance of RBPs
+
+RBPs are integral to cellular functioning and gene expression regulation. Their study helps in understanding RNA roles and regulatory mechanisms in biology and disease. Alterations in RBP interactions with RNA can lead to various diseases, making them a significant focus in biomedical research.
 
 ## SAM (file format)
 <div align=center>
