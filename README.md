@@ -993,6 +993,45 @@ This methodology, combining single-cell chromatin accessibility data and motif a
 
 Regardless of the library construction method, submitted libraries will consist of a sequence of interest flanked on either side by adapter constructs. On each end, these adapter constructs have flow cell binding sites, P5 and P7, which allow the library fragment to attach to the flow cell surface. All Paired-End Format sequencing on the HiSeq and All sequencing of any type on the MiSeq MUST HAVE FULL-LENGTH P5 and P7 sequences . (some of the small RNA libraries and alternative genomic library constructions use a partial P7, this is not supported by the HiSeq PE and MiSeq.)
 
+## Pore-C Technology Overview
+
+## Introduction
+Pore-C is an innovative genomic technique that enhances our understanding of the 3D genome structure. While sharing initial steps with Hi-C, Pore-C extends capabilities to capture complex multi-way DNA interactions, offering a more comprehensive view of chromatin architecture.
+
+## Comparison with Hi-C
+- **Shared Initial Steps**: Both Pore-C and Hi-C begin with similar wet lab procedures, including cell culture, cross-linking, DNA digestion, and ligation.
+- **Divergence in Sequencing and Analysis**:
+  - **Sequencing Method**: Pore-C employs long-read nanopore sequencing, contrasting Hi-C's short-read Illumina sequencing.
+  - **Data Complexity**: Pore-C captures multi-way DNA contacts, providing richer spatial chromatin structure information, unlike Hi-C which focuses on pairwise interactions.
+
+## Experimental Workflow
+1. **Cell Culture and Cross-Linking**: Similar to Hi-C, cells are grown and treated with formaldehyde for DNA-protein cross-linking.
+2. **DNA Digestion and Ligation**: DNA is digested with restriction enzymes and ligated, mirroring Hi-C's approach.
+3. **Key Divergences Post-Ligation**:
+   - **DNA Purification and Sequencing**: Post-ligation steps involve DNA purification followed by long-read nanopore sequencing.
+   - **Bioinformatics Analysis**: Pore-C requires specialized analysis pipelines to handle long-read data and multi-way contact mapping.
+
+## Bioinformatics Workflow (Pore-C Specific)
+1. **Local Alignments to Reference(s)**: DNA reads are aligned to the reference genome using BWA.
+2. **Optimize Alignment Path Through Read**: Identifying the most probable DNA segment combinations covering each read.
+3. **Assign Alignments to Restriction Fragments**: Alignments are mapped to specific restriction fragments.
+4. **Assign Restriction Fragments to Bins**: Fragments are categorized into larger genomic bins.
+5. **Tabulate Support for Bin-Bin Contacts**: Calculating interaction frequencies between genomic bins.
+6. **Generate Contact Map**: Creating a comprehensive chromatin contact map from the interaction data.
+
+## Advantages of Pore-C
+- **Detailed Chromatin Interactions**: Captures complex, high-order DNA interactions.
+- **Long-Read Sequencing**: Provides more extensive coverage and insight into chromatin structure.
+- **Enhanced Analytical Depth**: Offers deeper insights into genome organization and gene regulation.
+
+## Conclusion
+Pore-C represents a significant advancement in chromatin conformation studies. By building on the foundational steps of Hi-C and incorporating advanced sequencing and analysis techniques, Pore-C provides a more nuanced and comprehensive understanding of the genome's 3D structure.
+
+<div align=center>
+<img src="imgs/porec.png">
+</div>
+
+
 ## Post-Bisulfite Adapter Tagging (PBAT) - core technique of scBS-seq, scNanoCOOL-seq, scCOOL-seq
 
 PBAT is a technique used in DNA methylation studies, specifically designed for bisulfite-treated DNA (BS-DNA), which allows for the analysis of methylation patterns at a single-nucleotide resolution. The figure provided illustrates the PBAT method, which is adapted for sequencing on Illumina platforms. 
