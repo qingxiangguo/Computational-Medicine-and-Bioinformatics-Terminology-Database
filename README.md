@@ -1707,6 +1707,20 @@ The QV field indicates the quality score of the variant. In this case, the value
 
 This is the SA tag. A chimeric reads but not a representative reads. 
 
+## SWI/SNF Complex 
+
+### Core Description
+The SWI/SNF complex is a type of chromatin modifier. It can open the chromation. When transcription factors require assistance, they recruit the SWI/SNF complex, which then binds with the transcription factors. This interaction leads to the unraveling of chromatin, exposing enhancers or promoters, thereby facilitating the binding of transcription factors to enhancers or promoters, crucial for effective gene regulation.
+
+### Composition
+The SWI/SNF complex is composed of multiple subunits, which can vary among different cell types and species. Key components include:
+
+- **SMARCA4/BRG1 or SMARCA2/BRM**: Both subunits have ATPase activity and serve as the main driving forces of the complex. They play a central role in different SWI/SNF complexes but usually do not coexist in the same complex.
+- **SMARCB1/SNF5, SMARCC1/BAF155, SMARCC2/BAF170**: These subunits provide structural support and are involved in the stability and assembly of the complex.
+- **SMARCE1/BAF57, SMARCD1/BAF60, SMARCD2/BAF60B, SMARCD3/BAF60C**: These components also participate in the assembly and functional regulation of the complex.
+- **Other Components**: Including specific subunits like ARID1A/BAF250A and ARID1B/BAF250B, which impart specific functions and tissue specificity to the complex.
+
+
 ## T7 promoter and T7 RNA polymerase  
 
 T7 is a promoter (T7 promoter), a strong promoter from T7 phage that can specifically respond to T7 RNA polymerase, and is a sequence that initiates transcription of the T7 phage gene.  
@@ -1763,6 +1777,29 @@ Crucially, combining tagmentation with optimized gap repair allowed the streamli
 Individual cells were collected with a microcapillary connected to a mouth pipette and washed by transferring them into droplets of 1 mg/mL phosphate-buffered saline-bovine serum albumin for three times before lysis. The 2.5-μL lysis reaction consists of 0.25-μL 100mM Tris-EDTA (1M Tris + 0.1M EDTA), 0.125μL Qiagen protease, 0.075μL 10% triton X-100, 0.05μL1MKCL,and2μLH2O. The cell lysis was carried out at 50°C for 3 h to digest the proteins binding on the gDNA and then 70°C for 30 min to inactivate the protease. After that, a 7.5-μL tagmentation mixture including 2 μL 5×TAPS_PEG8K (50 mM TAPS-NaOH (or KOH), pH 8.3 (RT), 25 mM MgCl2, 40% PEG8K), and 1μL0.2ng/μL adaptor conjuncted Tn5 enzyme (Vazyme, Cat. S601-01) was added into each cell lysate. The tagmentation reaction was carried out at 55°C for 10min, followed by adding 2.5-μL0.2%SDSand standing at room temperature for 5min to stop tagmentation, releasing the fragmented gDNA. Then, strand displacement of the Tn5 adaptors and amplification of the fragmented gDNA was carried out using 0.025U/μLTksGflexDNA Polymerase (TAKARA, Cat. R060B), 560nM I5 PCR primer which containing 16 bp cell barcode (5′ AATGATACGGCGACCACCGAGATCTNNNNNNNNNNNNNNN NTCGTCGGCAGCGTC3′). The PCR program was 72°C 3min, 98°C 1 min, and then 20 cycles of 98°C for 15s, 60°C for 30s, and 68°C for 5min. After that, gDNA amplicons using different barcode primers were pooled together and purified with 0.4 volume of Ampure PB beads (Pacific Biosciences Ref. No. 100-265-900) for twice. These purified amplicons were quantifiedusingQubit,andabout1μg amplified products was used to construct libraries for Pacbio sequencing using SMRTbell Template Prep Kit v.1.0-SPv3 (Pacific Biosciences Ref. No. 100-991-900).
 
 Because of the transposon approach, adaptor has been added, each sequence is ended with part of the sequence of adaptor, so there is no need for random primers to amplify the whole genome, but only the I5 primer that specifically identifies the adaptor is needed, except that barcode needs to be added to label multiple cells to facilitate the difference after hybrid sequencing, saving cost and improving throughput
+
+## Transcription Factors: Key Regulators of Gene Expression
+
+### Overview
+Transcription factors are proteins that play a critical role in regulating gene transcription. They bind to specific DNA sequences, particularly in the promoter or enhancer regions of genes, to control the recruitment of RNA polymerase and, consequently, the activity of gene expression.
+
+### Binding to Promoters
+#### Direct Activation
+Transcription factors can bind directly to promoter regions located upstream of genes. This binding helps position RNA polymerase II and initiates the transcription of the gene.
+
+### Interacting with Enhancers
+#### Long-Distance Regulation
+Transcription factors can also bind to enhancer regions, which are DNA sequences that can boost the transcription of target genes from a distance. Through the mediation of complexes like the Mediator complex, transcription factors can influence promoters and regulate gene transcription even from afar.
+
+### Overcoming Chromatin Inaccessibility
+#### Enhancer and Promoter Accessibility
+When chromatin is tightly packed and gene loci are inaccessible, transcription factors can interact with (binding) chromatin modifiers, such as the SWI/SNF complex, to modulate the chromatin state. This modification not only makes promoter regions accessible for transcription initiation but also exposes enhancer regions. Transcription factors may first bind to these enhancers and, through spatial reorganization of the chromatin, facilitate the interaction between enhancers and promoters, thereby regulating gene transcription. This interplay between transcription factors, enhancers, and chromatin state is a key step in the control of gene expression.
+
+### Histone Modification Interactions
+#### Modulating Chromatin Accessibility
+In addition to altering promoter accessibility, transcription factors can interact with histone modification enzymes like histone acetyltransferases (HATs) and histone deacetylases (HDACs). By modifying the acetylation state of histones, they influence the structure and accessibility of chromatin. These modifications can lead to the exposure of enhancer regions, allowing transcription factors to bind and regulate gene expression through the activation of promoters.
+
+These diverse mechanisms ensure that transcription factors can effectively regulate gene expression across different cellular environments and conditions. By employing these complex regulatory modes, cells can precisely control gene activity in response to changing internal and external environments.
  
 ## Transporter associated with antigen processing (TAP)
 Transporter associated with antigen processing (TAP) protein complex belongs to the ATP-binding-cassette transporter family. It delivers cytosolic peptides into the endoplasmic reticulum (ER), where they bind to nascent MHC class I molecules.
