@@ -1574,6 +1574,27 @@ The amplification will not remove the already-fixed methylation information.
 
 Slippage during PCR, also known as replication slippage, is a form of mutation that causes trinucleotide or dinucleotide amplification and sometimes even contraction during DNA replication, resulting in tandem repeat sequences.
 
+## SMARCA4
+
+SMARCA4, also known as BRG1, is a pivotal ATPase component of the SWI/SNF chromatin remodeling complex, instrumental in regulating gene expression by altering chromatin structure.
+
+### Function in Chromatin Remodeling
+#### Modulating Gene Accessibility
+- SMARCA4 utilizes the energy from ATP hydrolysis to reposition nucleosomes, which controls the accessibility of transcriptional machinery to gene regulatory regions.
+
+### Role in Gene Regulation
+#### Partnering with Transcription Factors
+- While SMARCA4 itself does not directly recognize specific DNA sequences, it is recruited to promoters and enhancers by transcription factors such as SOX4. The SOX4-SMARCA4 complex then collaborates to enhance chromatin accessibility, particularly at genes like TGFBR2, facilitating their expression.
+
+### ChIP Experiments with SMARCA4 and SOX4
+#### Capturing DNA-Protein Interactions
+- In Chromatin Immunoprecipitation (ChIP) assays using antibodies specific to SMARCA4, DNA fragments bound by SMARCA4, including those at the promoters and enhancers of target genes, can be isolated. 
+- Similarly, ChIP with SOX4-specific antibodies will precipitate DNA regions where SOX4 is bound, which may include the enhancer and promoter regions of genes such as TGFBR2.
+
+<div align=center>
+<img src="imgs/smarca.png">
+</div
+
 ## SMART (Switching Mechanism at the 5′ end of RNA Template) technology
 leverages the template-switching capability of certain reverse transcriptases (RTs) to capture full-length sequence information from RNA or DNA templates and incorporate adapter sequences during first-strand cDNA synthesis. The adapter sequences serve as primer-binding sites during subsequent rounds of PCR amplification. It has full-length template coverage, high-quality sequencing libraries.
 
