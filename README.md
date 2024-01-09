@@ -266,6 +266,55 @@ I’m not exactly sure, when or how this happens, but there is a fraction of rea
 
 SMRT Bells are blunt end ligated to the DNA fragment being sequenced, sometimes a DNA fragment ligating to another DNA fragment before having a SMRT Bell adapter added. This would generate the classic chimera, a sequenced read being from two random parts of a genome. Note this is random and will not happen at exactly the same location more than once, so it is easily dealt with at the analysis stage. The "siamaeras" or missing adapter look like a sequence followed by the reverse complement of the sequence, and results from the SMRT Bell being missing/not-detected on one end of the insert i.e. you read a sequence forward then backwards without an adapter so the software does not know that the read needs to be split. This can happen due to sample prep - a long overhang forms a hairpin, mimicking a SMRT Bell, or less frequently due to a real SMRT bell being missed in software.
 
+## ChIP-Seq Technology Overview
+
+### ChIP-Seq Workflow
+
+ChIP-Seq (Chromatin Immunoprecipitation Sequencing) is a powerful technique used to study protein-DNA interactions within the cell. The process involves several key steps:
+
+1. **Cross-linking**: Proteins are cross-linked to DNA using a fixative like formaldehyde.
+2. **Fragmentation**: The chromatin is then fragmented, typically using sonication or enzymatic digestion.
+3. **Immunoprecipitation**: Fragmented chromatin is incubated with a specific antibody (primary antibody) that binds to the protein of interest.
+4. **Capture of Antibody-Chromatin Complexes**: After incubation, the antibody-chromatin complexes are pulled down using magnetic beads or agarose beads coated with protein A/G.
+5. **Washing**: The beads are washed to remove non-specifically bound material.
+6. **Reverse Cross-linking**: The protein-DNA cross-links are reversed, usually by heating, to free the DNA.
+7. **DNA Purification**: The DNA is then purified from the solution.
+
+### Q&A Related to ChIP-Seq
+
+**Q1: Why is ChIP-Seq also used to study histones?**
+
+- **A1**: ChIP-Seq is not limited to studying transcription factors or DNA-binding proteins. It can also be used to study histones and their modifications. Histones are proteins around which DNA winds, and their modifications can influence gene expression. By using antibodies specific to certain histone modifications, ChIP-Seq can provide insights into the role of these modifications in gene regulation.
+
+**Q2: What is the significance of using H3 or Pol II as positive controls in ChIP-Seq?**
+
+- **A2**: Histone H3 and RNA Polymerase II (Pol II) are commonly used as positive controls in ChIP-Seq. H3 is a core histone protein, and its presence across the genome provides a uniform control signal. Pol II, involved in mRNA synthesis, is enriched at active gene promoters, providing a distinct peak pattern in these regions. These controls help validate the effectiveness of the ChIP process.
+
+**Q3: Why is the negative control IgG selected based on the host species and subtype of the primary antibody?**
+
+- **A3**: The negative control, typically normal IgG, is chosen to match the host species and subtype of the primary antibody to ensure that the behavior of the control mimics that of the primary antibody, except for the specific binding to the target protein. This matching helps in accurately determining the non-specific background signal in the assay.
+
+**Q4: What is the role of protein A/G in ChIP-Seq?**
+
+- **A4**: Protein A and protein G are bacterial proteins that bind to the Fc region of antibodies. In ChIP-Seq, they are used to capture the antibody-chromatin complexes. Beads coated with protein A/G are used to pull down these complexes from the solution. The choice between protein A and G depends on the species and subtype of the antibody used, as they differ in their binding affinities to different antibodies.
+
+**Q5: Why is chromatin fragmented and a portion used as an 'input' control in ChIP-Seq?**
+
+- **A5**: Fragmentation of chromatin is necessary to expose the DNA-binding sites and to create manageable lengths of DNA for sequencing. A portion of this fragmented chromatin, known as 'input,' is set aside before immunoprecipitation. The input sample represents the baseline DNA content and is used in data analysis as a control to account for differences in DNA accessibility and fragmentation efficiency, allowing for normalization and accurate interpretation of ChIP-Seq results.
+
+### Additional Q&A on ChIP-Seq
+
+**Q6: What are the differences between agarose beads and magnetic beads in ChIP, and how do you choose between them?**
+
+- **A6**: Agarose beads and magnetic beads are both used in ChIP assays to pull down the antibody-chromatin complexes, but they have different properties and practical implications:
+    - **Agarose Beads**: These beads are a traditional choice for immunoprecipitation. They are usually cheaper and can bind a large amount of antibody. However, the process of separation by centrifugation can be time-consuming and may lead to sample loss or contamination.
+    - **Magnetic Beads**: Magnetic beads offer a more modern approach. They allow for a faster and cleaner separation process using a magnet, reducing sample loss and increasing efficiency. They are particularly useful when working with small sample volumes or when a rapid turnaround is needed.
+    - **Choosing Between Them**: The choice between agarose and magnetic beads depends on several factors, including the scale of the experiment, available resources, and personal preference. Magnetic beads are generally favored for their ease of use and efficiency, especially in high-throughput settings, but agarose beads can be a cost-effective alternative for larger volumes or when budget constraints are significant.
+
+<div align=center>
+<img src="imgs/chip.png">
+</div>
+
 ## ChIP-seq and RNA-seq co analysis
 
 In genomic research, ChIP-seq (Chromatin Immunoprecipitation Sequencing) and RNA-seq (RNA Sequencing) are commonly used experimental techniques. When presented side by side in the same chart, they are often used to illustrate the relationship between the state of epigenetic modifications in chromatin (such as methylation, acetylation, etc.) and gene expression.
@@ -1603,6 +1652,32 @@ The amplification will not remove the already-fixed methylation information.
 ## Slippage during polymerase chain reaction amplification  
 
 Slippage during PCR, also known as replication slippage, is a form of mutation that causes trinucleotide or dinucleotide amplification and sometimes even contraction during DNA replication, resulting in tandem repeat sequences.
+
+## SMARCA1
+
+SMARCA1, also known as SNF2L (Sucrose Non-Fermenting 2-Like), is a crucial gene in the human genome that encodes a protein playing a significant role in chromatin remodeling. It is a part of the SWI/SNF (SWItch/Sucrose Non-Fermentable) family of proteins, known for their involvement in altering chromatin structure to regulate gene expression.
+
+### Function and Role
+
+- **Chromatin Remodeling**: SMARCA1 encodes an ATP-dependent helicase. This enzyme is integral to modifying the structure of chromatin, which consists of DNA wrapped around histone proteins. By altering chromatin architecture, SMARCA1 facilitates or inhibits access to certain DNA regions, thereby regulating gene transcription.
+
+- **Gene Regulation**: Through its action on chromatin, SMARCA1 influences various cellular processes including cell growth, differentiation, and response to signaling. Its role in gene regulation is crucial for normal cellular function and development.
+
+### Expression and Activity
+
+- **Tissue Specificity**: The expression of SMARCA1 varies across different tissues and cell types, reflecting its diverse roles in various cellular contexts.
+
+- **Regulatory Mechanisms**: SMARCA1 activity is finely tuned by various regulatory mechanisms, ensuring that chromatin remodeling occurs in a controlled manner in response to cellular needs.
+
+### Clinical Significance
+
+- **Disease Association**: Alterations or mutations in the SMARCA1 gene have been implicated in certain genetic disorders and cancers. Understanding its function and regulation provides insights into these diseases and potential therapeutic approaches.
+
+- **Research Interest**: SMARCA1 remains an area of active research, particularly in understanding its specific roles in different types of cells and how its dysfunction contributes to disease pathology.
+
+### Conclusion
+
+SMARCA1 is a pivotal component of the chromatin remodeling complex, essential for regulating gene expression and maintaining cellular homeostasis. Its diverse roles and clinical significance make it a key subject in the study of molecular biology and genetics.
 
 ## SMARCA4
 
