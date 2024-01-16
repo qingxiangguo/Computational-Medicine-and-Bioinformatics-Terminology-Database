@@ -302,14 +302,22 @@ ChIP-Seq (Chromatin Immunoprecipitation Sequencing) is a powerful technique used
 
 - **A5**: Fragmentation of chromatin is necessary to expose the DNA-binding sites and to create manageable lengths of DNA for sequencing. A portion of this fragmented chromatin, known as 'input,' is set aside before immunoprecipitation. The input sample represents the baseline DNA content and is used in data analysis as a control to account for differences in DNA accessibility and fragmentation efficiency, allowing for normalization and accurate interpretation of ChIP-Seq results.
 
-### Additional Q&A on ChIP-Seq
-
 **Q6: What are the differences between agarose beads and magnetic beads in ChIP, and how do you choose between them?**
 
 - **A6**: Agarose beads and magnetic beads are both used in ChIP assays to pull down the antibody-chromatin complexes, but they have different properties and practical implications:
     - **Agarose Beads**: These beads are a traditional choice for immunoprecipitation. They are usually cheaper and can bind a large amount of antibody. However, the process of separation by centrifugation can be time-consuming and may lead to sample loss or contamination.
     - **Magnetic Beads**: Magnetic beads offer a more modern approach. They allow for a faster and cleaner separation process using a magnet, reducing sample loss and increasing efficiency. They are particularly useful when working with small sample volumes or when a rapid turnaround is needed.
     - **Choosing Between Them**: The choice between agarose and magnetic beads depends on several factors, including the scale of the experiment, available resources, and personal preference. Magnetic beads are generally favored for their ease of use and efficiency, especially in high-throughput settings, but agarose beads can be a cost-effective alternative for larger volumes or when budget constraints are significant.
+
+**Q7: How many biological replicates are generally needed in ChIP-Seq, and how many replicates are required for the input control?**
+
+- **A7**: The number of biological replicates in ChIP-Seq is crucial for ensuring the reliability and reproducibility of the results:
+
+    - **Biological Replicates**: A minimum of two to three biological replicates for each ChIP-Seq experiment is typically recommended to account for biological variability. However, the exact number can vary based on the sample type, the robustness of the ChIP protocol, and the statistical power required for the study. Some high-precision studies may need more replicates to achieve reliable results.
+    
+    - **Input Control Replicates**: For the input control, which serves as a baseline reference for normalizing ChIP-Seq data, it is generally considered sufficient to have one input control, even when there are multiple biological replicates of the ChIP sample. While it's ideal to match the number of input controls to the number of biological replicates, many studies opt for a single input control due to its inherent stability and lower variability. This single input sample is processed alongside the ChIP samples to control for factors like DNA accessibility and fragmentation efficiency.
+
+In practice, the use of one input control is often a balance between resource optimization and the empirical observation that input DNA tends to have less variability between different biological conditions. Therefore, while having an input control for each biological replicate might provide a slight increase in accuracy, it is often deemed unnecessary for the normalization process in many ChIP-Seq analyses.
 
 <div align=center>
 <img src="imgs/chip.png">
@@ -490,6 +498,10 @@ B) Based on read orientation (Expected read orientation for Paired-end data shou
 R1-----> R2-----> [FF orientation]
 
 R1<----- R2<---- [RR orientation]
+
+## Double-Strand cDNA
+
+Double-strand cDNA (ds-cDNA) is created by reverse transcription of RNA followed by a second-strand synthesis reaction that uses the single-strand cDNA as a template to form a complementary strand. ds-cDNA is typically used in the preparation of libraries for next-generation sequencing (NGS) applications. The double-stranded nature of the cDNA allows for more stable storage and provides a format that is compatible with various sequencing technologies. The ds-cDNA libraries can be used to perform in-depth analysis of transcriptomes, gene expression profiling, and discovery of novel transcripts or alternative splicing events.
 
 ## DNA dA-Tailing
 This is a next step of DNA end-repair. Adding a non-template dAMP (dA) to the 3’ end of a blunt-ended DNA fragment. This incorporated 3’-dA prevents concatemer formation and prepares the DNA fragment for subsequent ligation of adaptors or cloning vectors that have complementary 3’-dT overhangs. 
@@ -1223,6 +1235,39 @@ Yield from a single cell is 25–35 µg of amplified DNA. Saves at least 1 hour 
 
 Resulting in typical DNA yields of 7 μg per 20 μl reaction. Sufficient product is available for downstream genetic analysis after just 45 minutes. Input, 10 ng DNA, 0.5 µl whole blood, ~300 cells/µl.
 
+## RNA Immunoprecipitation-Sequencing (RIP-Seq) Protocol
+
+### Overview
+RNA Immunoprecipitation-Sequencing (RIP-Seq) is an essential technique for studying RNA-protein interactions and understanding gene regulation. It involves isolating RNA-protein complexes and analyzing associated RNA molecules. This note summarizes the protocol, focusing on whether to use cross-linking and the differences between cross-linking methods.
+
+### Cross-Linking in RIP-Seq
+- **Optional Use**: Cross-linking in RIP-Seq is optional. The absence of cross-linking simplifies the procedure but may miss weak RNA-protein interactions.
+- **Formaldehyde and UV Cross-Linking**:
+  - **Formaldehyde**: Creates reversible covalent bonds between proteins and RNA. Requires reverse cross-linking to break these bonds.
+  - **UV**: Forms non-reversible covalent bonds, thus, no reverse cross-linking is needed.
+- **Proteinase K Treatment**: Regardless of the cross-linking method used, treatment with Proteinase K is essential for digesting and removing proteins before RNA extraction.
+
+### Procedure
+1. **Cell Preparation**: Grow cells to 80-90% confluence.
+2. **Cross-Linking (Optional)**:
+   - **Formaldehyde Method**: Treat cells with formaldehyde, followed by quenching with glycine.
+   - **UV Method**: Expose cells to UV light to fix RNA-protein interactions.
+3. **Cell Lysis**: Use appropriate buffers for cell and nuclear lysis.
+4. **Immunoprecipitation**: Incubate cell lysates with antibody-coated magnetic beads to pull down RNA-protein complexes.
+5. **Washing**: Remove non-specifically bound material.
+6. **Proteinase K Treatment**: Digest proteins to release RNA.
+7. **RNA Extraction**: Use phenol:chloroform extraction and ethanol precipitation to isolate RNA.
+8. **RNA Analysis**: Perform reverse transcription followed by PCR, microarray, or sequencing.
+
+### Notes
+- **Quality of Antibody**: The success of RIP-Seq greatly depends on the quality of the antibody used.
+- **Native vs. Cross-Linked RIP**: Choose based on the nature of RNA-protein interactions and experimental requirements.
+- **Bioinformatic Analysis**: Essential for mapping reads to transcripts and identifying binding sites.
+
+<div align=center>
+<img src="/imgs/ripsew.png">
+</div>
+
 ## RNA-Binding Proteins (RBPs)
 
 RNA-binding proteins (RBPs) play a crucial role in various aspects of RNA metabolism and gene regulation. They interact with different types of RNA molecules, influencing their function, localization, stability, and processing.
@@ -1406,7 +1451,7 @@ Sometimes it is hard to distinguish splicing and deletion, for a true deletion t
 
 .  
 
-# Single-cell Bisulfite Sequencing (scBS-seq)
+## Single-cell Bisulfite Sequencing (scBS-seq)
 
 <div align=center>
 <img src="/imgs/scBS-seq.png">
@@ -1416,21 +1461,21 @@ Sometimes it is hard to distinguish splicing and deletion, for a true deletion t
 <img src="/imgs/scbs.png">
 </div
 
-## **Key Insight**
+### **Key Insight**
 
 **During the initial oligo1 random priming in scBS-seq, various product combinations are generated. Oligo1 acts not only on the template but also on the newly synthesized products, leading to a diverse range of amplification products.**
 
-## Introduction
+### Introduction
 Single-cell bisulfite sequencing (scBS-seq) is a specialized protocol for analyzing DNA methylation at single-cell resolution. It is a modification of traditional bisulfite sequencing and incorporates unique steps suitable for single cells. The process involves treating isolated single-cell genomic DNA with sodium bisulfite, followed by random priming and PCR amplification for sequencing.
 
-## Detailed Workflow
+### Detailed Workflow
 
-### Cell Lysis and Bisulfite Conversion
+#### Cell Lysis and Bisulfite Conversion
 
 - **Cell Lysis**: Cells are lysed using a protein lysis buffer, and genomic DNA is released.
 - **Bisulfite Conversion**: The Imprint DNA Modification Kit (Sigma, Cat# D5044) is used for bisulfite conversion, modifying unmethylated cytosines to uracil while leaving methylated cytosines unchanged. This process involves denaturation and incubation steps at specific temperatures.
 
-### DNA Priming and Amplification
+#### DNA Priming and Amplification
 
 - **Random Priming**: Post-conversion, DNA undergoes multiple rounds of random priming. Key primers include:
 
@@ -1439,17 +1484,17 @@ Single-cell bisulfite sequencing (scBS-seq) is a specialized protocol for analyz
 
 - These primers facilitate the synthesis of new DNA strands from the bisulfite-treated DNA.
 
-### PCR and Library Preparation
+#### PCR and Library Preparation
 
 - **PCR Amplification**: Using primers such as the PE1.0 forward primer and indexed iPCRTag reverse primer, the DNA is amplified.
   - **PE1.0 Forward Primer**: `AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT`
 - Amplified libraries are purified and quantified, ensuring only high-quality DNA is used for sequencing.
 
-### Sequencing and Analysis
+#### Sequencing and Analysis
 
 - The prepared libraries are then sequenced using deep sequencing technology, providing a high-resolution profile of methylated cytosines at a single-cell level.
 
-## Applications
+### Applications
 
 scBS-seq is invaluable in epigenetics for understanding methylation patterns in individual cells, crucial for studying:
 
@@ -1457,6 +1502,10 @@ scBS-seq is invaluable in epigenetics for understanding methylation patterns in 
 - Developmental processes and disease progression at the single-cell level.
 
 By providing detailed methylation profiles of individual cells, scBS-seq offers insights into the complex regulation of gene expression and contributes significantly to the understanding of epigenetic mechanisms in health and disease.
+
+## Single-Strand cDNA
+
+Single-strand cDNA (ss-cDNA) is synthesized from an RNA template by the process of reverse transcription. The enzyme reverse transcriptase catalyzes the formation of ss-cDNA by using RNA as a template and incorporating deoxyribonucleotides complementary to the RNA template. This form of cDNA is primarily used in quantitative polymerase chain reaction (qPCR) assays, a technique to measure the abundance of a particular mRNA or to compare mRNA levels in different sample sets in a quantitative and sensitive manner. The advantage of using ss-cDNA for qPCR is that it represents a precise copy of the mRNA, allowing for accurate amplification and quantification of the target sequence.
 
 ## scCOOL-seq (Chromatin Overall Omic-scale Landscape Sequencing) 
 
