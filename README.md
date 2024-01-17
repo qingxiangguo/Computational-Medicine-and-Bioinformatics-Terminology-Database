@@ -1268,6 +1268,16 @@ RNA Immunoprecipitation-Sequencing (RIP-Seq) is an essential technique for study
 <img src="/imgs/ripsew.png">
 </div>
 
+For the first time doing RIP-Seq, in addition to the experimental group, a positive control can also be done, which is an antibody interacting with known RNA. The input should definitely be saved, and IgG can also be saved, but IgG is mainly used for qPCR validation (PCR various RNAs in the IgG pull-down samples), and the positive control is mainly used for qPCR validation as well. For qPCR validation, target primers need to be designed, such as the target RNA of your antibody-binding protein, the known interacting RNA with your antibody-binding protein, and the RNA interacting with the antibody of the positive control.
+
+When sending for sequencing, typically only the experimental group and input are sequenced.
+
+Additionally, peak calling and differential peak analysis in RIP-Seq are two different things. Peak calling is comparing the experimental group and input samples, identifying specific protein-DNA interaction regions within each group, which is a question of presence or absence.
+
+On the other hand, differential peak analysis is a biological question, typically involving three experimental groups vs. three treatment groups, each compared with their own input after which peaks are extracted. Then, peaks from the experimental group and the treatment group are compared to see if there is differential expression.
+
+In the qPCR graph, the y-axis is the ratio of RIP/Input, usually around 2%. Then, generally speaking, if the experiment is higher than 2%, and higher than the qPCR positive control (the same antibody), and five times higher than IgG, it is considered to have interaction. Here we are looking at presence or absence. It is not necessarily much higher than input, depending on the antibody, and it is even possible to be lower than input.
+
 ## RNA-Binding Proteins (RBPs)
 
 RNA-binding proteins (RBPs) play a crucial role in various aspects of RNA metabolism and gene regulation. They interact with different types of RNA molecules, influencing their function, localization, stability, and processing.
@@ -1894,6 +1904,30 @@ The SWI/SNF complex is composed of multiple subunits, which can vary among diffe
 - **SMARCB1/SNF5, SMARCC1/BAF155, SMARCC2/BAF170**: These subunits provide structural support and are involved in the stability and assembly of the complex.
 - **SMARCE1/BAF57, SMARCD1/BAF60, SMARCD2/BAF60B, SMARCD3/BAF60C**: These components also participate in the assembly and functional regulation of the complex.
 - **Other Components**: Including specific subunits like ARID1A/BAF250A and ARID1B/BAF250B, which impart specific functions and tissue specificity to the complex.
+
+
+### (a) Attraction of SWI/SNF through a transcriptional activator
+
+The transcriptional activator directly binds to the promoter region upstream of the inflammatory gene. This allows the recruitment of the SWI/SNF complex to the same promoter region. Although SWI/SNF does not directly interact with DNA, its chromatin remodeling activity enables an open chromatin structure, facilitating transcription factor binding and gene activation.
+
+## SWI/SNF binding to proinflammatory gene promoters
+
+### (a) Attraction of SWI/SNF through a transcriptional activator
+
+The transcriptional activator binds to the enhancer region of the inflammatory gene. This allows the recruitment of the SWI/SNF complex to the promoter region upstream of the gene. Although SWI/SNF does not directly interact with DNA, its chromatin remodeling activity enables an open chromatin structure, facilitating transcription factor binding and gene activation.
+
+### (b) Attraction of SWI/SNF due to modifications of the N-ends of histones
+
+Modifications (such as acetylation) of histone N-terminal tails can help recruit SWI/SNF. These modifications loosen chromatin structure at target gene promoters. SWI/SNF recognizes and binds to modified histones through distinct domains. Its ATP-dependent remodeling further opens up chromatin, enabling gene transcription.
+
+### (c) Attraction of SWI/SNF through the MEDIATOR complex
+
+The Mediator complex provides a bridge to recruit SWI/SNF to target promoters. Transcriptional activators bind to enhancers and help recruit Mediator, which then interacts with SWI/SNF. SWI/SNF is thus brought to promoter upstream regions where it remodels chromatin structure to allow assembly of the transcription machinery.
+
+### (d) Attraction of SWI/SNF through long non-coding RNA (lncRNA)
+
+Some lncRNAs can interact with transcriptional activators and Mediator. Through this interaction, lncRNAs help bring SWI/SNF to inflammatory gene promoters by facilitating activator and Mediator binding. SWI/SNF then remodels local chromatin structure, removes the nucleosome barrier, and activates inflammatory gene expression.
+
 
 
 ## T7 promoter and T7 RNA polymerase  
