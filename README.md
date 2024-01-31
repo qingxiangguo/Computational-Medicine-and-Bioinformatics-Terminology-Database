@@ -1346,6 +1346,29 @@ DESeq2 [[29]] is used to identify differentially bound genes (DBGs). The read co
 
 Programs for de novo transcript assembly followed by differential expression (DE) analysis, such as the Cufflinks/Cuffdiff suite [[15, 16]], and for DE on a set of known transcripts, such as DESeq [[17]], may seem applicable to RIP-seq analysis. However, unlike peak-calling strategies, these transcript-based methods assume the entire transcriptome is being sequenced at fairly deep coverage (as is usually the case in RNA-seq) and thus may be sensitive to background noise typical of IP-based protocols.
 
+## Key Points in RIP-seq Experimental Design
+
+### Q: What is the source of samples in a RIP-seq experiment?
+A: In the ideal RIP-seq experimental setup, each type of sample (RIP, IgG control, or Input) should originate from the same source to ensure they are directly comparable. This means that all samples for a given replicate come from the same pool of cells.
+
+### Q: How is Input extracted for RIP-qPCR?
+A: The Input for RIP-qPCR is not calculated as a percentage of the total volume but rather in absolute terms. If 10 μL is designated as the Input, the corresponding experimental or IgG sample would be 100 μL.
+
+### Q: Can RIP-qPCR be performed on each replicate, and is the use of IgG necessary?
+A: Yes, RIP-qPCR can be performed on each replicate. The use of IgG is optional; it can be included for quality control purposes or omitted entirely. If included, IgG can serve as a control to demonstrate the specificity of the RNA-protein interaction.
+
+### Q: Is it mandatory to measure IgG and Input in sequencing lab groups?
+A: While measurement of the Input is mandatory for sequencing experiments, the measurement of IgG is optional. If IgG is measured, it is typically used only for illustrative purposes and not for differential expression analysis.
+
+### Additional Notes:
+- Each replicate can undergo a single round of RIP-qPCR, where the use of IgG is optional.
+- IgG, if measured, is typically used only for graphical representation and is not included in the RIP-seq peak calling or differential expression analysis.
+- For peak calling, it is common practice to compare the IP samples directly with their corresponding Input samples to identify areas of enrichment.
+
+<div align=center>
+<img src="/imgs/rip-seq.png">
+</div>
+
 ## RNA-Binding Proteins (RBPs)
 
 RNA-binding proteins (RBPs) play a crucial role in various aspects of RNA metabolism and gene regulation. They interact with different types of RNA molecules, influencing their function, localization, stability, and processing.
