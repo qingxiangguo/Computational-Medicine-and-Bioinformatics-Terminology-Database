@@ -1278,9 +1278,6 @@ On the other hand, differential peak analysis is a biological question, typicall
 
 In the qPCR graph, the y-axis is the ratio of RIP/Input, usually around 2%. Then, generally speaking, if the experiment is higher than 2%, and higher than the qPCR positive control (the same antibody), and five times higher than IgG, it is considered to have interaction. Here we are looking at presence or absence. It is not necessarily much higher than input, depending on the antibody, and it is even possible to be lower than input.
 
-## RIP-qPCR Calculation
-
- Here is an English markdown format note on how to calculate and plot RIP-qPCR bar charts:
 
 ## How to Calculate and Plot RIP-qPCR Bar Charts
 
@@ -1297,41 +1294,41 @@ For the detailed calculation methods, please refer to: [Top Tip Bio's guide on a
 
 ## RIP-qPCR vs RT-qPCR Analysis
 
-When conducting RIP-qPCR analysis, the goal is to quantify the levels of RNA that are bound to a specific protein. This is typically achieved by comparing immunoprecipitated (IP) samples, which contain RNA pulled down with the protein of interest, against input samples that serve as a reference. Here is the step-by-step process:
+### RIP-qPCR Analysis
 
-## RIP-qPCR Analysis Steps:
+RIP-qPCR is a technique used to determine whether a specific RNA is associated with a particular protein, indicating an RNA-protein interaction. The analysis typically follows these steps:
 
-1. **RNA Extraction**: Before immunoprecipitation (IP), a fraction of the lysate (e.g., 1%) is taken as the input sample and stored at -80°C.
+- **RNA Extraction**: Extract RNA from the cell lysate before immunoprecipitation (IP). A fraction of this lysate is taken as the 'input' sample.
+  
+- **cDNA Preparation**: Synthesize cDNA from RNA extracted from both IP and input samples.
 
-2. **cDNA Preparation**: cDNA is synthesized from RNA extracted from both IP and input samples.
+- **qPCR**: Perform qPCR using specific primers to quantify the levels of RNA of interest in both the IP and input samples.
 
-3. **Quantitative PCR (qPCR)**: Specific primers are used to quantify cDNA from IP and input samples.
+- **Data Calculation**: Calculate the enrichment of the RNA-protein interaction using either the 'Percentage of Input' or 'Fold Enrichment' method based on the Ct values from the IP, IgG, and input samples.
 
-4. **ΔCt Calculation**: The Ct value for each target RNA level in the IP sample is quantified and normalized to the corresponding input sample Ct value, considering the input dilution factor.
+The purpose of RIP-qPCR is to assess the presence and level of interaction between the target RNA and protein, rather than quantifying the absolute expression levels of RNA.
 
-5. **Recovery Rate Calculation (% input)**: The recovery rate of the target RNA in the IP sample relative to the input sample is calculated based on the ΔCt value and amplification efficiency (AE).
+### RT-qPCR Analysis
 
-6. **Enrichment Calculation**: The enrichment fold of the target RNA is calculated by comparing the % input for an area with m6A peaks to the % input for a negative control area.
+RT-qPCR quantifies the expression levels of specific genes from total RNA. The typical steps involved are:
 
-In contrast, RT-qPCR analysis aims to quantify the expression levels of specific genes within the total RNA. This process involves:
+- **RNA Extraction**: Extract total RNA using reagents like TRIzol.
 
-1. **RNA Extraction and DNA Contamination Removal**: RNA is extracted using reagents like TRIzol, and any contaminating DNA is removed using a DNA-free DNA Removal Kit.
+- **cDNA Synthesis**: Synthesize cDNA from the total RNA.
 
-2. **cDNA Synthesis**: cDNA is synthesized from the total RNA.
+- **qPCR**: Quantify the levels of gene expression using qPCR with specific primers.
 
-3. **qPCR**: Specific primers are used to quantify cDNA.
+- **Data Calculation**: The Ct value for each gene is normalized to a reference or housekeeping gene (e.g., GAPDH) to account for sample-to-sample variation.
 
-4. **ΔCt Calculation**: The Ct value of the target gene is compared to that of a housekeeping gene (like GAPDH).
+For relative quantification in RT-qPCR, calculating amplification efficiency and generating a standard curve are not always necessary, particularly if the comparison is made using the ΔΔCt method with a suitable housekeeping gene as the reference.
 
-5. **Amplification Efficiency (AE) Calculation**: The AE of each primer set is calculated using a standard curve.
+### Summary
 
-6. **Expression Normalization**: The expression of the target genes is normalized against the housekeeping gene GAPDH using the ΔCt method.
+- **RIP-qPCR** focuses on the relative enrichment of target RNA associated with a specific protein.
+  
+- **RT-qPCR** measures the relative expression levels of genes using a reference gene for normalization, with a simple calculation method like the ΔΔCt being sufficient for relative quantification.
 
-## Summary:
-
-- GAPDH normalization is suitable for standard RT-qPCR, which measures gene expression levels, to correct for technical variations.
-- In RIP-qPCR analysis, the focus is on the relative enrichment of RNA bound to the protein, not the total gene expression levels, thus GAPDH normalization is not required.
-- If protein expression is assessed before RIP, GAPDH normalization is necessary for accurate expression measurement.
+Normalization to a housekeeping gene like GAPDH is common in RT-qPCR for gene expression studies, while in RIP-qPCR, the enrichment calculation is based on the comparison of target RNA in IP versus the input sample.
 
 ## RIP-Seq Data Analysis Approaches
 
@@ -1396,6 +1393,58 @@ RNA-binding proteins (RBPs) play a crucial role in various aspects of RNA metabo
 ### Importance of RBPs
 
 RBPs are integral to cellular functioning and gene expression regulation. Their study helps in understanding RNA roles and regulatory mechanisms in biology and disease. Alterations in RBP interactions with RNA can lead to various diseases, making them a significant focus in biomedical research.
+
+## RT-qPCR Analysis Example for Tissue Samples
+
+When conducting RT-qPCR analysis on tissue samples for relative expression comparison between treated and control groups, a stable reference gene, such as GAPDH or ACTB, is typically sufficient. The reference gene serves to normalize the data, compensating for technical variations and differences in RNA amounts across samples.
+
+Here is a specific example:
+
+Suppose we have tissue samples from both treated and control groups and wish to measure the relative expression levels of a particular gene, Gene A. Each group has three replicates.
+
+**Treated Group (Treated) Ct Values**:
+
+- Gene A: 24.0, 23.8, 24.2
+- Reference GAPDH: 18.0, 18.1, 18.1
+
+**Control Group (Control) Ct Values**:
+
+- Gene A: 26.0, 26.2, 26.1
+- Reference GAPDH: 18.0, 18.2, 18.0
+
+### Calculation Steps:
+
+1. **Calculate the ΔCt for each sample** (Gene A Ct value - GAPDH Ct value):
+
+   **Treated Group**:
+   
+   - ΔCt = 24.0 - 18.0 = 6.0
+   - ΔCt = 23.8 - 18.1 = 5.7
+   - ΔCt = 24.2 - 18.1 = 6.1
+
+   **Control Group**:
+   
+   - ΔCt = 26.0 - 18.0 = 8.0
+   - ΔCt = 26.2 - 18.2 = 8.0
+   - ΔCt = 26.1 - 18.0 = 8.1
+
+2. **Calculate the average ΔCt value** for each group:
+
+   **Treated Group** average ΔCt: (6.0 + 5.7 + 6.1) / 3 = 5.93
+   
+   **Control Group** average ΔCt: (8.0 + 8.0 + 8.1) / 3 = 8.03
+
+3. **Calculate ΔΔCt** (average ΔCt of the Control group - average ΔCt of the Treated group):
+
+   ΔΔCt = 8.03 - 5.93 = 2.1
+
+4. **Calculate the relative expression level** (using the negative exponent of 2^(-ΔΔCt)):
+
+   Relative expression level = 2^(-ΔΔCt) = 2^(-2.1) ≈ 0.25
+
+This means that Gene A's expression level in the treated group is approximately 25% of that in the control group, indicating a significant decrease in Gene A expression due to the treatment.
+
+The calculations assume that the reference gene GAPDH is consistently expressed across all samples, which should be validated in the experiment. This example demonstrates how to use RT-qPCR data and a reference gene to assess relative changes in gene expression.
 
 ## SAM (file format)
 <div align=center>
