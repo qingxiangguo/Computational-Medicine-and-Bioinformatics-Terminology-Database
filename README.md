@@ -1284,61 +1284,70 @@ In the qPCR graph, the y-axis is the ratio of RIP/Input, usually around 2%. Then
 
 ## How to Calculate and Plot RIP-qPCR Bar Charts
 
-### Overview
+There are two main methods to analyze RIP-qPCR data:
 
-In RIP-qPCR experiments, the goal is to compare the relative enrichment of the target RNA in the RIP sample vs the input sample. The enrichment can be visualized in bar charts. There are two main methods:
+### Percentage of Input
+This method quantifies the enrichment of RNA as a percentage of the total input. To calculate the percentage of input, you need the Ct values from the 10% input, the antibody of interest, and the IgG control.
 
-1. Plot fold enrichment calculated from ΔΔCt 
-2. Plot RIP/Input ratio calculated from relative quantities
+### Fold Enrichment
+Alternatively, you can calculate the fold enrichment of your protein of interest over the IgG control. This method only requires the Ct values from the antibody of interest and the IgG control, without the need for the 10% input.
 
-### Method 1: Plot Fold Enrichment 
+For the detailed calculation methods, please refer to: [Top Tip Bio's guide on analyzing ChIP-qPCR data](https://toptipbio.com/analyse-chip-qpcr-data/).
 
-- Calculate ΔCt for each sample: ΔCt = Ct(sample) - Ct(input)
-- Calculate ΔΔCt: ΔΔCt = ΔCt(RIP) - ΔCt(IgG) 
-- Calculate fold enrichment: Fold = 2^(-ΔΔCt)
-- Plot bar chart with fold enrichment on y-axis
 
-### Method 2: Plot RIP/Input Ratio
+## RIP-qPCR vs RT-qPCR Analysis
 
-- Calculate ΔCt for each sample: ΔCt = Ct(sample) - Ct(input)
-- Convert ΔCt to relative quantity: Relative = 2^(-ΔCt)
-- Plot bar chart with RIP/Input ratio: 
-    - Bar height = Relative(RIP) / Relative(Input)
+When conducting RIP-qPCR analysis, the goal is to quantify the levels of RNA that are bound to a specific protein. This is typically achieved by comparing immunoprecipitated (IP) samples, which contain RNA pulled down with the protein of interest, against input samples that serve as a reference. Here is the step-by-step process:
 
-- Input RNA relative quantity is 1 as reference
-- Higher bars indicate more enrichment in RIP vs IgG
+## RIP-qPCR Analysis Steps:
 
-### Conclusion
+1. **RNA Extraction**: Before immunoprecipitation (IP), a fraction of the lysate (e.g., 1%) is taken as the input sample and stored at -80°C.
 
-Both methods can effectively show the enrichment of target RNA in RIP samples. Choose the method based on preference to present fold change or ratio.
+2. **cDNA Preparation**: cDNA is synthesized from RNA extracted from both IP and input samples.
 
-## Example with IgG Control
+3. **Quantitative PCR (qPCR)**: Specific primers are used to quantify cDNA from IP and input samples.
 
-- Ct(RIP) = 28  
-- Ct(IgG) = 30
-- Ct(Input) = 25
+4. **ΔCt Calculation**: The Ct value for each target RNA level in the IP sample is quantified and normalized to the corresponding input sample Ct value, considering the input dilution factor.
 
-### Method 1: Fold Enrichment
+5. **Recovery Rate Calculation (% input)**: The recovery rate of the target RNA in the IP sample relative to the input sample is calculated based on the ΔCt value and amplification efficiency (AE).
 
-- ΔCt(RIP) = 3  
-- ΔCt(IgG) = 5
-- ΔΔCt = 3 - 5 = -2
-- Fold enrichment = 2^(-2) = 0.25
+6. **Enrichment Calculation**: The enrichment fold of the target RNA is calculated by comparing the % input for an area with m6A peaks to the % input for a negative control area.
 
-Plot bar chart with RIP fold enrichment of 0.25 vs IgG.
+In contrast, RT-qPCR analysis aims to quantify the expression levels of specific genes within the total RNA. This process involves:
 
-### Method 2: RIP/Input Ratio
+1. **RNA Extraction and DNA Contamination Removal**: RNA is extracted using reagents like TRIzol, and any contaminating DNA is removed using a DNA-free DNA Removal Kit.
 
-- ΔCt(RIP) = 3 → Relative quantity(RIP) = 0.125 
-- ΔCt(IgG) = 5 → Relative quantity(IgG) = 0.03125
-- ΔCt(Input) = 0 → Relative quantity(Input) = 1
+2. **cDNA Synthesis**: cDNA is synthesized from the total RNA.
 
-- RIP/Input ratio = 0.125/1 = 0.125
-- IgG/Input ratio = 0.03125/1 = 0.03125
+3. **qPCR**: Specific primers are used to quantify cDNA.
 
-Plot bar chart with RIP/Input and IgG/Input ratios on y-axis.
+4. **ΔCt Calculation**: The Ct value of the target gene is compared to that of a housekeeping gene (like GAPDH).
 
-This example includes both RIP and IgG controls compared to Input sample. The bar charts visually show higher enrichment of the target RNA in RIP vs IgG.
+5. **Amplification Efficiency (AE) Calculation**: The AE of each primer set is calculated using a standard curve.
+
+6. **Expression Normalization**: The expression of the target genes is normalized against the housekeeping gene GAPDH using the ΔCt method.
+
+## Summary:
+
+- GAPDH normalization is suitable for standard RT-qPCR, which measures gene expression levels, to correct for technical variations.
+- In RIP-qPCR analysis, the focus is on the relative enrichment of RNA bound to the protein, not the total gene expression levels, thus GAPDH normalization is not required.
+- If protein expression is assessed before RIP, GAPDH normalization is necessary for accurate expression measurement.
+
+## RIP-Seq Data Analysis Approaches
+
+RIP-Seq (RNA Immunoprecipitation Sequencing) is a powerful technique used to identify the RNA molecules that interact with a specific protein of interest within a cell. There are two principal approaches to analyzing RIP-Seq data:
+
+### Transcript Enrichment Analysis
+- This method involves comparing the levels of RNA between the immunoprecipitated (IP) samples and control samples, which may be either input controls or IgG controls.
+- Similar to differential expression analysis, this approach identifies RNAs that are enriched in the IP samples, suggesting a specific interaction with the target protein.
+- Bioinformatics packages like edgeR or DESeq are commonly used for statistical analysis to determine the significance of RNA enrichment.
+
+### Peak-Calling Tools
+- An alternative to transcript enrichment analysis is to use specialized computational tools designed for peak calling.
+- These tools statistically analyze regions in IP samples that are significantly enriched compared to control samples to identify the specific binding sites of the protein on the RNA.
+- Peak calling requires careful consideration of sequencing depth, background noise, and the distribution of reads across the genome.
+
+Both strategies offer their unique advantages and may be chosen based on the experimental design, quality of data, and the specific objectives of the research. While transcript enrichment analysis provides a comprehensive view of all RNAs interacting with the protein, peak calling offers more precise localization of the protein binding sites on the RNA molecules.
 
 ## RNA-Binding Proteins (RBPs)
 
@@ -1875,6 +1884,18 @@ Key to defining the complexity of alternative splicing within a gene is the iden
 
 ## Sticky ends
 One strand is longer than the other (typically by at least a few nucleotides), such that the longer strand has bases which are left unpaired. The sticky ends, a.k.a. cohesive ends, have unpaired DNA nucleotides on either 5’- or 3’- strand, which are known as overhangs. These overhangs are most often generated by a staggered cut of restriction enzymes. Sticky ends are generally more desired in cloning technology where a DNA ligase is used to join two DNA fragments into one, because the yield and specificity of ligation using sticky ends is significantly higher that with blunt ends.
+
+## Strand of Transcripts in IGV Genome Browser
+
+In the Integrated Genome Viewer (IGV), the strand of transcripts can be determined by the directionality indicated by color coding. This feature allows researchers to quickly identify which strand of the DNA the transcript is being read from.
+
+- **Right-clicking** on the feature track in IGV allows users to select the option to color by strand. This option applies color coding to the reads to indicate their orientation relative to the reference genome.
+  
+- **Red-colored reads** indicate that the sequencing reads are mapped in the same direction as the positive or sense strand of the DNA. This means that the read's 5' end aligns with the 5' end of the reference, and the read's 3' end aligns with the 3' end of the reference.
+
+- **Blue-colored reads** signify that the sequencing reads are mapped in the opposite direction to the negative or antisense strand of the DNA. This means that the read's 5' end aligns with the 3' end of the reference, and the read's 3' end aligns with the 5' end of the reference.
+
+By using this color-coding system, one can quickly ascertain not just the location of a transcript on the genome but also the directionality of its transcription.
   
 ## Structural variation  
 Genomic structural variation is the variation in structure of an organisms chromosome. It consists of many kinds of variation in the genome of one species, and usually includes microscopic and submicroscopic types, such as deletions, duplications, copy-number variants, insertions, inversions and translocations. Originally, a structure variation affects a sequence length about 1kb to 3Mb, which is larger than SNPs and smaller than chromosome abnormality (though the definitions have some overlap). However, the operational range of structural variants has widened to include events > 50bp.The definition of structural variation does not imply anything about frequency or phenotypical effects. Many structural variants are associated with genetic diseases, however many are not.Recent research about SVs indicates that SVs are more difficult to detect than SNPs.
