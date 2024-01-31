@@ -1330,21 +1330,21 @@ For relative quantification in RT-qPCR, calculating amplification efficiency and
 
 Normalization to a housekeeping gene like GAPDH is common in RT-qPCR for gene expression studies, while in RIP-qPCR, the enrichment calculation is based on the comparison of target RNA in IP versus the input sample.
 
-## RIP-Seq Data Analysis Approaches
+## RIP-seq Peak Calling Methods
 
-RIP-Seq (RNA Immunoprecipitation Sequencing) is a powerful technique used to identify the RNA molecules that interact with a specific protein of interest within a cell. There are two principal approaches to analyzing RIP-Seq data:
+In the analysis of RNA Immunoprecipitation sequencing (RIP-seq) data, two primary methods of peak calling are employed to identify RNA fragments that are bound to specific proteins. These methods are crucial for understanding the interactions between RNA and proteins and their roles in gene regulation.
 
-### Transcript Enrichment Analysis
-- This method involves comparing the levels of RNA between the immunoprecipitated (IP) samples and control samples, which may be either input controls or IgG controls.
-- Similar to differential expression analysis, this approach identifies RNAs that are enriched in the IP samples, suggesting a specific interaction with the target protein.
-- Bioinformatics packages like edgeR or DESeq are commonly used for statistical analysis to determine the significance of RNA enrichment.
+### Using Peak Calling Software
 
-### Peak-Calling Tools
-- An alternative to transcript enrichment analysis is to use specialized computational tools designed for peak calling.
-- These tools statistically analyze regions in IP samples that are significantly enriched compared to control samples to identify the specific binding sites of the protein on the RNA.
-- Peak calling requires careful consideration of sequencing depth, background noise, and the distribution of reads across the genome.
+This approach involves using software designed to identify enriched RNA fragments in RIP-seq experiments. These tools analyze IP (Immunoprecipitation) samples and control samples (such as input or negative control) to identify regions of RNA that are specifically bound to proteins, known as "peaks". Commonly used software packages include MACS (Model-based Analysis of ChIP-Seq), HOMER, and CLIPper. Originally designed for ChIP-seq or CLIP-seq data, these tools can also be adapted for RIP-seq data by adjusting parameters.
 
-Both strategies offer their unique advantages and may be chosen based on the experimental design, quality of data, and the specific objectives of the research. While transcript enrichment analysis provides a comprehensive view of all RNAs interacting with the protein, peak calling offers more precise localization of the protein binding sites on the RNA molecules.
+### Treating RIP-seq Data as Differential Expression Analysis
+
+This method is analogous to processing RNA-seq data. Here, researchers compare IP samples with control samples (such as input) and use methods of differential expression analysis to identify significantly enriched or depleted RNA fragments. This approach may involve standard RNA-seq data analysis workflows, using software like DESeq2 or edgeR, to identify regions with significant differential expression. A key aspect of this method is the processing and normalization of data to ensure valid comparisons.
+
+DESeq2 [[29]] is used to identify differentially bound genes (DBGs). The read count for each gene across all samples is input to compare IP with input samples. A false discovery rate (FDR) of < 0.05 and a fold change of ≥ 2 (enriched) or ≤ 0.5 (depleted) are set as the cutoff criteria for identifying DBGs.
+
+Programs for de novo transcript assembly followed by differential expression (DE) analysis, such as the Cufflinks/Cuffdiff suite [[15, 16]], and for DE on a set of known transcripts, such as DESeq [[17]], may seem applicable to RIP-seq analysis. However, unlike peak-calling strategies, these transcript-based methods assume the entire transcriptome is being sequenced at fairly deep coverage (as is usually the case in RNA-seq) and thus may be sensitive to background noise typical of IP-based protocols.
 
 ## RNA-Binding Proteins (RBPs)
 
