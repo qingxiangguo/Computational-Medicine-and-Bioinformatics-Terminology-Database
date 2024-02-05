@@ -1364,10 +1364,44 @@ A: While measurement of the Input is mandatory for sequencing experiments, the m
 - Each replicate can undergo a single round of RIP-qPCR, where the use of IgG is optional.
 - IgG, if measured, is typically used only for graphical representation and is not included in the RIP-seq peak calling or differential expression analysis.
 - For peak calling, it is common practice to compare the IP samples directly with their corresponding Input samples to identify areas of enrichment.
+- The same quantity of RNA from input, RIP, IgG were used for reverse transcription in RIP-qPCR.
 
 <div align=center>
 <img src="/imgs/rip-seq.png">
 </div>
+
+## Understanding Long-Read RIP-Seq Analysis
+
+### Long-Read vs Short-Read Sequencing in RIP-Seq
+
+RIP-seq (RNA Immunoprecipitation Sequencing) experiments typically involve the pulldown of RNA-binding proteins (RBPs) along with their associated RNAs, with the subsequent identification of these RNAs via sequencing. While short-read sequencing has been a common approach, long-read sequencing provides a distinct advantage for RIP-seq analysis.
+
+- **Long-Read Sequencing**: Offers continuous reads that cover entire RNA transcripts, capturing the full landscape of RNA-protein interactions. It is not dependent on the identification of peaky binding sites, as it reveals the entire RNA molecule.
+- **Short-Read Sequencing**: Generates shorter fragments of RNA, traditionally requiring peak calling to identify regions of protein-RNA interaction.
+
+### Analysis Differences: RNA-Seq vs Peak Calling
+
+- **RNA-Seq Analysis**: When applying RNA-seq analysis tools such as EdgeR or DESeq2 to long-read RIP-seq data, we shift our focus from peak calling to differential expression analysis. This allows us to compare the abundance of RNAs between input (baseline RNA) and IP (pulldown) samples, aiming to identify RNAs that are preferentially bound by the protein of interest.
+- **Peak Calling**: Traditional peak calling, used in short-read sequencing and techniques like ChIP-seq, is not suited for long-read RIP-seq data due to the continuous nature of the reads. Tools designed for punctate or peaky signals (identifying precise binding sites) are not appropriate for full-transcript capture.
+
+### Practical Considerations for Long-Read RIP-Seq Analysis
+
+- **Experimental Design**: It's crucial to understand the nature of the experiment. Whether the RNA is fragmented before pulldown (similar to CLIP techniques) or captured in full length (true RIP-seq) will determine the analysis approach.
+- **Background Noise Sensitivity**: Transcript-based methods such as DESeq and EdgeR may be sensitive to the background noise typical in IP-based protocols. They assume deep coverage sequencing of the full transcriptome, which might not be the case in all RIP-seq protocols.
+- **RIPSeeker**: Among the discussed methods, only RIPSeeker is set up to handle full-transcript RIP-seq data. It's advisable to consider the suitability of this tool for your specific data type.
+
+### Analysis Strategy for Long-Read RIP-Seq
+
+When dealing with long-read RIP-seq data, the goal is to identify RNAs that show significant enrichment in the IP samples compared to the input. This is indicative of RNA-protein interactions rather than the identification of localized peaks.
+
+- **Differential Expression Analysis**: DESeq2 can be utilized for comparing groups of input and IP samples (e.g., 3 vs 3 comparisons) to identify RNAs that are significantly enriched in the IP samples.
+- **Terminology Clarification**: While the term "peak calling" is commonly used, in the context of long-read RIP-seq, we are not identifying traditional peaks but rather enriched RNA transcripts indicative of binding events.
+
+Below is RIP-seq for long read
+<div align=center>
+<img src="/imgs/rip-long.png">
+</div>
+
 
 ## RNA-Binding Proteins (RBPs)
 
