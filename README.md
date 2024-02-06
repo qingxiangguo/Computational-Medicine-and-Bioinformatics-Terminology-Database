@@ -475,6 +475,14 @@ Compressed Reference-oriented Alignment Map (CRAM) is a compressed columnar file
 
 A differential transcript usage (DTU) analysis is testing for proportional differences in a gene's transcript composition, and has been of rising interest for many research questions, such as analysis of differential splicing or cell-type identification.
 
+## Directional Cloning Using Restriction Enzymes
+
+The use of two restriction enzymes with different recognition sites and incompatible sticky ends is the most efficient and reliable method for directional cloning. 
+
+<div align=center>
+<img src="/imgs/direct.png">
+</div>
+
 ## Discordant reads and cordant reads
 
 1) Concordant reads (Properly aligned reads)
