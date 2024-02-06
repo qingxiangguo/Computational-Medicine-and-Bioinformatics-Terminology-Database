@@ -135,6 +135,73 @@ Biotin is a vitamin (Vitamin H, Vitamin B7, Coenzyme R) that is present in small
 
 In blunt ends, both strands are of equal length – i.e. they end at the same base position, leaving no unpaired bases on either strand. 
 
+## Blunt-end cloning overview
+
+Blunt-end cloning is a fundamental molecular biology technique for inserting blunt-ended DNA fragments into blunt-ended vectors. This method allows for the direct cloning of DNA without the need for complementary sticky ends, making it a versatile tool for various genetic manipulations.
+
+### Generating Blunt Ends
+Blunt ends are created when double-stranded DNA has nucleotides that pair perfectly across from each other. Methods to generate blunt ends include:
+- **DNA Amplification**: Using proofreading DNA polymerases that ensure amplicons have blunt ends.
+- **Restriction Enzyme Digestion**: Employing enzymes that cut DNA to produce blunt ends directly.
+- **End Modification**: Converting sticky ends to blunt ends through end repair mechanisms.
+
+### Cloning Process
+- **Vector and Insert Preparation**: Both need blunt ends for successful ligation. Vectors may undergo dephosphorylation to prevent self-ligation, whereas inserts are prepared via PCR, restriction digestion, or end repair.
+- **Ligation**: DNA ligase catalyzes the formation of a phosphodiester bond between the 3’ hydroxyl and 5’ phosphate groups, joining the vector and insert.
+- **Transformation and Selection**: Following ligation, the recombinant plasmid is introduced into E. coli, and transformants are selected.
+
+### Advantages
+- **Simplicity**: No need for specific sequences at the primer ends.
+- **Universality**: Can clone any DNA fragment without complementary sequences.
+- **Versatility**: Suitable for sub-cloning, sequencing, and library construction.
+
+### Limitations
+- **Orientation**: Non-directional cloning leads to inserts in both orientations.
+- **Efficiency**: Lower recombination efficiency compared to sticky-end cloning.
+- **Self-Ligation**: Vectors can self-ligate, necessitating additional steps to mitigate.
+
+### Key Steps in Procedure
+1. **Insert Preparation**: Via PCR with proofreading polymerases, restriction enzyme digestion or modification of existing ends.
+2. **Vector Preparation**: Amplifying with proofreading polymerases, using blunt-end generating enzymes, or modifying sticky ends.
+3. **Ligation**: Employing DNA ligase to join insert and vector.
+4. **Transformation**: Introducing the ligated plasmid into bacteria for propagation.
+5. **Selection**: Identifying and selecting the correct transformants.
+
+<div align=center>
+<img src="imgs/bl1.png">
+</div>
+
+
+<div align=center>
+<img src="imgs/bl2.png">
+</div>
+
+<div align=center>
+<img src="imgs/bl3.png">
+</div>
+
+## Blunt-end cloning: Phosphatase Reaction of the Vector Before Ligation
+
+In the context of molecular cloning, treating vectors with phosphatase before ligation is crucial to prevent the vector's self-ligation and to ensure successful cloning. 
+
+### Key Insight
+
+- **T4 DNA Ligase Requirement**: A fundamental requirement for the ligation process, catalyzed by T4 DNA ligase, is the presence of at least one phosphate group at the DNA ends being joined. This enzyme facilitates the formation of a phosphodiester bond between the 3' hydroxyl (OH) group of one nucleotide and the 5' phosphate group of another.
+
+### Phosphatase Treatment Rationale
+
+- By removing the 5' phosphate groups from the vector, phosphatase treatment prevents the vector from self-ligating. This significantly reduces the background of clones without the insert, which are otherwise a common outcome due to vector self-ligation.
+- **Critical Balance**: While this treatment is effective in reducing self-ligation, it is essential to remember that for successful ligation to occur, the insert must retain its 5' phosphate group, or the vector must be re-phosphorylated after phosphatase treatment if both were dephosphorylated.
+
+### Enzymes and Strategies
+
+- **Enzymes Used**: Common phosphatases such as Shrimp Alkaline Phosphatase (rSAP), Calf Intestinal Phosphatase (CIP), and Antarctic Phosphatase (AnP) are employed for this purpose.
+- **Post-Treatment Considerations**: If both vector and insert end up dephosphorylated, adding a phosphate group back to one of them is necessary for ligation. T4 polynucleotide kinase is typically used for this re-phosphorylation step.
+
+<div align=center>
+<img src="imgs/pho.png">
+</div>
+
 ## Blunt end ligation
 
 Usually, a straight cut creates blunt ends or non-overhanging ends. These ends can be joined using a DNA ligase enzyme. The joining of two blunt ends is called blunt end ligation. This does not need matching or complementary ends for ligation.
@@ -475,7 +542,7 @@ Compressed Reference-oriented Alignment Map (CRAM) is a compressed columnar file
 
 A differential transcript usage (DTU) analysis is testing for proportional differences in a gene's transcript composition, and has been of rising interest for many research questions, such as analysis of differential splicing or cell-type identification.
 
-## Directional Cloning Using Restriction Enzymes
+## Directional cloning using restriction enzymes
 
 The use of two restriction enzymes with different recognition sites and incompatible sticky ends is the most efficient and reliable method for directional cloning. 
 
@@ -1242,6 +1309,27 @@ Yield from a single cell is 25–35 µg of amplified DNA. Saves at least 1 hour 
 ## REPLI-g UltraFast Mini Kit
 
 Resulting in typical DNA yields of 7 μg per 20 μl reaction. Sufficient product is available for downstream genetic analysis after just 45 minutes. Input, 10 ng DNA, 0.5 µl whole blood, ~300 cells/µl.
+
+Certainly, I can add that for you:
+
+## Restriction Enzymes in Molecular Cloning
+
+Restriction enzymes, also known as restriction endonucleases, are key tools in molecular biology that facilitate the process of cloning by cutting DNA at specific sequences. Here's a concise overview of their role and considerations in molecular cloning.
+
+### Characteristics of Restriction Enzymes
+- **Specificity**: Each enzyme recognizes specific nucleotide sequences, typically 4 to 8 bases in length, often palindromic, and cuts the DNA at or near these sites.
+
+### Cleavage Types:
+- **Blunt Ends**: Enzymes make a straight cut across the DNA, leaving no overhangs.
+- **Sticky Ends**: Enzymes make staggered cuts resulting in overhangs that can be either 5' or 3', facilitating the ligation of complementary sequences.
+
+### Usage Frequency
+- **Sticky End Enzymes**: Preferred for their precise and efficient ligation capabilities, hence widely used in cloning and recombinant DNA techniques. They are also the preferred choice for 3C (Chromosome Conformation Capture) techniques due to their efficient ligation of DNA ends that are in close proximity in the three-dimensional nucleus.
+- **Blunt End Enzymes**: Useful in certain cloning strategies, such as TA cloning or when using ligases like T4 DNA Ligase that can join any type of ends.
+
+### Selection in Cloning
+- **Directional Cloning**: Two enzymes with different sticky ends are typically chosen to ensure correct orientation of the insert.
+- **Optimal Conditions**: Each enzyme requires specific conditions like pH, ionic strength, and temperature for optimal activity.
 
 ## RNA Immunoprecipitation-Sequencing (RIP-Seq) Protocol
 
