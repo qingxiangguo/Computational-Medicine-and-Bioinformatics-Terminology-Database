@@ -14,6 +14,52 @@ In the database, I provide a list of commonly used computational medicine and bi
 
 # Terminology Content
 
+## 4C-seq (Circular Chromosome Conformation Capture followed by sequencing) Protocol Notes
+
+## Overview
+4C-seq is a robust method used to investigate the spatial organization of chromosomes. It is based on Inverse PCR, amplifying DNA sequences in close proximity to a known sequence to reveal interactions with unknown genomic sequences.
+
+## Enzyme Digestion
+The method requires two rounds of enzyme digestion producing sticky ends essential for subsequent ligation.
+
+- **First Restriction Enzyme Digestion**: Utilizes a primary enzyme like DpnII, NlaIII, Csp6I, or MboI, selected based on recognition site distribution near the region of interest.
+  
+- **Second Restriction Enzyme Digestion**: Employs a secondary enzyme post-ligation to further digest the DNA, ensuring smaller fragment sizes for efficient PCR amplification.
+
+## PCR Primer Design
+Primers for 4C-seq PCR include Illumina P5 and P7 adapters for seamless sequencing.
+
+- **Reading Primer**: Features an overhang incorporating a portion of the Illumina sequencing primer hybridization sites, **strategically positioned adjacent to the primary restriction site (RE1)** to maximize sequence capture from the viewpoint.
+
+- **Non-Reading Primer**: Located within 50 bp of the secondary restriction site (RE2) and is **designed with an index** to minimize PCR product size and facilitate multiplex sequencing.
+
+## Two-Step PCR Strategy
+A two-phase PCR method amplifies ligated fragments while attaching sequencing adapters:
+
+1. **First PCR Step**: Inverse PCR is conducted with VP-specific primers that have overhangs complementary to adapter sequences.
+   
+2. **Second PCR Step**: Uses universal primers binding to the first PCR step's overhangs, integrating the full Illumina adapter sequences for direct sequencing.
+
+## Key Points
+- **Inverse PCR**: Relies on inverse PCR to infer spatial genomic structure from a known sequence.
+- **Sticky Ends Production**: Both enzymatic digestions create sticky ends to assist DNA ligation.
+- **PCR Primers**: Primers contain P5 and P7 adapters, vital for sequencing setup.
+  
+## Library Preparation for Sequencing
+The PCR-generated product, now ready for Illumina sequencing.
+
+<div align=center>
+<img src="imgs/4c1.jpg">
+</div>
+
+<div align=center>
+<img src="imgs/4c2.png">
+</div>
+
+<div align=center>
+<img src="imgs/4c3.png">
+</div>
+
 ## 5mC, 5hmC, CpG Sites, and CpG Islands
 
 #### 5-Methylcytosine (5mC)
@@ -2217,7 +2263,21 @@ The Mediator complex provides a bridge to recruit SWI/SNF to target promoters. T
 
 Some lncRNAs can interact with transcriptional activators and Mediator. Through this interaction, lncRNAs help bring SWI/SNF to inflammatory gene promoters by facilitating activator and Mediator binding. SWI/SNF then remodels local chromatin structure, removes the nucleosome barrier, and activates inflammatory gene expression.
 
+## T4 DNA Ligase Summary
 
+T4 DNA Ligase is a critical enzyme for DNA and RNA manipulation, known for its ability to ligate double-stranded nucleic acids and repair nicks in complex structures.
+
+### Capabilities
+
+- **Universal Ligation**: T4 DNA Ligase is capable of facilitating ligation between any two of the following molecule types: dsDNA, dsRNA, and DNA/RNA hybrids. 
+
+- **Nick Repair**: Additionally, T4 DNA Ligase excels at repairing nicks within the double-stranded regions of DNA, RNA, and DNA/RNA hybrids, thereby maintaining or restoring molecular integrity.
+
+### Requirements
+
+- **Acts only on double-stranded nucleic acids.**
+- **Efficiently ligates blunt-ended molecules. The only one ligates blunt end**
+- **Requires a 5' phosphate group for ligation.**
 
 ## T7 promoter and T7 RNA polymerase  
 
