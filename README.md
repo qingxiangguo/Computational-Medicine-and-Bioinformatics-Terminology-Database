@@ -320,6 +320,32 @@ After the second strand synthesis, PCR amplification is carried out to amplify t
 
 So while the second strand synthesis in Smart-seq2 does involve PCR amplification, it is not a standard cDNA second strand synthesis process.
 
+## ChAR-seq (Chromatin-Associated RNA sequencing)
+
+ChAR-seq (Chromatin-Associated RNA sequencing) is a comprehensive **all-to-all RNA-DNA interaction** technique designed to detect interactions between RNA and DNA within the genome. At the core of this method is a biotinylated bridge oligonucleotide that facilitates the capture of RNA-DNA contacts.
+
+Here’s a brief overview of the ChAR-seq process:
+
+- **Biotin Bridge**: A key feature of ChAR-seq is the use of a biotin-labeled bridge molecule. This bridge is a double-stranded DNA sequence with one strand containing a biotin modification.
+  
+- **Reverse Transcription**: RNA molecules in close proximity to the DNA are reverse transcribed to cDNA using the bridge as a primer, effectively linking the RNA sequence to the bridge.
+
+- **Enzymatic Digestion**: The genomic DNA is then digested, and the bridge molecule with its attached cDNA is ligated to nearby DNA fragments.
+
+- **Purification and Sequencing**: Following ligation, a second enzymatic digestion step is employed to remove any bridges that have not properly ligated to the genomic DNA but have instead ligated to sequencing adaptors. This is achieved by utilizing a secondary restriction enzyme site engineered into the bridge, which ensures that only the desired chimeric cDNA-DNA molecules are amplified and sequenced.
+
+<div align=center>
+<img src="/imgs/ch1.jpeg">
+</div>
+
+<div align=center>
+<img src="/imgs/ch2.jpeg">
+</div>
+
+<div align=center>
+<img src="/imgs/ch3.png">
+</div>
+
 ## Checkpoint blockade immunotherapy
 
 Patients are treated with antibodies that block negative regulatory molecules, such as PD-1/PD-L1 or CTLA4, which normally restrain T cell responses. This kind of therapy can reinvigorate a patient's anti-tumor T cell responses, which then can cause tumors to shrink and even lead to cures in some patients
