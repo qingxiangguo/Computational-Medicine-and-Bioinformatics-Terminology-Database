@@ -523,6 +523,47 @@ What does the final seq looks like?
 <img src="/imgs/10x-40.png">
 </div>
 
+## Chromium X Series - Why Single Cell RNA-seq Favors the 3' End
+
+In 10x Genomics single-cell RNA-seq, even with the TSO method that could capture the whole RNA, there's still a 3' end bias. Here's why:
+
+- During library prep, RNA is randomly cut.
+- Only pieces with the full Read1 sequence get sequenced.
+- That's because only these pieces can be spotted by primers to add the P5 adapter during the library making.
+- The Read1 part is on the RNA's 3' end, so that's the part that mostly gets read.
+
+So, in the end, you get more reads from the RNA's 3' end because that's where Read1 is, and that's necessary for the sequencing to work.
+
+<div align=center>
+<img src="/imgs/sc1.png">
+</div>
+
+<div align=center>
+<img src="/imgs/sc2.png">
+</div>
+
+<div align=center>
+<img src="/imgs/sc3.png">
+</div>
+
+<div align=center>
+<img src="/imgs/sc4.png">
+</div>
+
+
+
+## Chromium X Series - 3' vs 5' Libraries
+
+The main difference between Single Cell 3' and Single Cell 5’ Gene Expression libraries lies in which end of the RNA transcript they target. The 3' library captures sequences starting from the RNA's 3' end, utilizing a polydT sequence on a gel bead oligo. Conversely, the 5' library begins sequencing from the TSO end after reverse transcription, using a polydT supplied as an RT primer. This distinction dictates whether the 3' or 5' end of the RNA is represented in the sequencing data.
+
+<div align=center>
+<img src="/imgs/sc5.png">
+</div>
+
+## Chromium X Series - Nanopore + 10X Sequencing Prep
+
+For the combination of Nanopore and 10X sequencing, the library is prepared without enzymatic fragmentation. This method preserves the full-length cDNA and avoids the introduction of 3'/5' end bias in the sequencing data.
+
 ## Chromoplexy and chromothripsis
 
 Chromoplexy:
