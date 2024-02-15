@@ -14,6 +14,71 @@ In the database, I provide a list of commonly used computational medicine and bi
 
 # Terminology Content
 
+## 3C-qPCR (one to one)
+
+### What is 3C-qPCR?
+3C-qPCR (Chromosome Conformation Capture combined with Quantitative PCR) is a technique used to analyze the interaction frequency between different genomic regions. It combines the spatial proximity detection capability of 3C technology with the quantitative analysis advantage of qPCR, allowing researchers to accurately determine the physical proximity of specific DNA fragments.
+
+### How to Conduct a 3C-qPCR Experiment?
+1. **Cell Nuclei Preparation and DNA Crosslinking**: Cells are fixed with formaldehyde, crosslinking spatially proximate DNA fragments.
+2. **DNA Digestion**: Crosslinked DNA is digested with a restriction enzyme, producing sticky-ended DNA fragments.
+3. **DNA Fragment Ligation**: The digested DNA fragments are randomly ligated by DNA ligase, forming ligation products.
+4. **DNA Purification and Secondary Digestion** (if necessary): Purify the ligation products and perform a secondary digestion to remove unwanted DNA forms.
+5. **Primer Design and qPCR Analysis**: Design specific primers for the anticipated ligation products and analyze them using qPCR.
+
+### Restriction Enzyme Selection in 3C-qPCR Experiments
+
+- **First Enzyme**: Choose enzymes like HindIII or EcoRI for their even distribution and high cutting efficiency across the target genomic areas. Optimizing the first enzyme's digestion efficiency is crucial for comprehensive DNA digestion.
+
+- **Second Enzyme**: Select high-frequency cutters such as CviQI, DpnII, or StyI to minimize background noise. Ensure the second enzyme's sites are not near the first enzyme's to avoid digestion interference.
+
+### Primer Design for qPCR
+Primers should be designed at the ends of the expected ligation products, ensuring one primer is on the 5' side of the enhancer's restriction site and the other on the 5' side of the promoter's restriction site. This design ensures that primers can specifically amplify the ligation product between the enhancer and promoter.
+
+### CT Value Comparison and ΔΔCT Calculation Example
+Suppose you conducted a 3C-qPCR experiment and obtained the following CT values:
+
+- **Control Group** (without IGF1R knock-out):
+  - GAPDH CT value: 15
+  - Enhancer-Promoter Interaction Region CT value: 23
+- **Experimental Group** (with IGF1R knock-out):
+  - GAPDH CT value: 15
+  - Enhancer-Promoter Interaction Region CT value: 25
+
+**Calculation Steps**:
+
+1. **Calculate the ΔCT for each sample**:
+   - ΔCT (Control Group) = 23 (Interaction Region CT value) - 15 (GAPDH CT value) = 8
+   - ΔCT (Experimental Group) = 25 (Interaction Region CT value) - 15 (GAPDH CT value) = 10
+
+2. **Calculate the ΔΔCT**:
+   - ΔΔCT = ΔCT (Experimental Group) - ΔCT (Control Group) = 10 - 8 = 2
+
+3. **Calculate the Relative Expression**:
+   - Relative Expression = 2^(-ΔΔCT) = 2^(-2) = 0.25
+
+This means that, compared to the control group, the interaction frequency between the enhancer and MYC promoter in the experimental group decreased, specifically to 25% of the original frequency. This result indicates that knocking out IGF1R might reduce the physical proximity between the enhancer and MYC promoter, potentially affecting MYC gene expression.
+
+### Incorporating Positive Control into the Simulation
+Let's assume we have a positive control region (Control Interaction Region) whose interaction frequency remains unchanged under all conditions, providing its CT values as an example:
+
+- **Positive Control Region CT Values**:
+  - Control Group CT value: 20
+  - Experimental Group CT value: 20
+
+Since this positive control region is not affected by IGF1R, its CT values should remain consistent across the control and experimental groups, providing us with a baseline to correct experimental variations.
+
+**Correction Steps**:
+- **Calculate the ΔCT for the positive control** (using the example values directly as the positive control CT values are the same in both groups):
+  - ΔCT (Positive Control, Control Group) = 20 (Control Interaction Region CT value) - 15 (GAPDH CT value) = 5
+  - ΔCT (Positive Control, Experimental Group) = 20 (Control Interaction Region CT value) - 15 (GAPDH CT value) = 5
+
+The consistency of the ΔCT values for the positive control across the control and experimental groups confirms the appropriate selection of the reference
+
+<div align=center>
+<img src="imgs/3c.png">
+</div>
+
 ## 4C-seq (Circular Chromosome Conformation Capture followed by sequencing) (one vs all)
 
 ## Overview
@@ -1038,7 +1103,7 @@ An overview of the intron retention (IR) mechanism: different isoforms can be pr
 <img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/89c8759153191b960c4f4c064d2967a6965c0a87/imgs/fgene-11-00586-g001.jpg">
 </div>
 
-## Inverse PCR
+## Inverse PCR (I don't like this name, doesn't make any sense)
 
 Inverse PCR is a molecular technique used to amplify unknown sequences adjacent to known regions of DNA. It involves cutting the target DNA, self-ligating into a circular template, and then using outward-facing primers to perform PCR amplification. This allows for the extension from known sequences to identify their neighboring unknown regions.
 
