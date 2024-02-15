@@ -14,13 +14,13 @@ In the database, I provide a list of commonly used computational medicine and bi
 
 # Terminology Content
 
-## 4C-seq (Circular Chromosome Conformation Capture followed by sequencing) Protocol Notes
+## 4C-seq (Circular Chromosome Conformation Capture followed by sequencing) (one vs all)
 
 ## Overview
 4C-seq is a robust method used to investigate the spatial organization of chromosomes. It is based on Inverse PCR, amplifying DNA sequences in close proximity to a known sequence to reveal interactions with unknown genomic sequences.
 
 ## Enzyme Digestion
-The method requires two rounds of enzyme digestion producing sticky ends essential for subsequent ligation.
+The method requires two rounds of enzyme digestion producing **sticky ends** essential for subsequent ligation.
 
 - **First Restriction Enzyme Digestion**: Utilizes a primary enzyme like DpnII, NlaIII, Csp6I, or MboI, selected based on recognition site distribution near the region of interest.
   
@@ -938,7 +938,7 @@ The GridION Mk1 provides users with five sequencing ports where MinION flow cell
 ## HiChIP-seq
 
 ### Overview
-- **Immunoprecipitation Required**: HiChIP requires immunoprecipitation (IP) to capture specific protein-DNA interactions.
+- **Immunoprecipitation Required**: HiChIP requires immunoprecipitation (IP)
 - **End Ligation**: Involves blunt-end ligation of DNA fragments.
 - **Purpose**: Detects all-to-all DNA-DNA interactions for specific proteins.
 
@@ -1036,6 +1036,14 @@ An overview of the intron retention (IR) mechanism: different isoforms can be pr
 
 <div align=center>
 <img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/89c8759153191b960c4f4c064d2967a6965c0a87/imgs/fgene-11-00586-g001.jpg">
+</div>
+
+## Inverse PCR
+
+Inverse PCR is a molecular technique used to amplify unknown sequences adjacent to known regions of DNA. It involves cutting the target DNA, self-ligating into a circular template, and then using outward-facing primers to perform PCR amplification. This allows for the extension from known sequences to identify their neighboring unknown regions.
+
+<div align=center>
+<img src="/imgs/inverse.jpg">
 </div>
 
 ## Lambda control DNA  
