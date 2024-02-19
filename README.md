@@ -81,36 +81,36 @@ The consistency of the ΔCT values for the positive control across the control a
 
 ## 4C-seq (Circular Chromosome Conformation Capture followed by sequencing) (one vs all)
 
-## Overview
+### Overview
 4C-seq is a robust method used to investigate the spatial organization of chromosomes. It is based on Inverse PCR, amplifying DNA sequences in close proximity to a known sequence to reveal interactions with unknown genomic sequences.
 
-## Enzyme Digestion
+### Enzyme Digestion
 The method requires two rounds of enzyme digestion producing **sticky ends** essential for subsequent ligation.
 
 - **First Restriction Enzyme Digestion**: Utilizes a primary enzyme like DpnII, NlaIII, Csp6I, or MboI, selected based on recognition site distribution near the region of interest.
   
 - **Second Restriction Enzyme Digestion**: Employs a secondary enzyme post-ligation to further digest the DNA, ensuring smaller fragment sizes for efficient PCR amplification.
 
-## PCR Primer Design
+### PCR Primer Design
 Primers for 4C-seq PCR include Illumina P5 and P7 adapters for seamless sequencing.
 
 - **Reading Primer**: Features an overhang incorporating a portion of the Illumina sequencing primer hybridization sites, **strategically positioned adjacent to the primary restriction site (RE1)** to maximize sequence capture from the viewpoint.
 
 - **Non-Reading Primer**: Located within 50 bp of the secondary restriction site (RE2) and is **designed with an index** to minimize PCR product size and facilitate multiplex sequencing.
 
-## Two-Step PCR Strategy
+### Two-Step PCR Strategy
 A two-phase PCR method amplifies ligated fragments while attaching sequencing adapters:
 
 1. **First PCR Step**: Inverse PCR is conducted with VP-specific primers that have overhangs complementary to adapter sequences.
    
 2. **Second PCR Step**: Uses universal primers binding to the first PCR step's overhangs, integrating the full Illumina adapter sequences for direct sequencing.
 
-## Key Points
+### Key Points
 - **Inverse PCR**: Relies on inverse PCR to infer spatial genomic structure from a known sequence.
 - **Sticky Ends Production**: Both enzymatic digestions create sticky ends to assist DNA ligation.
 - **PCR Primers**: Primers contain P5 and P7 adapters, vital for sequencing setup.
   
-## Library Preparation for Sequencing
+### Library Preparation for Sequencing
 The PCR-generated product, now ready for Illumina sequencing.
 
 <div align=center>
@@ -547,6 +547,57 @@ In a chart with aligned coordinates, the x-axis represents the position on the g
 
 Additionally, this analysis can also help to reveal the mechanisms of gene regulation. For example, if the binding sites of a transcription factor (detected by ChIP-seq) highly correlate with the expression level of a gene (detected by RNA-seq), it can be inferred that this transcription factor may play a crucial role in regulating the expression of this gene.
 
+## CHIRP-seq (one RNA to many DNA, can also detect RNA and proteins)
+
+CHIRP-seq (Chromatin Isolation by RNA Purification followed by sequencing) is a sophisticated method utilized to elucidate the interaction sites between chromatin-associated RNAs and the genomic DNA. This technique is pivotal for understanding the complex roles of long non-coding RNAs (lncRNAs) in gene regulation and chromatin organization.
+
+### Controls and primers in CHIRP-seq
+
+- For RNA, we can carry out ChIRP-RT-qPCR, where typically a target-specific probe and a LacZ negative control probe are employed. The amplified regions are then detected using primers specific for the RNA of interest for all probes.
+
+- In the case of DNA, ChIRP-qPCR is performed using both the target-specific and LacZ negative control probes. Primers designed to amplify the DNA regions where RNA is thought to bind are used.
+
+### Experimental Probes
+
+For the target lncRNA under investigation, probes must be designed in even and odd sets for cross-validation purposes.
+
+- **Odd Probes**: Bind to the odd-numbered regions of the target lncRNA.
+- **Even Probes**: Bind to the even-numbered regions of the target lncRNA.
+
+This design provides a cross-validation mechanism
+
+
+### Implementation Steps
+
+1. Perform cross-linking on cell lysates to stabilize RNA-DNA interactions.
+2. Hybridize biotinylated even and odd probe sets to the target lncRNA.
+3. Use magnetic streptavidin beads (e.g., `PureProteome™ Streptavidin magnetic beads`) to isolate the RNA-probe complexes.
+4. Perform stringent washes to remove non-specific interactions.
+5. Elute and purify the bound RNA and any associated genomic DNA.
+6. Use qPCR or sequencing to analyze the DNA regions enriched by the CHIRP.
+
+<div align=center>
+<img src="/imgs/chirp-0.png">
+</div>
+
+### Data Analysis
+
+- Significant enrichment over the LacZ control observed via qPCR indicates specific probe-target interactions.
+- Peak identification in IGV against the input control confirms the genomic locations of RNA-DNA interactions with high confidence"
+
+
+<div align=center>
+<img src="/imgs/chirp-1.png">
+</div>
+
+<div align=center>
+<img src="/imgs/chirp-2.png">
+</div>
+
+<div align=center>
+<img src="/imgs/chirp-3.png">
+</div>
+
 ## CPU vs Core vs Thread vs Node
 
 CPU (Central Processing Unit): The CPU is the core part of the computer and is responsible for executing most of the instructions of the computer program. It is the core part of the computer hardware system and is responsible for interpreting and executing instructions from the operating system, applications, and controlling other hardware. A CPU can have one or more cores.
@@ -686,15 +737,17 @@ Think of normal structural variants like moving furniture in your house (a singl
 
 A chromosome is a linear strand of DNA that is compacted and organized by proteins, including histones, into a highly condensed structure. Chromosomes carry genetic information in the form of genes and are passed down from parent to offspring during cell division.
 
-## Cis and trans regulation
+## Cis vs. Trans Regulatory Elements
 
-Let’s start by discussing the meaning of “cis” and “trans.” The term cis is derived from the Latin root “cis,” meaning “the same side as.” In contrast, the term trans comes from the Latin root “trans,” meaning “across from.” In molecular biology, a cis-acting (or cis-regulatory) element refers to a region of the chromosomal DNA that regulates the transcription or expression of a gene that is on the same chromosome. A trans-acting (or trans-regulatory) element, on the other hand, refers to a soluble protein that binds to the cis-acting element of a gene to control its expression. The gene that encodes the soluble trans-acting protein can reside on any chromosome, often located far away from the gene whose expression it regulates.
+- **Cis and Trans**: Terms indicating physical position; "cis" means "on the same side," and "trans" means "across from."
 
-Cis-acting elements are not part of the coding sequences of the gene they regulate: they may be near the promoter or the 5’ region of the gene, and in some cases they may be many kilobases downstream of the gene. In eukaryotes, enhancers are a common type of cis-acting element. As its name implies, an enhancer promotes gene expression when the appropriate trans-acting element(s) binds to it.
+- **Cis-acting Elements**: Regulatory DNA sequences (e.g., promoters, enhancers, silencers) located on the same DNA molecule as the gene they regulate, affecting gene expression on the same chromosome. Enhancers, even if physically distant, regulate through folding and are considered cis-acting because they control genes on the same chromosome.
 
-Trans-acting elements, also known as transcription factors, can either promote or inhibit gene expression. A given transcription factor can work with other transcription factors to regulate the expression of a single gene or a group of related genes. Conversely, a gene may have several transcription factors bind to its cis-regulatory elements at the same time or at different times, depending on the cellular and environmental signals. As you might imagine, these different levels of gene regulation give the organism a wide range of mechanisms to control which genes are turned on or off at any given moment.
+- **Trans-regulatory Factors**: Molecules like transcription factors and lncRNAs that are distinct from the gene they regulate (different molecule types). They can regulate genes located on different chromosomes or distant locations within the same chromosome.
 
-Classically, regulation of gene expression on DNA level is mediated by protein–DNA interactions (Watson et al. 2007). The regulating proteins are often called transcription factors. The regulating DNA elements are often called transcription factor–binding sites. Because transcription factors are often encoded by genes far from the regulated gene, they are also called as trans-regulatory factors. Because the regulating DNA elements are often very close to the coding region of the regulated gene, they are also called as cis-acting elements. There are thousands of genes in genomes. They are regulated properly to function. Mapping the gene regulatory network composed of trans and cis regulations is an important and challenging topic of systems biology (Wray 2007).
+In summary, cis-regulation occurs within the same DNA molecule, affecting genes on the same chromosome, while trans-regulation involves different molecules (proteins or RNAs) acting across DNA molecules or chromosomes.
+
+- **Cis and Trans in Red-C**: In the context of Red-C technology, "cis" refers to the RNA interacting with DNA regions on the same chromosome, including those physically distant but brought into proximity through chromosomal folding. "Trans" describes RNA interactions with DNA regions on different chromosomes. This usage underscores the spatial organization and dynamics within the nucleus, which are crucial for understanding gene regulation and expression patterns.
 
 ## Complex structural variation (SV)  
 While SV is typically defined by its canonical forms – duplication, deletion, insertion, inversion and translocation – recent breakpoint mapping studies have revealed a surprising number of “complex” variants that evade simple classification. Complex SVs are defined by clustered breakpoints that arose through a single mutation but cannot be explained by one simple end-joining or recombination event.
@@ -839,6 +892,20 @@ EM-seq is a bisulfite-free, enzymatic method for detecting 5-methylcytosine (5mC
 
 The EM-seq approach provides greater accuracy and less DNA damage, enhancing the reliability of methylation data for epigenetic studies.
 
+## Enhancer
+
+- **Definition**: Enhancers are cis-regulatory DNA elements that upregulate gene transcription, with no fixed nomenclature.
+- **Function**: They can be located far from the gene they regulate and work by looping to interact with the gene's promoter.
+- **Variability**: Their sequences and locations vary between cell types, requiring specific identification and validation.
+- **Study**: Their activity is studied through techniques like ChIP-seq and Hi-C.
+
+### Characteristics of Enhancer Regions
+
+- Enhancers are identified by specific histone modifications, notably H3K4me1 (monomethylation of histone H3 at lysine 4) signifying enhancer presence, and H3K27ac (acetylation of histone H3 at lysine 27) indicating active enhancers.
+- Proteins like Cohesin, Mediator, and CTCF bind to enhancers, playing a crucial role in the formation of chromatin loops that bring enhancers in proximity to promoters for gene regulation.
+- The binding of key transcription factors to enhancers dictates their regulatory activity.
+- Enhanced chromatin accessibility is a hallmark of enhancers, reflecting a more open chromatin state that facilitates transcriptional machinery access.
+
 ## Enhancer-Promoter Loops
 
 Enhancer-promoter loops play a pivotal role in the regulation of gene expression in eukaryotic cells. These structures are crucial for facilitating the appropriate levels of gene transcription and are key to understanding the complexities of gene regulation.
@@ -868,6 +935,18 @@ Enhancer-promoter loops play a pivotal role in the regulation of gene expression
 ### Research Techniques
 
 Methods like Chromosome Conformation Capture (3C) and its derivatives, along with ChIP-seq, are employed to study enhancer-promoter loops, offering insights into the three-dimensional organization of chromatin in gene regulation.
+
+## Enhancer RNAs (eRNAs)
+
+Enhancer RNAs (eRNAs) are non-coding RNA molecules transcribed from enhancer regions, playing a key role in gene regulation. They enhance gene expression by:
+
+- **Modifying Chromatin Structure**: eRNAs facilitate changes in chromatin that bring enhancers and gene promoters into closer spatial proximity.
+- **Recruiting Transcription Factors**: By attracting transcription factors to enhancers and promoters, eRNAs increase gene transcription activity.
+- **Bridging Enhancers and Promoters**: eRNAs may physically bridge enhancer-promoter interactions, stabilizing the transcriptional machinery.
+
+**Action Scope**:
+- Primarily, eRNAs act locally, boosting the activity of the enhancer from which they are transcribed and its target gene.
+- Some eRNAs might also have distal effects, potentially affecting the activity of other genes or enhancers indirectly through nuclear mobility or chromatin remodeling.
 
 ## Epigenome
 
@@ -2403,6 +2482,10 @@ The QV field indicates the quality score of the variant. In this case, the value
 <div align=center>
 <img src="imgs/SV_algo.jpeg">
 </div
+
+## Super enhancer
+
+Super-enhancers (SEs) are collections of closely spaced genomic regions that exhibit enhancer hallmarks. These enhancers are usually stitched together by constituent enhancers, but there can be gaps of up to 12.5 kb between them.
 
 ## Supplementary Alignment
 
