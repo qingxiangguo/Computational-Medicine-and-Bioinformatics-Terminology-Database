@@ -429,6 +429,24 @@ Here’s a brief overview of the ChAR-seq process:
 
 Patients are treated with antibodies that block negative regulatory molecules, such as PD-1/PD-L1 or CTLA4, which normally restrain T cell responses. This kind of therapy can reinvigorate a patient's anti-tumor T cell responses, which then can cause tumors to shrink and even lead to cures in some patients
 
+## ChIA-PET: Unveiling Chromatin Interactions
+
+ChIA-PET (Chromatin Interaction Analysis by Paired-End Tag Sequencing) is a revolutionary technique that merges chromatin immunoprecipitation (ChIP) with DNA sequencing to reveal the complex network of long-range chromatin interactions across the genome. This method shines a light on how genes are regulated by uncovering the spatial organization of the genome.
+
+### Key Insights
+
+- **Protein-DNA Binding Sites**: Identifies the exact locations where specific proteins bind to DNA, akin to ChIP-seq results.
+- **Long-Range Interactions**: Maps the interactions between distant genomic regions, providing insight into the three-dimensional structure of the genome.
+
+### Process Overview
+
+1. **Self-ligation PETs**: DNA fragments ligated to themselves indicate protein-DNA binding sites, pinpointing where regulatory proteins interact with the genome.
+2. **Inter-ligation PETs**: DNA fragments from different regions ligated together represent long-range chromatin interactions, crucial for understanding gene regulation and the 3D genome architecture.
+
+<div align=center>
+<img src="/imgs/chia-pet.png">
+</div>
+
 ## Chimera rates in Whole Genome Amplification (WGA)  
 
 Defined as the number of reads that are improperly connected (including abnormal fragment size and interchromosomal connection) divided by the total number of mappable reads. Here are the chimera rates for some commercial kits: 
@@ -1090,7 +1108,7 @@ For somatic mutations, because this error appeared after your life has been goin
 
 So, simply put, the VAF of germline mutations is usually 0%, 50% or 100%, while the VAF of somatic mutations could be any value, because they only appear in a part of the little factories (cells).
 
-## GRID-seq (All to all RNa-DNA interaction)
+## GRID-seq (All to all RNA-DNA interaction)
 
 GRID-seq is an innovative technique for mapping genome-wide RNA-chromatin interactions, leveraging a unique bridge linker and the special cutting properties of the MmeI enzyme.
 
@@ -1140,6 +1158,19 @@ The GridION Mk1 provides users with five sequencing ports where MinION flow cell
 <div align=center>
 <img src="imgs/hichip.png">
 </div>
+
+
+## Hi-C Technology Overview (All to all DNa-DNA interaction)
+
+### Workflow Steps:
+
+1. **Cross-Linking**: Cells are treated with formaldehyde, cross-linking proteins to DNA, capturing the chromatin interactions.
+2. **Digestion**: Chromatin is digested with a restriction enzyme that cuts DNA to create 5’ overhangs.
+3. **Biotinylation**: The 5’ overhangs are filled in with biotinylated nucleotides, allowing for the blunt-ended fragments to be ligated together.
+4. **Ligation**: DNA ends are ligated, favoring joined ends that are spatially close in the nucleus.
+5. **Purification**: Ligation products with biotin are purified using streptavidin beads.
+6. **Library Preparation**: DNA is sheared, size-selected, and prepared into a sequencing library.
+7. **Sequencing**: High-throughput sequencing is used to read the ligation junctions, revealing which DNA regions are interacting.
 
 ## Histone proteins
 
@@ -1434,6 +1465,14 @@ The kit is optimised to achieve sequencing accuracies of over 99% (Q20+) with hi
 ## Nanopore sequencing - whole genome DNA sequencing kits - Rapid Sequencing Kit - SQK-RAD004  
 
 generates sequencing libraries from extracted gDNA in 10 minutes using a simple two-step protocol. At the heart of the kit is a transposase which simultaneously cleaves template molecules and attaches tags to the cleaved ends. Rapid Sequencing Adapters are then added to the tagged ends.  Input requirement 400 ng gDNA (<30 kb). No PCR. Shipped at 2–8°C. Long-term storage -20°C.  Due to the simple nature of the workflow and the fact that little sample manipulation is required (e.g. minimal pipetting steps and no clean-ups) some very long reads can be achieved with this kit, despite the required transposase fragmentation. However, in order for long reads to be observed in sequencing, long fragments need to be present in the sample in the first place. Typical throughput is lower than Ligation Sequencing Kit.
+
+## Nascent RNA Characteristics
+
+Nascent RNA, freshly transcribed within the cell. 
+
+- **Composition**: Includes enhancer RNAs (eRNAs) and can lack the polyadenylation (poly(A) tail) typical of mature mRNAs.
+- **Regulation**: Capable of both cis-regulation, affecting nearby genes at the site of synthesis, and trans-regulation, influencing distant genomic loci.
+- **Sequence Features**: Often capped but not always polyadenylated, nascent RNAs have unique sequence characteristics that facilitate their regulatory functions.
 
 ## NEBNext Quick Ligation Module (E6056)
 
