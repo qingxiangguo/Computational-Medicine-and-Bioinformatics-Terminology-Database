@@ -375,6 +375,9 @@ Major histocompatibility class I (MHC I) molecules bind peptides derived from a 
 
 A form of advanced prostate cancer. With CRPC, the cancer no longer completely responds to treatments that lower testosterone. It shows signs of growth, like a rising PSA (prostate-specific antigen), even with low levels of testosterone.
 
+## CCK-8 Assay (Cell Counting Kit-8)
+The CCK-8 assay is a cell viability and proliferation detection method based on the reduction of the WST-8 tetrazolium salt, assessing cellular health by measuring absorbance.
+
 ## cDNA second strand synthesis vs SMART-seq2
 
 Normal cDNA second strand sythesis is not a PCR process. But Takara smart-seq2 containing PCR of cDNA. The first strand cDNA synthesis is typically carried out using reverse transcription (RT) enzymes, which use a reverse transcriptase to synthesize cDNA from an RNA template. The resulting single-stranded cDNA is then converted to double-stranded cDNA through a second strand synthesis step that typically uses DNA polymerase and RNase H to remove the RNA template.
@@ -399,7 +402,7 @@ CAPTURE (CRISPR Affinity Purification in situ of Regulatory Elements) uses CRISP
 <img src="/imgs/capture.png">
 </div>
 
-## ChAR-seq (Chromatin-Associated RNA sequencing, DNA linker)
+## CHAR-seq (Chromatin-Associated RNA sequencing, DNA linker)
 
 ChAR-seq (Chromatin-Associated RNA sequencing) is a comprehensive **all-to-all RNA-DNA interaction** technique designed to detect interactions between RNA and DNA within the genome. At the core of this method is a biotinylated bridge oligonucleotide that facilitates the capture of RNA-DNA contacts.
 
@@ -429,7 +432,7 @@ Here’s a brief overview of the ChAR-seq process:
 
 Patients are treated with antibodies that block negative regulatory molecules, such as PD-1/PD-L1 or CTLA4, which normally restrain T cell responses. This kind of therapy can reinvigorate a patient's anti-tumor T cell responses, which then can cause tumors to shrink and even lead to cures in some patients
 
-## ChIA-PET: Unveiling Chromatin Interactions
+## ChIA-PET: (All to all DNA-DNA and CHIP-seq) 
 
 ChIA-PET (Chromatin Interaction Analysis by Paired-End Tag Sequencing) is a revolutionary technique that merges chromatin immunoprecipitation (ChIP) with DNA sequencing to reveal the complex network of long-range chromatin interactions across the genome. This method shines a light on how genes are regulated by uncovering the spatial organization of the genome.
 
@@ -1340,6 +1343,10 @@ Genomic DNA is randomly fragmented and tagged by Tn5 transposon insertion contai
 1. Accurate detection of single-cell copy-number variations (CNVs) with kilobase resolution  
 2. Accurate detection of single-cell single-nucleotide variations (SNVs)  
 
+## Lipofectamine
+
+Transfection reagents developed by Thermo Fisher Scientific, delivering nucleic acids (such as DNA, siRNA, and miRNA) into mammalian cells, facilitating gene expression studies and RNA interference experiments. Lipofectamine RNAiMAX for siRNA.
+
 ## LNCaP cells
 LNCaP cells are a cell line of human cells commonly used in the field of oncology. LNCaP cells are androgen-sensitive human prostate adenocarcinoma cells derived from the left supraclavicular lymph node metastasis from a 50-year-old caucasian male in 1977. They are adherent epithelial cells growing in aggregates and as single cells.
 
@@ -1907,6 +1914,12 @@ Below is RIP-seq for long read
 
 RNA-binding proteins (RBPs) play a crucial role in various aspects of RNA metabolism and gene regulation. They interact with different types of RNA molecules, influencing their function, localization, stability, and processing.
 
+## RNA quantity conversions from tissue and cells
+
+<div align=center>
+<img src="/imgs/rnaq.png">
+</div>
+
 ### Functions of RBPs
 
 #### RNA Processing and Splicing
@@ -2193,6 +2206,10 @@ By providing detailed methylation profiles of individual cells, scBS-seq offers 
 ## Single-Strand cDNA
 
 Single-strand cDNA (ss-cDNA) is synthesized from an RNA template by the process of reverse transcription. The enzyme reverse transcriptase catalyzes the formation of ss-cDNA by using RNA as a template and incorporating deoxyribonucleotides complementary to the RNA template. This form of cDNA is primarily used in quantitative polymerase chain reaction (qPCR) assays, a technique to measure the abundance of a particular mRNA or to compare mRNA levels in different sample sets in a quantitative and sensitive manner. The advantage of using ss-cDNA for qPCR is that it represents a precise copy of the mRNA, allowing for accurate amplification and quantification of the target sequence.
+
+## siRNA
+
+siRNA, 21-23 nucleotides in length and double-stranded, enters cells, may be processed by Dicer, then forms a RISC complex; it becomes single-stranded within RISC, then targets and degrades complementary mRNA.
 
 ## scCOOL-seq (Chromatin Overall Omic-scale Landscape Sequencing) 
 
@@ -2693,6 +2710,16 @@ Crucially, combining tagmentation with optimized gap repair allowed the streamli
 Individual cells were collected with a microcapillary connected to a mouth pipette and washed by transferring them into droplets of 1 mg/mL phosphate-buffered saline-bovine serum albumin for three times before lysis. The 2.5-μL lysis reaction consists of 0.25-μL 100mM Tris-EDTA (1M Tris + 0.1M EDTA), 0.125μL Qiagen protease, 0.075μL 10% triton X-100, 0.05μL1MKCL,and2μLH2O. The cell lysis was carried out at 50°C for 3 h to digest the proteins binding on the gDNA and then 70°C for 30 min to inactivate the protease. After that, a 7.5-μL tagmentation mixture including 2 μL 5×TAPS_PEG8K (50 mM TAPS-NaOH (or KOH), pH 8.3 (RT), 25 mM MgCl2, 40% PEG8K), and 1μL0.2ng/μL adaptor conjuncted Tn5 enzyme (Vazyme, Cat. S601-01) was added into each cell lysate. The tagmentation reaction was carried out at 55°C for 10min, followed by adding 2.5-μL0.2%SDSand standing at room temperature for 5min to stop tagmentation, releasing the fragmented gDNA. Then, strand displacement of the Tn5 adaptors and amplification of the fragmented gDNA was carried out using 0.025U/μLTksGflexDNA Polymerase (TAKARA, Cat. R060B), 560nM I5 PCR primer which containing 16 bp cell barcode (5′ AATGATACGGCGACCACCGAGATCTNNNNNNNNNNNNNNN NTCGTCGGCAGCGTC3′). The PCR program was 72°C 3min, 98°C 1 min, and then 20 cycles of 98°C for 15s, 60°C for 30s, and 68°C for 5min. After that, gDNA amplicons using different barcode primers were pooled together and purified with 0.4 volume of Ampure PB beads (Pacific Biosciences Ref. No. 100-265-900) for twice. These purified amplicons were quantifiedusingQubit,andabout1μg amplified products was used to construct libraries for Pacbio sequencing using SMRTbell Template Prep Kit v.1.0-SPv3 (Pacific Biosciences Ref. No. 100-991-900).
 
 Because of the transposon approach, adaptor has been added, each sequence is ended with part of the sequence of adaptor, so there is no need for random primers to amplify the whole genome, but only the I5 primer that specifically identifies the adaptor is needed, except that barcode needs to be added to label multiple cells to facilitate the difference after hybrid sequencing, saving cost and improving throughput
+
+## Transfection
+
+Transfection introduces nucleic acids into cells to study gene function, essential for RNAi and CRISPR experiments. They have chemical or physical methods.
+
+### Forward Transfection
+Forward transfection involves plating cells first and then adding a mixture of siRNA (or DNA) and transfection reagent for 10 cm and 15 cm dishes 
+
+### Reverse Transfection
+Adds the nucleic acid and transfection reagent mixture to culture wells before the cells, good for small-volume cultures like 96-well plates.
 
 ## Transcription Factors: Key Regulators of Gene Expression
 
