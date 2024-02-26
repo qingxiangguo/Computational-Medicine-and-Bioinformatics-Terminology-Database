@@ -1742,6 +1742,20 @@ Restriction enzymes, also known as restriction endonucleases, are key tools in m
 - **Directional Cloning**: Two enzymes with different sticky ends are typically chosen to ensure correct orientation of the insert.
 - **Optimal Conditions**: Each enzyme requires specific conditions like pH, ionic strength, and temperature for optimal activity.
 
+## Reverse ChIP-seq Workflow
+
+Reverse ChIP-seq is a technique to identify the DNA-binding proteins associated with specific genomic regions. The workflow includes:
+
+1. **Crosslinking**: Fixing DNA-protein interactions with formaldehyde.
+2. **Chromatin Shearing**: Fragmenting chromatin using sonication.
+3. **Probe Hybridization**: Binding biotinylated DNA probes to target sequences.
+4. **Capture**: Isolating probe-bound chromatin with streptavidin-coated beads.
+5. **Identification**: Analyzing captured proteins via mass spectrometry.
+
+<div align=center>
+<img src="/imgs/reverse-chip.png">
+</div>
+
 ## RNA Immunoprecipitation-Sequencing (RIP-Seq) Protocol
 
 ### Overview
