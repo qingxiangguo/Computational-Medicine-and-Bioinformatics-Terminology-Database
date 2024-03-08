@@ -633,6 +633,11 @@ This design provides a cross-validation mechanism
 <img src="/imgs/chirp-3.png">
 </div>
 
+### ChIRP-Seq Probe Binding Note
+
+ChIRP-seq employs single-stranded DNA probes targeting specific lncRNAs. Theoretically, these probes might also bind to the lncRNA's encoding genomic DNA due to sequence complementarity. However, since ChIRP-seq lacks a denaturation step for DNA, the actual likelihood of probes binding to double-stranded DNA is very low. This ensures the experiment predominantly focuses on identifying RNA-protein interactions without interference from unintended genomic DNA bindings.
+
+
 ## CPU vs Core vs Thread vs Node
 
 CPU (Central Processing Unit): The CPU is the core part of the computer and is responsible for executing most of the instructions of the computer program. It is the core part of the computer hardware system and is responsible for interpreting and executing instructions from the operating system, applications, and controlling other hardware. A CPU can have one or more cores.
@@ -1933,6 +1938,9 @@ RNA-binding proteins (RBPs) play a crucial role in various aspects of RNA metabo
 <div align=center>
 <img src="/imgs/rnaq.png">
 </div>
+
+A 80% confluency VCaP 10 cm dish can get 30-40 ug total RNA.
+
 
 ### Functions of RBPs
 
