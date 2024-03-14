@@ -242,6 +242,19 @@ Avidin and other biotin-binding proteins, including Streptavidin and NeutrAvidin
 
 Biotin is a vitamin (Vitamin H, Vitamin B7, Coenzyme R) that is present in small amounts in all living cells and is critical for a number of biological processes including cell growth and the citric acid cycle. The valeric acid side chain of the biotin molecule can be derivatized in order to incorporate various reactive groups that facilitate the addition of a biotin tag to other molecules.  Because biotin is relatively small (244.3 Daltons), it can be conjugated to many proteins and other molecules without significantly altering their biological activity. The highly specific interaction of biotin-binding proteins with biotin makes it a useful tool in assay systems designed to detect and target biological analytes.
 
+## Biotinylated dCas9
+
+Biotinylated dCas9, a non-cutting version of Cas9 with a biotin tag, targets DNA precisely without damage, used for genomic research.
+
+### Features
+
+- Retains DNA binding, loses cutting ability.
+- Biotin enables easy molecular tagging.
+
+### Uses
+
+Target genome sequence.
+
 ## Blunt ends
 
 In blunt ends, both strands are of equal length – i.e. they end at the same base position, leaving no unpaired bases on either strand. 
@@ -390,13 +403,25 @@ So while the second strand synthesis in Smart-seq2 does involve PCR amplificatio
 
 ## CAPTURE Technology Summary (one DNA to many RNA, protein)
 
-### What is CAPTURE?
-CAPTURE (CRISPR Affinity Purification in situ of Regulatory Elements) uses CRISPR/Cas9 to isolate specific genomic locus interactions, focusing on protein-RNA-DNA complexes.
+## CAPTURE Technique Overview
 
-### How Does It Work?
-- **FB-dCas9**: Inactive Cas9 tagged with biotin, directed by sgRNAs to target sites.
-- **Biotin ligase BirA**: Adds biotin to proteins near dCas9, allowing purification.
-- **sgRNAs**: Guide dCas9 to precise genomic locations.
+CAPTURE technique integrates CRISPR-Cas9 system with biotin-streptavidin affinity purification to study protein-DNA interactions and chromatin architecture. 
+
+1. **Vector Construction**: 
+
+**Biotinylated dCas9 Vector**: This vector contains the gene sequence for dCas9 fused with a biotin acceptor peptide (BAP) sequence, which can be biotinylated by BirA ligase.
+- **BirA Ligase Expression Vector**: BirA ligase, derived from E. coli, specifically biotinylates proteins with a BAP sequence. A separate vector is constructed for expressing BirA ligase in cells.
+- **sgRNA Expression Vector**: Contains the specific sgRNA gene sequence for guiding dCas9 to the target genomic location.
+
+2. **Cell Culture**: Grow suitable cell lines for transfection.
+3. **Transfection**: Co-transfect cells with vectors for biotinylated dCas9, BirA ligase, and sgRNAs (lentiviruses method by 293T).
+4. **Crosslinking**: Fix cells with formaldehyde to stabilize protein-DNA interactions.
+5. **Chromatin Preparation and Shearing**: Lyse cells, extract chromatin, and shear it into fragments using sonication.
+6. **Affinity Purification**: Capture biotinylated dCas9-bound DNA-protein complexes with streptavidin-coated magnetic beads.
+7. **Reverse Crosslinking and DNA Purification**: Reverse crosslinks to free DNA and proteins, followed by DNA purification.
+8. **Analysis**: Perform proteomics and genomics analysis to identify interacting proteins and DNA regions.
+
+The CAPTURE technique provides a powerful tool for dissecting complex regulatory networks and understanding chromatin dynamics by enabling the study of specific genomic loci and their interacting factors.
 
 <div align=center>
 <img src="/imgs/capture.png">
@@ -636,6 +661,10 @@ This design provides a cross-validation mechanism
 ### ChIRP-Seq Probe Binding Note
 
 ChIRP-seq employs single-stranded DNA probes targeting specific lncRNAs. Theoretically, these probes might also bind to the lncRNA's encoding genomic DNA due to sequence complementarity. However, since ChIRP-seq lacks a denaturation step for DNA, the actual likelihood of probes binding to double-stranded DNA is very low. This ensures the experiment predominantly focuses on identifying RNA-protein interactions without interference from unintended genomic DNA bindings.
+
+Uses 20-mer biotin-conjugated DNA oligonucleotide, with one probe every 100 base pair of RNA.
+
+The program has a maximum target size of 8 kb, so if the target RNA is greater than 8 kb, the sequence should be broken into segments.
 
 ## CPU vs Core vs Thread vs Node
 
@@ -1794,6 +1823,8 @@ Reverse ChIP-seq is a technique to identify the DNA-binding proteins associated 
 <div align=center>
 <img src="/imgs/reverse-chip.png">
 </div>
+
+The distribution of probes is usually uniform and covers the entire region, for example, the researchers designed 12 biotin-labeled probes to capture the 1281 bp AtCAT3 promoter region, with 6 probes for each DNA strand evenly distributed.
 
 ## RNA Immunoprecipitation-Sequencing (RIP-Seq) Protocol
 
