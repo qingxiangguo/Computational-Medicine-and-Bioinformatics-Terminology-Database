@@ -637,7 +637,6 @@ This design provides a cross-validation mechanism
 
 ChIRP-seq employs single-stranded DNA probes targeting specific lncRNAs. Theoretically, these probes might also bind to the lncRNA's encoding genomic DNA due to sequence complementarity. However, since ChIRP-seq lacks a denaturation step for DNA, the actual likelihood of probes binding to double-stranded DNA is very low. This ensures the experiment predominantly focuses on identifying RNA-protein interactions without interference from unintended genomic DNA bindings.
 
-
 ## CPU vs Core vs Thread vs Node
 
 CPU (Central Processing Unit): The CPU is the core part of the computer and is responsible for executing most of the instructions of the computer program. It is the core part of the computer hardware system and is responsible for interpreting and executing instructions from the operating system, applications, and controlling other hardware. A CPU can have one or more cores.
@@ -818,6 +817,37 @@ Therefore, while both CpG sites and CpG islands involve sequences of cytosine an
 
 ## CRAM (file format)
 Compressed Reference-oriented Alignment Map (CRAM) is a compressed columnar file format for storing biological sequences aligned to a reference sequence. CRAM was designed to be an efficient reference-based alternative to the Sequence Alignment Map (SAM) and Binary Alignment Map (BAM) file formats.
+
+## CRISPR/Cas9 Gene Editing
+
+- **gRNA Equivalence**: gRNA = sgRNA (in lab) = crRNA (in nature) + tracrRNA (in nature).
+
+- **Editing Principle**: The PAM sequence is adjacent to the target DNA sequence. The sgRNA binding sequence is typically 17-20 base pairs long, known as the "seed sequence."
+
+- **Complex Formation and Action**: sgRNA forms a complex with Cas9, targets the specific DNA sequence, unwinds it, and Cas9 cuts the target gene.
+
+- **Gene Repair**: Subsequently, the cell's repair mechanism is leveraged to accomplish gene editing following the Cas9-induced cut.
+
+<div align=center>
+<img src="/imgs/cas9.png">
+</div>
+
+There are several applications of CRISPR/Cas9 technology, including but not limited to:
+
+- The simplest form, where cutting a gene and then allowing it to repair tends to introduce errors, thereby silencing the gene.
+
+- Inactivating Cas9's cutting domain and then fusing it with a deaminase to achieve precise point mutations.
+
+- Completely inactivating Cas9 and then linking it to a transcription factor (or linking the gRNA to a transcription factor) to enhance gene expression through targeted binding.
+
+- Completely inactivating Cas9 and then attaching it to the KRAB domain, which recruits and physically silences the gene.
+
+- Completely inactivating Cas9 and then attaching it to GFP for structural observation.
+
+- Large fragment deletions require two sets of sgRNA, each guiding Cas9 to cut one end of the deletion segment.
+
+- Cutting open a gene and then introducing a new sequence for insertion can achieve sequence insertion.
+
 
 ## Differential transcript usage (DTU) analysis
 
@@ -1168,7 +1198,7 @@ The GridION Mk1 provides users with five sequencing ports where MinION flow cell
 </div>
 
 
-## Hi-C Technology Overview (All to all DNa-DNA interaction)
+## Hi-C Technology Overview (All to all DNA-DNA interaction)
 
 ### Workflow Steps:
 
@@ -1179,6 +1209,10 @@ The GridION Mk1 provides users with five sequencing ports where MinION flow cell
 5. **Purification**: Ligation products with biotin are purified using streptavidin beads.
 6. **Library Preparation**: DNA is sheared, size-selected, and prepared into a sequencing library.
 7. **Sequencing**: High-throughput sequencing is used to read the ligation junctions, revealing which DNA regions are interacting.
+
+<div align=center>
+<img src="imgs/hiC_prot.png">
+</div>
 
 ## Histone proteins
 
