@@ -388,6 +388,26 @@ Major histocompatibility class I (MHC I) molecules bind peptides derived from a 
 
 A form of advanced prostate cancer. With CRPC, the cancer no longer completely responds to treatments that lower testosterone. It shows signs of growth, like a rising PSA (prostate-specific antigen), even with low levels of testosterone.
 
+## CCAT1 Expression in Prostate Cancer
+
+CCAT1, a long non-coding RNA, is upregulated in prostate cancer and is present in multiple prostate cancer cell lines. It is expressed in LNCaP, DU145, PC3, and 22RV1 cells, while notably absent in VCaP cells.
+
+
+### Impact of CCAT1 Knockdown
+- **MTT Assay (Figure B)**: si-CCAT1 treatment in LnCaP and PC3 cells leads to reduced cell viability over time, implying that CCAT1 supports cell survival and proliferation.
+- **EdU Staining (Figure C)**: si-CCAT1 decreases DNA synthesis in LnCaP and PC3 cells, as evidenced by fewer EdU-positive cells.
+- **Flow Cytometry (Figure D)**: Higher apoptosis rates are observed in si-CCAT1 treated LnCaP and PC3 cells, highlighting CCAT1's role in apoptosis inhibition.
+- **Transwell Assays (Figures E and F)**: si-CCAT1 reduces migration and invasion in LnCaP and PC3 cells, indicating CCAT1's involvement in metastatic processes.
+
+<div align=center>
+<img src="imgs/ccat1.png">
+</div>
+
+<div align=center>
+<img src="imgs/ccat2.png">
+</div>
+
+
 ## CCK-8 Assay (Cell Counting Kit-8)
 The CCK-8 assay is a cell viability and proliferation detection method based on the reduction of the WST-8 tetrazolium salt, assessing cellular health by measuring absorbance.
 
@@ -459,17 +479,22 @@ Patients are treated with antibodies that block negative regulatory molecules, s
 
 ## ChIA-PET: (All to all DNA-DNA and CHIP-seq) 
 
-ChIA-PET (Chromatin Interaction Analysis by Paired-End Tag Sequencing) is a revolutionary technique that merges chromatin immunoprecipitation (ChIP) with DNA sequencing to reveal the complex network of long-range chromatin interactions across the genome. This method shines a light on how genes are regulated by uncovering the spatial organization of the genome.
+Chromatin Interaction Analysis by Paired-End Tag Sequencing (ChIA-PET) is a technique combining chromatin immunoprecipitation (ChIP) with high-throughput sequencing to map long-range chromatin interactions and the DNA-binding sites of proteins of interest.
 
-### Key Insights
+### Key Steps in ChIA-PET
 
-- **Protein-DNA Binding Sites**: Identifies the exact locations where specific proteins bind to DNA, akin to ChIP-seq results.
-- **Long-Range Interactions**: Maps the interactions between distant genomic regions, providing insight into the three-dimensional structure of the genome.
+- **Cross-linking:** Fix chromatin interactions in place using formaldehyde.
+- **Chromatin Shearing:** Breakdown the chromatin into manageable pieces.
+- **ChIP Enrichment:** Isolate DNA segments that interact with the protein of interest using specific antibodies.
+- **Ligation of Linkers:** Add distinct linkers to two separate aliquots of the enriched chromatin.
+- **Proximity Ligation:** After linkers are attached, recombine the aliquots to allow ligation between physically interacting DNA fragments.
+- **Restriction Digest:** Cut back the DNA at linkers to create short, manageable tags.
+- **Sequencing:** Perform high-throughput sequencing on the ligated DNA.
+- **Data Analysis:** Identify and characterize the chromatin interactions from the sequencing data.
 
-### Process Overview
+### Significance of Dual Linker Strategy
 
-1. **Self-ligation PETs**: DNA fragments ligated to themselves indicate protein-DNA binding sites, pinpointing where regulatory proteins interact with the genome.
-2. **Inter-ligation PETs**: DNA fragments from different regions ligated together represent long-range chromatin interactions, crucial for understanding gene regulation and the 3D genome architecture.
+Splitting chromatin into two aliquots and ligating different linkers (Linker A and Linker B), then mixing them does not alter the inherent spatial interactions between chromatin fragments. The purpose of this process is to distinguish self-ligation events, where a chromatin fragment loops back on itself, from inter-ligation events, where different chromatin fragments that are proximal in the nucleus are joined. This distinction is crucial for accurate mapping of chromatin interactions.
 
 <div align=center>
 <img src="/imgs/chia-pet.png">
@@ -1769,6 +1794,25 @@ A promoter, as related to genomics, is a region of DNA upstream of a gene where 
 <div align=center>
 <img src="https://github.com/qingxiangguo/Computational-Medicine-and-Bioinformatics-Terminology-Database/blob/119dccf8f9f3b544668ba5945fb3206ac92180a5/imgs/promoter2.png">
 </div>
+
+## Prostate Cancer Cell Lines & AR Status
+
+**AR-Positive Cell Lines:**
+- **LNCaP:** Sensitive to androgens. Good for anti-androgen therapy research.
+- **VCaP:** Has ERG gene changes. Helps study AR's role.
+- **22Rv1:** Grows despite low androgens. Important for understanding treatment resistance.
+
+**AR-Negative Cell Lines:**
+- **DU145:** Does not respond to androgens. Used for other cancer growth mechanisms.
+- **PC3:** Similar to DU145, important for studying cancer spread and invasion.
+
+**Special Mention:**
+- **RWPE-1:** Normal prostate cells for control studies.
+
+### Importance
+- **AR-Positive:** Crucial for androgen-related research and therapy development.
+- **AR-Negative:** Offers insights into androgen-independent cancer progression.
+- **RWPE-1:** Provides a baseline for comparison.
 
 ## REPLI-g Single Cell Kit
 
