@@ -906,6 +906,17 @@ There are several applications of CRISPR/Cas9 technology, including but not limi
 - Cutting open a gene and then introducing a new sequence for insertion can achieve sequence insertion.
 
 
+## CRISPRi Technology Overview
+
+- **sgRNA (Single-Guide RNA)**: Directs CRISPR-associated proteins (Cas) to specific DNA sequences, targeting the dCas9-MeCP2-KRAB complex to genomic regions like enhancers for gene expression modulation without DNA cleavage.
+
+- **MeCP2-BSD Vector**: Incorporates dCas9 linked with MeCP2 and KRAB repression domains that bind targeted DNA and remodel chromatin into a repressive state, reducing gene expression. It includes a blasticidin resistance gene for cell selection after transduction.
+
+- **dCas9 (Dead Cas9)**: A modified version of Cas9 that binds to DNA without cutting, used in CRISPRi to deliver repressor domains to the target site, effectively silencing gene activity without altering the DNA sequence.
+
+- **CRISPRi Mechanism**: Uses dCas9 fused with transcriptional repressors to inhibit transcription at targeted sites including gene promoters and enhancers, offering a precise method to study gene function and regulatory elements without making permanent changes to the DNA.
+
+
 ## Differential transcript usage (DTU) analysis
 
 A differential transcript usage (DTU) analysis is testing for proportional differences in a gene's transcript composition, and has been of rising interest for many research questions, such as analysis of differential splicing or cell-type identification.
