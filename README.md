@@ -1112,6 +1112,28 @@ Extrachromosomal circular DNA (eccDNA) is a type of double-stranded circular DNA
 ## F1-score
 The F1-score combines the precision and recall of a classifier into a single metric by taking their harmonic mean. It is primarily used to compare the performance of two classifiers. Suppose that classifier A has a higher recall, and classifier B has higher precision. In this case, the F1-scores for both the classifiers can be used to determine which one produces better results.
 
+## FISH Technology
+
+Fluorescence in situ hybridization (FISH) is a cytogenetic technique that uses fluorescent probes to detect and localize specific DNA or RNA sequences within cells.
+
+## Application of FISH: Visualizing lncRNA in Cells
+
+### Steps in FISH:
+1. **Probe Design**: Fluorescent probes target specific nucleic acid sequences.
+2. **Hybridization**: Probes bind to their targets within fixed cells.
+3. **Imaging**: Fluorescence microscopy reveals the location of the probes, indicating target sequence distribution.
+
+### Example: SNHG6 in Osteosarcoma Cells
+- **Cy3 Channel**: Shows SNHG6 lncRNA signals in red, localized mainly in the cytoplasm.
+- **DAPI Channel**: Stains nuclei in blue to provide a reference point.
+- **Merge**: Combines Cy3 and DAPI images, illustrating the spatial relationship between SNHG6 lncRNA and the nucleus. 
+
+This visualization highlights SNHG6's cytoplasmic distribution, suggesting its role in cytoplasmic functions rather than nuclear processes.
+
+<div align=center>
+<img src="/imgs/fish.jpg">
+</div>
+
 ## Flongle adaptor and flow cell
 Flongle is an adapter for MinION or GridION that enables direct, real-time DNA or RNA sequencing on smaller, single-use flow cells. It delivers up to 1.8 Gb of data. Providing immediate access to sequence data, Flongle is designed to be the quickest, most accessible and cost-efficient sequencing system for smaller or more frequently performed tests and experiments. Flongle flow cells should be used within 4 weeks of receipt.
 
