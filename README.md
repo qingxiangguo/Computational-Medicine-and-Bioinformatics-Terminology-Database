@@ -1116,8 +1116,6 @@ The F1-score combines the precision and recall of a classifier into a single met
 
 Fluorescence in situ hybridization (FISH) is a cytogenetic technique that uses fluorescent probes to detect and localize specific DNA or RNA sequences within cells.
 
-## Application of FISH: Visualizing lncRNA in Cells
-
 ### Steps in FISH:
 1. **Probe Design**: Fluorescent probes target specific nucleic acid sequences.
 2. **Hybridization**: Probes bind to their targets within fixed cells.
