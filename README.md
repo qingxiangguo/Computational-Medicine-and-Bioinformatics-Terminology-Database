@@ -1,5 +1,6 @@
 # Computational-Medicine-and-Bioinformatics-Terminology-Database
-A comprehensive mapping database, including detailed information, of the terminology and concepts in computational medicine and bioinformatics field.
+
+A collection of bioinformatics terms explained - because somewhere out there, someone is staring at 'epistasis' for the fifth time today.
 
 # Contributors
 
@@ -8,9 +9,10 @@ Postdoctoral Fellow
 Northwestern University, Feinberg School of Medicine
 Qingxiang.guo@northwestern.edu
 
-# Introduction
+# What's here:
 
-In the database, I provide a list of commonly used computational medicine and bioinformatic terminology for quick reference. This database will be kept updating. Feedback or experience is warmly welcomed.
+Bioinformatics terms in plain English. Born from countless moments of quietly Googling during lab meetings.
+Actively maintained. Contributions welcome - misery loves company.
 
 # Terminology Content
 
