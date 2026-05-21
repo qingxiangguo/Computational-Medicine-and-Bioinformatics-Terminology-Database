@@ -1,18 +1,37 @@
-# Computational-Medicine-and-Bioinformatics-Terminology-Database
+<h1 align="center">Computational Medicine and Bioinformatics Terminology Database</h1>
 
-A collection of bioinformatics terms explained - because somewhere out there, someone is staring at 'epistasis' for the fifth time today.
+<p align="center">
+  <em>A curated plain-English glossary for computational medicine, bioinformatics, genomics, sequencing technologies, cancer biology, and genomic AI.</em>
+</p>
 
-# Contributors
+<p align="center">
+  <img src="https://img.shields.io/badge/Field-Bioinformatics-blue" />
+  <img src="https://img.shields.io/badge/Focus-Computational%20Medicine-purple" />
+  <img src="https://img.shields.io/badge/Content-Plain%20English-green" />
+  <img src="https://img.shields.io/badge/Maintained-Yes-brightgreen" />
+</p>
 
-Qingxiang (Allen) Guo  
+---
+
+Built from real research notes, paper reading, lab discussions, and daily troubleshooting.  
+The goal is to make complex biomedical and computational concepts easier to understand, revisit, and teach.
+
+## Maintainer
+
+**Qingxiang (Allen) Guo, Ph.D.**  
 Postdoctoral Fellow  
-Northwestern University, Feinberg School of Medicine
-Qingxiang.guo@northwestern.edu
+Department of Urology  
+Northwestern University Feinberg School of Medicine  
+Email: qingxiang.guo@northwestern.edu
 
-# What's here:
+## About
 
-Bioinformatics terms in plain English. Born from countless moments of quietly Googling during lab meetings.
-Actively maintained. Contributions welcome - misery loves company.
+This repository explains bioinformatics and computational medicine terms in practical, plain English. It is written for students, trainees, wet-lab scientists, computational biologists, and anyone who has ever had to quietly Google a term during a lab meeting.
+
+> Clear concepts. Practical explanations. Built from real research.
+
+Actively maintained. Contributions, corrections, and suggestions are welcome.
+
 
 ## Index
 
