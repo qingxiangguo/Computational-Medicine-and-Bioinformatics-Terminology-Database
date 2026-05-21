@@ -1204,6 +1204,47 @@ a paired-end read that matches across the fusion site to two fusion genes, respe
 
 A read that matches exactly to the fusion site, as shown in the right panel in Figure B above.
 
+## Genome Language Models - Model categories
+
+Genome language models and sequence-to-function models can be grouped by their training objective and typical output. Encoder-only models are mainly used to extract sequence embeddings, decoder-style models learn genome sequence likelihood and can generate sequences, while sequence-to-function models directly predict functional genomic readouts from DNA sequence.
+
+| Category | Model | Architecture / training tendency | Main use cases | How to remember |
+|---|---|---|---|---|
+| Encoder-only / masked LM | DNABERT | BERT-style encoder; k-mer tokenization; masked language modeling | Sequence classification, promoter/enhancer prediction, motif-related tasks | Early DNA-BERT |
+| Encoder-only / masked LM | DNABERT-2 | Efficient BERT-style encoder; multi-species genome pretraining | Embedding extraction, regulatory prediction, variant-effect tasks | Efficient DNA-BERT |
+| Encoder-only / masked LM | DNABERT-S | Species-aware DNA representation model | Species/genome-level representation, genome clustering, microbial/genomic embedding tasks | Species-aware DNA-BERT |
+| Encoder-only / masked LM | Nucleotide Transformer | Transformer encoder; masked language modeling; large-scale genomic pretraining | Embeddings, molecular phenotype prediction, regulatory element prediction, variant-effect analysis | Large DNA-BERT |
+| Encoder-only / masked LM | GENA-LM | BERT-like long-sequence DNA language model | Promoter, enhancer, splice site, polyadenylation, chromatin profile prediction | Long-sequence BERT |
+| Encoder-only / masked LM | ModernGENA | ModernBERT-style genomic encoder | Efficient genomic sequence representation and downstream prediction | Modernized DNA-BERT |
+| Encoder-only / masked LM | GROVER | BERT-like genome language model | Regulatory sequence representation, downstream genomic classification | Genome reader |
+| Decoder-style / autoregressive / generative | HyenaDNA | Hyena operator; causal next-token prediction; long-context single-nucleotide modeling | Long-context genome modeling, zero-shot embeddings, downstream classification | Pre-Evo long-context DNA-GPT |
+| Decoder-style / autoregressive / generative | Evo | StripedHyena; autoregressive generative genomic model | Sequence generation, sequence likelihood, genome design, variant scoring | First-generation Evo |
+| Decoder-style / autoregressive / generative | Evo 2 | StripedHyena 2; autoregressive; up to 1 Mb context; 7B/40B-scale model | Variant-effect scoring, genome-scale sequence generation, design, long-range genome modeling | Flagship DNA-GPT |
+| Decoder-style / autoregressive / generative | DNAGPT | GPT-style autoregressive DNA language model | DNA sequence generation, sequence modeling, representation learning | Literal DNA-GPT |
+| Decoder-style / autoregressive / generative | Mistral-DNA | Mistral-style causal language model adapted to DNA | Long-context DNA modeling, generation, downstream genomic tasks | Mistral for DNA |
+| Decoder-style / autoregressive / generative | GENERATOR | Long-context generative genomic model | Enhancer generation, coding sequence generation, regulatory sequence design | Generative genome designer |
+| Decoder-style / autoregressive / generative | METAGENE-1 | Autoregressive transformer for metagenomic sequences | Metagenomic DNA/RNA modeling, pathogen detection, microbial sequence analysis | Metagenomic GPT |
+| Decoder-style / autoregressive / generative | dnaHNet / DNAHLM-like models | Tokenizer-free or hierarchical autoregressive DNA model | Long-sequence modeling, zero-shot fitness or essentiality prediction | Hierarchical DNA-GPT |
+| Long-context bidirectional / hybrid foundation model | Caduceus | Mamba/BiMamba; bidirectional; reverse-complement equivariant | Long-range DNA representation, variant-effect prediction, regulatory sequence modeling | Bidirectional Mamba-DNA |
+| Long-context bidirectional / hybrid foundation model | MambaDNA | Mamba-based DNA sequence model | Efficient long-sequence representation and downstream genomic tasks | Mamba for DNA |
+| Long-context bidirectional / hybrid foundation model | JanusDNA | Mamba + attention + mixture-of-experts style hybrid | Long-context DNA understanding, hybrid sequence modeling | Between BERT and GPT |
+| Long-context bidirectional / hybrid foundation model | HybriDNA | Transformer + Mamba2 hybrid architecture | Long-context DNA foundation modeling, efficient representation learning | Hybrid DNA foundation model |
+| Sequence-to-function | DeepSEA | CNN-based supervised sequence-to-function model | TF binding, DNase sensitivity, histone mark prediction, noncoding variant effect | Early classic seq-to-function |
+| Sequence-to-function | Basset | CNN-based chromatin accessibility model | DNase/ATAC accessibility prediction, regulatory sequence analysis | Accessibility predictor |
+| Sequence-to-function | Basenji | Dilated CNN; supervised genomic track prediction | Gene expression and epigenomic track prediction from DNA | Enformer ancestor |
+| Sequence-to-function | Basenji2 | Improved Basenji-style long-range CNN model | Expression, chromatin, regulatory variant effect prediction | Strong pre-Enformer baseline |
+| Sequence-to-function | Enformer | CNN + Transformer; long-range regulatory sequence model | Gene expression, CAGE, ChIP-seq, ATAC/DNase-like tracks, variant-effect prediction | Long-range regulatory predictor |
+| Sequence-to-function | Borzoi | Long-context DNA-to-RNA/function prediction model | RNA-seq coverage, expression, regulatory variant effect | Post-Enformer expression model |
+| Sequence-to-function | AlphaGenome | Unified sequence-to-function model; 1 Mb input; multi-task functional genomic prediction | Expression, chromatin accessibility, histone marks, TF binding, Hi-C/contact, splicing, variant effect | General-purpose virtual functional genomics assay |
+| Sequence-to-function | Sei | Sequence class / chromatin profile predictor | Regulatory activity prediction, sequence annotation, variant-effect interpretation | Regulatory annotation model |
+| Sequence-to-function | ChromBPNet | Bias-corrected chromatin accessibility model | ATAC/DNase footprinting, TF motif effect, chromatin accessibility | ATAC specialist |
+| 3D genome sequence-to-function | Akita | DNA-to-contact-map model | Hi-C/contact map prediction, TAD/loop-related sequence effects | DNA to 3D contact |
+| 3D genome sequence-to-function | Orca | Multiscale 3D genome prediction model | Chromatin architecture, multiscale contact maps, SV effect on 3D genome | Multiscale Hi-C predictor |
+| Sequence-to-function / expression effect | ExPecto | Sequence-based expression effect prediction model | Regulatory variant effect on gene expression | Older expression-effect predictor |
+| RNA sequence-to-function | Saluki | RNA sequence-to-function model | RNA stability, expression-related sequence effects, UTR/regulatory RNA effects | RNA-side seq-to-function |
+| RNA / splicing specialist | SpliceAI | Deep supervised splicing prediction model | Splice donor/acceptor prediction, splicing variant effect | Splicing specialist |
+| RNA / splicing specialist | Pangolin | Deep supervised splicing prediction model | Context-aware splicing variant effect prediction | Splicing variant predictor |
+
 ## Genotype phasing
 
 Phasing is the process of inferring haplotypes from genotype data. This information is often important for understanding gene expression patterns for genetic disease research. The popular NGS sequencing technology is to mix the sequences together, and after sequencing, we cannot directly distinguish which of these sequences is the parental source and which is the maternal source. We usually only detect which variants are present in the genome and the base composition of these variants (pure and heterozygous), which is usually referred to as genotype. This distinction can only be achieved with Phasing.
