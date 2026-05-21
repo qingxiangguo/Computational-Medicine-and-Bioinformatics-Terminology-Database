@@ -14,6 +14,258 @@ Qingxiang.guo@northwestern.edu
 Bioinformatics terms in plain English. Born from countless moments of quietly Googling during lab meetings.
 Actively maintained. Contributions welcome - misery loves company.
 
+## Index
+
+This glossary contains 204 computational medicine and bioinformatics terms.  
+Use the topic-based index for learning, or the alphabetical index for quick lookup.
+
+<details>
+<summary><strong>1. Sequencing platforms and library preparation</strong></summary>
+
+- [Nanopore sequencing](#nanopore-sequencing)
+- [Nanopore sequencing - duplex basecalling](#nanopore-sequencing---duplex-basecalling)
+- [Nanopore sequencing - Targeted sequencing - enrichment strategy - amplicon](#nanopore-sequencing---targeted-sequencing---enrichment-strategy---amplicon)
+- [Nanopore sequencing - Targeted sequencing - enrichment strategy - hybrid-capture](#nanopore-sequencing---targeted-sequencing---enrichment-strategy---hybrid-capture)
+- [Nanopore sequencing - Targeted sequencing - enrichment strategy - CRISPR/Cas9](#nanopore-sequencing---targeted-sequencing---enrichment-strategy---crisprcas9)
+- [Nanopore sequencing - Targeted sequencing - enrichment strategy - adaptive sampling](#nanopore-sequencing---targeted-sequencing---enrichment-strategy---adaptive-sampling)
+- [Nanopore sequencing - whole genome DNA sequencing kits](#nanopore-sequencing---whole-genome-dna-sequencing-kits)
+- [MinION](#minion)
+- [MinION Mk1C](#minion-mk1c)
+- [GridION Mk1](#gridion-mk1)
+- [PromethION P24 and P48](#promethion-p24-and-p48)
+- [Flongle adaptor and flow cell](#flongle-adaptor-and-flow-cell)
+- [MAS-seq from Pacbio](#mas-seq-from-pacbio)
+- [Illumina adapter portfolio](#illumina-adapter-portfolio)
+- [P5 and P7 adaptors](#p5-and-p7-adaptors)
+- [Multiplex sequencing](#multiplex-sequencing)
+
+</details>
+
+<details>
+<summary><strong>2. Long-read sequencing and structural variation</strong></summary>
+
+- [Structural variation](#structural-variation)
+- [Complex structural variation (SV)](#complex-structural-variation-sv)
+- [Copy number variation (CNV)](#copy-number-variation-cnv)
+- [Chromoplexy and chromothripsis](#chromoplexy-and-chromothripsis)
+- [Structural variation - Inversion](#structural-variation---inversion)
+- [Structural variation - Novel sequence insertion](#structural-variation---novel-sequence-insertion)
+- [Structural variation detection algorithm](#structural-variation-detection-algorithm)
+- [Structural variation - SURVIVIOR software merge translocation](#structural-variation---survivior-software-merge-translocation)
+- [Breakend symbol in BND translocation - square brackets](#breakend-symbol-in-bnd-translocation---square-brackets)
+- [Microhomology in structural variations](#microhomology-in-structural-variations)
+- [Micro-insertion in structural variantions](#micro-insertion-in-structural-variantions)
+- [Variant allele frequency (VAF)](#variant-allele-frequency-vaf)
+- [Allelic balance](#allelic-balance)
+- [Genotype phasing](#genotype-phasing)
+- [Germline INDEL](#germline-indel)
+- [Germline mutation and somatic mutation](#germline-mutation-and-somatic-mutation)
+- [SNV (Single nucleotide variant)](#snv-single-nucleotide-variant)
+
+</details>
+
+<details>
+<summary><strong>3. Gene fusion and chimeric reads</strong></summary>
+
+- [Gene fusions](#gene-fusions)
+- [Gene fusion - Breakpoint](#gene-fusion---breakpoint)
+- [Gene fusion - Split read](#gene-fusion---split-read)
+- [Gene fusion - Spanning read](#gene-fusion---spanning-read)
+- [Gene fusion - Anchor length](#gene-fusion---anchor-length)
+- [Gene fusion - Long insert size](#gene-fusion---long-insert-size)
+- [Gene fusion - Short insert size](#gene-fusion---short-insert-size)
+- [Gene fusion - Broken exon (BE) type fusion](#gene-fusion---broken-exon-be-type-fusion)
+- [Gene fusion - Intact exon (IE) type fusion](#gene-fusion---intact-exon-ie-type-fusion)
+- [Gene fusion - Read-through fusions (false-positive)](#gene-fusion---read-through-fusions-false-positive)
+- [Gene fusion - Circular RNAs (false-positive)](#gene-fusion---circular-rnas-false-positive)
+- [Chimeric/split/supplementary reads](#chimericsplitsupplementary-reads)
+- [Chimeric read in PacBio](#chimeric-read-in-pacbio)
+- [Discordant reads and cordant reads](#discordant-reads-and-cordant-reads)
+- [Supplementary Alignment](#supplementary-alignment)
+- [SA tag in SAM file](#sa-tag-in-sam-file)
+- [Soft clipping and hard clipping](#soft-clipping-and-hard-clipping)
+
+</details>
+
+<details>
+<summary><strong>4. Epigenomics and chromatin biology</strong></summary>
+
+- [5mC, 5hmC, CpG Sites, and CpG Islands](#5mc-5hmc-cpg-sites-and-cpg-islands)
+- [CpG site and CpG islands](#cpg-site-and-cpg-islands)
+- [Epigenome](#epigenome)
+- [Chromatin](#chromatin)
+- [Chromatin accessibility](#chromatin-accessibility)
+- [ATAC-seq (Assay for Transposase-Accessible Chromatin using sequencing)](#atac-seq-assay-for-transposase-accessible-chromatin-using-sequencing)
+- [ChIP-Seq Technology Overview](#chip-seq-technology-overview)
+- [Reverse ChIP-seq Workflow](#reverse-chip-seq-workflow)
+- [ChIP-seq and RNA-seq co analysis](#chip-seq-and-rna-seq-co-analysis)
+- [Histone proteins](#histone-proteins)
+- [Nucleosome](#nucleosome)
+- [Nucleosome-Depleted Regions (NDRs) and Cis-Regulatory Elements](#nucleosome-depleted-regions-ndrs-and-cis-regulatory-elements)
+- [Nucleosome-Depleted Regions (NDRs) and transcription factor motif](#nucleosome-depleted-regions-ndrs-and-transcription-factor-motif)
+
+</details>
+
+<details>
+<summary><strong>5. 3D genome and chromatin interaction assays</strong></summary>
+
+- [3C-qPCR (one to one)](#3c-qpcr-one-to-one)
+- [4C-seq (Circular Chromosome Conformation Capture followed by sequencing) (one vs all)](#4c-seq-circular-chromosome-conformation-capture-followed-by-sequencing-one-vs-all)
+- [Hi-C Technology Overview (All to all DNA-DNA interaction)](#hi-c-technology-overview-all-to-all-dna-dna-interaction)
+- [HiChIP-seq](#hichip-seq)
+- [ChIA-PET: (All to all DNA-DNA and CHIP-seq)](#chia-pet-all-to-all-dna-dna-and-chip-seq)
+- [Pore-C Technology Overview](#pore-c-technology-overview)
+- [CAPTURE Technology Summary (one DNA to many RNA, protein)](#capture-technology-summary-one-dna-to-many-rna-protein)
+- [CAPTURE Technique Overview](#capture-technique-overview)
+- [CHAR-seq (Chromatin-Associated RNA sequencing, DNA linker)](#char-seq-chromatin-associated-rna-sequencing-dna-linker)
+- [CHIRP-seq (RNA-chromatin interaction, one RNA to many DNA, can also detect RNA and proteins)](#chirp-seq-rna-chromatin-interaction-one-rna-to-many-dna-can-also-detect-rna-and-proteins)
+- [GRID-seq (All to all RNA-DNA interaction)](#grid-seq-all-to-all-rna-dna-interaction)
+- [iMARGI (All-to-all RNA-DNA interactions, similar to CHAR-seq)](#imargi-all-to-all-rna-dna-interactions-similar-to-char-seq)
+- [Enhancer-Promoter Loops](#enhancer-promoter-loops)
+
+</details>
+
+<details>
+<summary><strong>6. Single-cell and whole-genome amplification</strong></summary>
+
+- [Chromium X Series - 10x Genomics](#chromium-x-series---10x-genomics)
+- [Chromium X Series - 10x Genomics single cell library construction](#chromium-x-series---10x-genomics-single-cell-library-construction)
+- [Chromium X Series - Why Single Cell RNA-seq Favors the 3' End](#chromium-x-series---why-single-cell-rna-seq-favors-the-3-end)
+- [Chromium X Series - 3' vs 5' Libraries](#chromium-x-series---3-vs-5-libraries)
+- [Chromium X Series - Nanopore + 10X Sequencing Prep](#chromium-x-series---nanopore--10x-sequencing-prep)
+- [Dr-Seq single cell sequencing technology](#dr-seq-single-cell-sequencing-technology)
+- [Single-cell Bisulfite Sequencing (scBS-seq)](#single-cell-bisulfite-sequencing-scbs-seq)
+- [scCOOL-seq (Chromatin Overall Omic-scale Landscape Sequencing)](#sccool-seq-chromatin-overall-omic-scale-landscape-sequencing)
+- [scNanoCOOL-seq](#scnanocool-seq)
+- [scNanoCOOL-seq core idea](#scnanocool-seq-core-idea)
+- [scNMT-seq (single-cell nucleosome, methylation and transcription sequencing)](#scnmt-seq-single-cell-nucleosome-methylation-and-transcription-sequencing)
+- [Chimera rates in Whole Genome Amplification (WGA)](#chimera-rates-in-whole-genome-amplification-wga)
+- [Multiple displacement amplification (MDA)](#multiple-displacement-amplification-mda)
+- [(MALBAC) Multiple Annealing and Looping Based Amplification Cycles](#malbac-multiple-annealing-and-looping-based-amplification-cycles)
+- [Primary template-directed amplification (PTA)](#primary-template-directed-amplification-pta)
+- [Linear Amplification via Transposon Insertion (LIANTI)](#linear-amplification-via-transposon-insertion-lianti)
+
+</details>
+
+<details>
+<summary><strong>7. RNA biology and transcriptomics</strong></summary>
+
+- [Differential transcript usage (DTU) analysis](#differential-transcript-usage-dtu-analysis)
+- [Intron retention](#intron-retention)
+- [Exitron](#exitron)
+- [Percent spliced in (PSI) for short reads](#percent-spliced-in-psi-for-short-reads)
+- [Splicing junctions](#splicing-junctions)
+- [Untranslated region (UTR)](#untranslated-region-utr)
+- [Enhancer RNAs (eRNAs)](#enhancer-rnas-ernas)
+- [Nascent RNA Characteristics](#nascent-rna-characteristics)
+- [RNA Immunoprecipitation-Sequencing (RIP-Seq) Protocol](#rna-immunoprecipitation-sequencing-rip-seq-protocol)
+- [How to Calculate and Plot RIP-qPCR Bar Charts](#how-to-calculate-and-plot-rip-qpcr-bar-charts)
+- [RIP-qPCR vs RT-qPCR Analysis](#rip-qpcr-vs-rt-qpcr-analysis)
+- [RIP-seq Peak Calling Methods](#rip-seq-peak-calling-methods)
+- [Key Points in RIP-seq Experimental Design](#key-points-in-rip-seq-experimental-design)
+- [Understanding Long-Read RIP-Seq Analysis](#understanding-long-read-rip-seq-analysis)
+- [RNA-Binding Proteins (RBPs)](#rna-binding-proteins-rbps)
+- [RNA quantity conversions from tissue and cells](#rna-quantity-conversions-from-tissue-and-cells)
+- [RT-qPCR Analysis Example for Tissue Samples](#rt-qpcr-analysis-example-for-tissue-samples)
+
+</details>
+
+<details>
+<summary><strong>8. Genome editing, cloning, and molecular biology</strong></summary>
+
+- [CRISPR/Cas9 Gene Editing](#crisprcas9-gene-editing)
+- [CRISPRi Technology Overview](#crispri-technology-overview)
+- [Biotinylated dCas9](#biotinylated-dcas9)
+- [Directional cloning using restriction enzymes](#directional-cloning-using-restriction-enzymes)
+- [Restriction Enzymes in Molecular Cloning](#restriction-enzymes-in-molecular-cloning)
+- [Blunt ends](#blunt-ends)
+- [Blunt-end cloning overview](#blunt-end-cloning-overview)
+- [Blunt-end cloning: Phosphatase Reaction of the Vector Before Ligation](#blunt-end-cloning-phosphatase-reaction-of-the-vector-before-ligation)
+- [Blunt end ligation](#blunt-end-ligation)
+- [Sticky ends](#sticky-ends)
+- [T4 DNA Ligase Summary](#t4-dna-ligase-summary)
+- [T7 promoter and T7 RNA polymerase](#t7-promoter-and-t7-rna-polymerase)
+- [DNA dA-Tailing](#dna-da-tailing)
+- [Tn5 transposon](#tn5-transposon)
+- [Tn5 transposase (Tnp)](#tn5-transposase-tnp)
+- [Tn5 transposase (Tnp) for NGS sequencing library construction](#tn5-transposase-tnp-for-ngs-sequencing-library-construction)
+- [Tn5 transposase (Tnp) for PacBio sequencing library construction (PCR-free)](#tn5-transposase-tnp-for-pacbio-sequencing-library-construction-pcr-free)
+- [Tn5 transposase (Tnp) for PacBio sequencing library construction (PCR-based) a. k. a. SNOOTH-SEQ](#tn5-transposase-tnp-for-pacbio-sequencing-library-construction-pcr-based-a-k-a-snooth-seq)
+
+</details>
+
+<details>
+<summary><strong>9. Cancer biology, immunology, and cell models</strong></summary>
+
+- [Androgen Deprivation Therapy (ADT)](#androgen-deprivation-therapy-adt)
+- [Castration-resistant prostate cancer (CRPC)](#castration-resistant-prostate-cancer-crpc)
+- [Stages and Treatments of Prostate Cancer](#stages-and-treatments-of-prostate-cancer)
+- [Prostate Cancer Cell Lines & AR Status](#prostate-cancer-cell-lines--ar-status)
+- [LNCaP cells](#lncap-cells)
+- [CCAT1 Expression in Prostate Cancer](#ccat1-expression-in-prostate-cancer)
+- [Melanoma](#melanoma)
+- [Cancer immune Evasion through loss of MHC Class I antigen presentation](#cancer-immune-evasion-through-loss-of-mhc-class-i-antigen-presentation)
+- [Checkpoint blockade immunotherapy](#checkpoint-blockade-immunotherapy)
+- [MHC class I](#mhc-class-i)
+- [Transporter associated with antigen processing (TAP)](#transporter-associated-with-antigen-processing-tap)
+- [Epitope](#epitope)
+- [SMARCA1](#smarca1)
+- [SMARCA4](#smarca4)
+- [SWI/SNF Complex](#swisnf-complex)
+- [SWI/SNF binding to proinflammatory gene promoters](#swisnf-binding-to-proinflammatory-gene-promoters)
+
+</details>
+
+<details>
+<summary><strong>10. Genomic AI, statistics, and computational basics</strong></summary>
+
+- [Genome Language Models - Model categories](#genome-language-models---model-categories)
+- [F1-score](#f1-score)
+- [Precision and Recall (Sensitivity)](#precision-and-recall-sensitivity)
+- [CPU vs Core vs Thread vs Node](#cpu-vs-core-vs-thread-vs-node)
+
+</details>
+
+<details>
+<summary><strong>11. Bioinformatics file formats, references, and alignment tags</strong></summary>
+
+- [SAM (file format)](#sam-file-format)
+- [CRAM (file format)](#cram-file-format)
+- [VCF format](#vcf-format)
+- [SA tag in SAM file](#sa-tag-in-sam-file)
+- [XS tag in SAM file (only for Tophat and HISAT, not BWA-MEM, BWA-MEM also has the XS tag, but with other meaning)](#xs-tag-in-sam-file-only-for-tophat-and-hisat-not-bwa-mem-bwa-mem-also-has-the-xs-tag-but-with-other-meaning)
+- [Human genome assembly - b37](#human-genome-assembly---b37)
+- [Human genome assembly - GRCh37](#human-genome-assembly---grch37)
+- [Human genome assembly - GRCh38](#human-genome-assembly---grch38)
+- [Human genome assembly - hg19](#human-genome-assembly---hg19)
+- [Human genome assembly - hg38](#human-genome-assembly---hg38)
+- [Human genome assembly - hs37d5](#human-genome-assembly---hs37d5)
+
+</details>
+
+<details>
+<summary><strong>12. Wet-lab assays, reagents, and general experimental concepts</strong></summary>
+
+- [Avidin](#avidin)
+- [Avidin-biotin interaction](#avidin-biotin-interaction)
+- [Biotin](#biotin)
+- [CCK-8 Assay (Cell Counting Kit-8)](#cck-8-assay-cell-counting-kit-8)
+- [Flow Cytometry for Apoptosis](#flow-cytometry-for-apoptosis)
+- [FISH Technology](#fish-technology)
+- [Lambda control DNA](#lambda-control-dna)
+- [Lentivirus transfection](#lentivirus-transfection)
+- [Lipofectamine](#lipofectamine)
+- [Transfection](#transfection)
+- [siRNA](#sirna)
+- [Homopolymer](#homopolymer)
+- [Slippage during polymerase chain reaction amplification](#slippage-during-polymerase-chain-reaction-amplification)
+- [NEBNext Quick Ligation Module (E6056)](#nebnext-quick-ligation-module-e6056)
+- [REPLI-g Single Cell Kit](#repli-g-single-cell-kit)
+- [REPLI-g Advanced DNA Single Cell Kit](#repli-g-advanced-dna-single-cell-kit)
+- [REPLI-g UltraFast Mini Kit](#repli-g-ultrafast-mini-kit)
+
+</details>
+
 # Terminology Content
 
 ## 3C-qPCR (one to one)
