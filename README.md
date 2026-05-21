@@ -13,9 +13,6 @@
 
 ---
 
-Built from real research notes, paper reading, lab discussions, and daily troubleshooting.  
-The goal is to make complex biomedical and computational concepts easier to understand, revisit, and teach.
-
 ## Maintainer
 
 **Qingxiang (Allen) Guo, Ph.D.**  
